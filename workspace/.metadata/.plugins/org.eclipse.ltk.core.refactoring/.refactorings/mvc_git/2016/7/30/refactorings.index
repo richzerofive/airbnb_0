@@ -1,0 +1,49 @@
+1468982450734	Move 'web.xml' to 'WebContent'
+1468982454057	Move 'web.xml' to 'WEB-INF'
+1468984013254	Delete element
+1468984153779	Move 'index.jsp' to 'WEB-INF'
+1468984185365	Move 'index.jsp' to 'mvc_git'
+1468984210512	Move 'index.jsp' to 'WebContent'
+1468985318129	Move 'web.xml' to 'WebContent'
+1468985346176	Move 'web.xml' to 'WEB-INF'
+1468985425894	Delete element
+1468991044989	Delete element
+1468991048078	Move 2 resources to 'resources'
+1468995561787	Delete element
+1468995685620	Delete element
+1468995843029	Delete element
+1468995978689	Delete element
+1468995982445	Delete element
+1468998485157	Delete element
+1468999679010	Delete element
+1468999893402	Move 9 resources to 'member'
+1468999904015	Delete element
+1469000169057	Rename resource 'search_id.jsp'
+1469000186055	Rename resource 'searchd.jsp'
+1469000572860	Delete element
+1469000697047	Rename resource 'school_info.html'
+1469001825259	Delete element
+1469001965701	Copy files
+1469001971236	Delete element
+1469002035544	Delete element
+1469002036534	Copy files
+1469002046583	Copy files
+1469002088905	Delete element
+1469002110522	Copy files
+1469002347699	Move 11 resources to 'grade'
+1469002349693	Delete element
+1469002722382	Rename resource 'bank'
+1469002858328	Move 11 resources to 'account'
+1469002860633	Delete element
+1469003045858	Delete element
+1469003049847	Delete element
+1469003050611	Delete element
+1469003614668	Delete element
+1469082987675	Rename type 'Separator'
+1469151008604	Move 'home.jsp' to 'home'
+1469151017373	Rename resource 'home.jsp'
+1469151345788	Move 'index.jsp' to 'WEB-INF'
+1469151353372	Move 'index.jsp' to 'WebContent'
+1469154751183	Delete element
+1469155813371	Rename resource 'variable.jspf'
+1469163155416	Copy file

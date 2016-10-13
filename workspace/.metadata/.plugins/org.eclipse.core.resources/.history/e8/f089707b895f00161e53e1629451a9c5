@@ -1,0 +1,25 @@
+// var application = (function(){})(); IIFE패턴
+
+var application = (function(){
+	var init = function(param) {
+		sessionStorage.setItem('context', param);
+	};
+	var getContextPath = function(){
+		return sessionStorage.getItem('context');
+	};
+	var goHome = function(){
+		location.href = this.getContext()+"/home.do";
+	};
+	
+	return {
+		to_douglas : function() {
+			location.href = getContext()+"/douglas.do";
+		},
+		
+		init : init,
+		goHome : goHome,
+		getContextPath : getContextPath
+	};
+})();
+
+	

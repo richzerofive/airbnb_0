@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;mvc_git/WebContent/resources/js/resic.js&apos; to &apos;resig.js&apos;" description="Rename resource &apos;resic.js&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/resources/js/resic.js" name="resig.js" stamp="1471398500352" updateReferences="true"/>
+</session>

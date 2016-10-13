@@ -1,0 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+   <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+   <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+   <c:set var="context" value="<%=request.getContextPath() %>"/>
+   <c:set var="memberimg" value="${context}/resources/img/member"/>
+   <c:set var="globalimg" value="${context}/resources/img/global"/>
+   <c:set var="guideimg" value="${context}/resources/img/guide"/>
+   <c:set var="bookimg" value="${context}/resources/img/book"/>
+   <c:set var="hostimg" value="${context}/resources/img/host"/>
+   <c:set var="img" value="${context}/resources/img"/>
+   <c:set var="css" value="${context}/resources/css"/>
+   

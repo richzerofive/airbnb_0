@@ -1,0 +1,182 @@
+package bank;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import global.Constants;
+import global.DatabaseFactory;
+import global.Vendor;
+
+public class AccountDAO {
+	private static AccountDAO instance = new AccountDAO();
+	Connection con;
+	ResultSet rs;
+	PreparedStatement pstmt;
+
+	public static AccountDAO getInstance() {
+		return instance;
+	}
+
+	private AccountDAO() {
+		con = DatabaseFactory.createDatabase(Vendor.ORACLE, Constants.USER_ID, Constants.USER_PW).getConnection();
+	}
+
+	public int count() {
+		int result = 0;
+		String sql = "select count(*) from account";
+		try {
+			pstmt = con.prepareStatement(sql);
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	};
+
+	public int insertAccount(AccountBean acc) {
+		// "NAME,ID,PW"
+		String sql = "insert into account(account_no,money,id) " + "values(?,?,?)";
+		int result = 0;
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, acc.getAccountNo());
+			pstmt.setInt(2, acc.getMoney());
+			pstmt.setString(3, acc.getId());
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
+	public int restM(int accNo) {
+		int money = 0;
+		String sql = "select money from account" + "where account_no = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, accNo);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				money = rs.getInt("MONEY");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return money;
+	}
+
+	public List<AccountBean> findAccount() {
+		List<AccountBean> list2 = new ArrayList<AccountBean>();
+		AccountBean bean2 = new AccountBean();
+		String sql = "select * from account";
+		// account_no,money,id
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				bean2.setAccountNo(rs.getInt("ACCOUNT_NO"));
+				bean2.setMoney(rs.getInt("MONEY"));
+				bean2.setId(rs.getString("ID"));
+				list2.add(bean2);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list2;
+	}
+
+	public AccountBean findByAccountNo(AccountBean bean) {
+		String sql = "select *from account where" + bean.getAccountNo();
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				bean.setAccountNo(rs.getInt("Account_No"));
+				bean.setName(rs.getString("NAME"));
+				bean.setMoney(rs.getInt("money"));
+				bean.setPw(rs.getString("PW"));
+				bean.setId(rs.getString("ID"));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return bean;
+	}
+
+	public List<AccountBean> findByName(String findName) {
+		List<AccountBean> result = null;
+		String sql = "select * from account where name='" + findName + "'";
+		AccountBean bean3 = new AccountBean();
+		List<AccountBean> list3 = new ArrayList<AccountBean>();
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				bean3.setAccountNo(rs.getInt("Account_No"));
+				bean3.setName(rs.getString("NAME"));
+				bean3.setMoney(rs.getInt("money"));
+				bean3.setPw(rs.getString("PW"));
+				bean3.setId(rs.getString("ID"));
+				list3.add(bean3);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list3;
+	}
+
+	public int delete(String findAcc) {
+		int result = 0;
+		String sql = "delete from member where id ='" + findAcc + "'";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
+	public int updateAccount(AccountBean bean) {
+		int result = 0;
+		String sql = "UPDATE MEMBER SET PW=? WHERE ID=(SELECT ID FROM ACCOUNT WHERE ACCOUNT_NO=?)";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, bean.getPw());
+			pstmt.setInt(2, bean.getAccountNo());
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public void deposit(AccountBean acc) {
+		String sql = "update account set money = ?"
+				+ "where account_no=?";
+			try {
+				pstmt =con.prepareStatement(sql);
+				pstmt.setInt(1, acc.getMoney());
+				pstmt.setInt(2, acc.getAccountNo());
+				pstmt.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+
+	public void withdraw(AccountBean acc) {
+		this.deposit(acc);
+		
+	}
+}

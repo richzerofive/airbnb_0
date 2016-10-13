@@ -1,0 +1,15 @@
+eclipse.preferences.version=1
+fontPropagated=true
+org.eclipse.jface.textfont=1|Consolas|12.75|0|WINDOWS|1|-17|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
+org.eclipse.wst.jsdt.internal.ui.navigator.layout=1
+org.eclipse.wst.jsdt.ui.editor.tab.width=
+org.eclipse.wst.jsdt.ui.formatterprofiles.version=11
+org.eclipse.wst.jsdt.ui.javadoclocations.migrated=true
+org.eclipse.wst.jsdt.ui.text.code_templates_migrated=true
+org.eclipse.wst.jsdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates><template autoinsert\="false" context\="org.eclipse.jsdt.gettercomment_context" deleted\="false" description\="Comment for getter function" enabled\="true" id\="org.eclipse.wst.jsdt.ui.text.codetemplates.gettercomment" name\="gettercomment"/><template autoinsert\="false" context\="org.eclipse.jsdt.settercomment_context" deleted\="false" description\="Comment for setter function" enabled\="true" id\="org.eclipse.wst.jsdt.ui.text.codetemplates.settercomment" name\="settercomment"/><template autoinsert\="false" context\="org.eclipse.jsdt.constructorcomment_context" deleted\="false" description\="Comment for created constructors" enabled\="true" id\="org.eclipse.wst.jsdt.ui.text.codetemplates.constructorcomment" name\="constructorcomment"/><template autoinsert\="false" context\="org.eclipse.jsdt.filecomment_context" deleted\="false" description\="Comment for created JavaScript files" enabled\="true" id\="org.eclipse.wst.jsdt.ui.text.codetemplates.filecomment" name\="filecomment"/><template autoinsert\="false" context\="org.eclipse.jsdt.fieldcomment_context" deleted\="false" description\="Comment for vars" enabled\="true" id\="org.eclipse.wst.jsdt.ui.text.codetemplates.fieldcomment" name\="fieldcomment"/><template autoinsert\="false" context\="org.eclipse.jsdt.methodcomment_context" deleted\="false" description\="Comment for non-overriding function" enabled\="true" id\="org.eclipse.wst.jsdt.ui.text.codetemplates.methodcomment" name\="methodcomment"/></templates>
+org.eclipse.wst.jsdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.wst.jsdt.ui.text.templates_migrated=true
+proposalOrderMigrated=true
+tabWidthPropagated=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

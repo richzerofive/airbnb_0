@@ -1,0 +1,72 @@
+/**
+ * 
+ */
+package bank;
+
+import java.util.List;
+
+import javax.swing.JOptionPane;
+
+import member.MemberService;
+import member.MemberServiceImpl;
+
+/**
+ *@date   : 2016. 6. 15.
+ *@author : 박승주
+ *@file   : BankController.java
+ *@story  : 
+*/
+public class AccountController {
+	public static void main(String[] args) {
+		AccountService service = AccountServiceImpl.getInstance();
+		MemberService memberService = MemberServiceImpl.getInstance();
+		// 1.개설 2.입금 3.출금 4.수정 5.해지 6.조회(전체) 7.조회(계좌번호) 8.조회(이름) 9.조회(전체통장수)
+		while (true) {
+			switch (JOptionPane.showInputDialog("1.개설 2.입금 3.출금 4.수정5.해지6.조회(전체)7.조회(계좌번호)8.조회(이름)9.조회(전체통장수)0.종료")) {
+			case "1":
+			String id = JOptionPane.showInputDialog("ID");
+		
+			JOptionPane.showMessageDialog(null, service.openAccount(id));
+			break;
+		case "2":
+		String depositInfo = JOptionPane.showInputDialog("계좌,금액");
+		service.deposit(depositInfo);
+		break;
+		case "3":
+			String withdrawInfo = JOptionPane.showInputDialog("계좌,금액");
+			service.withdraw(withdrawInfo);
+			break;
+		case "4":
+			AccountBean acc3 = new AccountBean();
+			String ch = JOptionPane.showInputDialog("계좌번호,비번");
+			String[] chArr= ch.split(",");
+			acc3.setAccountNo(Integer.parseInt(chArr[0]));
+			acc3.setPw(chArr[1]);
+//			memberService.update(acc3);
+			break;
+		case "5":
+			service.deleteAccount(JOptionPane.showInputDialog("삭제할계좌번호"));
+			break;
+		case "6":
+			JOptionPane.showMessageDialog(null, service.findAccount());
+			break;
+		case "7":
+			AccountBean bean2 = new AccountBean();
+			String acc =JOptionPane.showInputDialog("계좌번호입력");
+			bean2.setAccountNo(Integer.parseInt(acc));
+			JOptionPane.showMessageDialog(null, service.findByAccount(bean2));
+			break;
+		case "8":
+			String inputN = JOptionPane.showInputDialog("이름");
+				JOptionPane.showMessageDialog(null, service.findByName(inputN));
+			break;
+		case "9":
+			JOptionPane.showMessageDialog(null, service.count());
+			break;
+		case "0":return;
+		default:
+			break;
+		}
+	}
+}
+}
