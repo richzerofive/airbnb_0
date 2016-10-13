@@ -1,5 +1,5 @@
  ALTER TABLE houses CHANGE convenience convenience varchar(30);
- 
+
  
  --INCHUL
 CREATE PROCEDURE insert_member(
