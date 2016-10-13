@@ -26,7 +26,7 @@
               <div class="slideshow-preload"></div>
               <ul class="slideshow-images">
                 <li class="active media-photo media-photo-block">
-                  <img alt="Rachel" class="img-responsive" height="225" src="${img}/member/hollyQueen.jpg" title="Rachel" width="225">
+                  <img alt="Rachel" class="img-responsive" height="225" src="${img}/member/rachel.jpg" title="Rachel" width="225">
                 </li>
                 <li class="media-photo media-photo-block"></li>
               </ul>
@@ -109,7 +109,7 @@
         </div>
         <div class="col-sm-8 col-md-12 col-lg-12">
           <h1>
-            Hey, I’m hollyQueen!
+            Hey, I’m Rachel!
           </h1>
           <div class="h5 space-top-2">
            San Francisco, California, United States.

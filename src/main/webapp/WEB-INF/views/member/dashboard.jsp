@@ -22,11 +22,11 @@
 				<div class="panel space-4">
 					<div class="media media-photo-block">
 						<a href="${context}/member/show/" title="View Profile"><img
-							alt="hollyQueen" class="img-responsive" height="190"
-							src="${img}/member/hollyQueen.jpg" title="hollyQueen" width="190" /></a>
+							alt="Rachel" class="img-responsive" height="190"
+							src="${img}/member/rachel.jpg" title="rachel" width="190" /></a>
 					</div>
 					<div class="panel-body">
-						<h2 class="text-center">hollyQueen</h2>
+						<h2 class="text-center">Rachel</h2>
 						<ul class="list-unstyled text-center">
 							<li><a href="${context}/member/show/">View Profile</a></li>
 							<li><a href="${context}/member/edit/" id="edit-profile">Edit Profile</a>
