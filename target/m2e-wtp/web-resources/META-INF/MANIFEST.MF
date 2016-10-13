@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Manifest-Version: 1.0
 <<<<<<< HEAD
 Built-By: Jackie
@@ -7,3 +8,10 @@ Built-By: hb2011
 Build-Jdk: 1.8.0_91
 Created-By: Maven Integration for Eclipse
 
+=======
+Manifest-Version: 1.0
+Built-By: hb2017
+Build-Jdk: 1.8.0_91
+Created-By: Maven Integration for Eclipse
+
+>>>>>>> 5992c69eedf1b3fb04df68fd6dc8eb4d1ee4b115
