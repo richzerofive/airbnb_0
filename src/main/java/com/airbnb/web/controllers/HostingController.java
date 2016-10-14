@@ -1,16 +1,14 @@
 package com.airbnb.web.controllers;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.airbnb.web.domains.HostingDTO;
 import com.airbnb.web.domains.Retval;
 @Controller
@@ -19,16 +17,72 @@ public class HostingController {
 	private static final Logger logger = LoggerFactory.getLogger(HostingController.class);
 	@Autowired private Retval retval;
 	
-	@RequestMapping(value="/regist", method=RequestMethod.POST, consumes="application/json")
-	public @ResponseBody Retval hostingRegist(@RequestBody HostingDTO hostingDTO){
-		logger.info("HostingController :: {}.", "regist");
+	@RequestMapping(value="/regist1", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingRegist1(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: {}.", "regist1");
 		logger.info("HostingController :: Regist :: room_type :: {}",hostingDTO.getRoom_type());
 		logger.info("HostingController :: Regist :: guest_cnt :: {}",hostingDTO.getGuest_cnt());
-		retval.setMessage("success");
+		logger.info("HostingController :: Regist :: building_type :: {}",hostingDTO.getBuilding_type());
+		retval.setMessage("success1");
 		return retval;
 	}
-	
-	
+	@RequestMapping(value="/regist2", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingRegist2(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: {}.", "regist2");
+		logger.info("HostingController :: Regist :: bed_cnt :: {}",hostingDTO.getBed_cnt());
+		logger.info("HostingController :: Regist :: bathroom_cnt :: {}",hostingDTO.getBathroom_cnt());
+		retval.setMessage("success2");
+		return retval;
+	}
+	@RequestMapping(value="/regist3", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingRegist3(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: {}.", "regist3");
+		logger.info("HostingController :: Regist :: country :: {}",hostingDTO.getCountry());
+		logger.info("HostingController :: Regist :: state :: {}",hostingDTO.getState());
+		logger.info("HostingController :: Regist :: city :: {}",hostingDTO.getCity());
+		logger.info("HostingController :: Regist :: street :: {}",hostingDTO.getStreet());
+		logger.info("HostingController :: Regist :: optional :: {}",hostingDTO.getOptional());
+		logger.info("HostingController :: Regist :: zip_code :: {}",hostingDTO.getZip_code());
+		retval.setMessage("success3");
+		return retval;
+	}
+	@RequestMapping(value="/regist4", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingRegist4(@RequestBody HostingDTO hostingDTO){
+		String convenience, convenience1, convenience2,	convenience3, convenience4, convenience5, convenience6,
+		convenience7, convenience8, convenience9, convenience10, convenience11, convenience12, convenience13 = "";
+		convenience1 = (hostingDTO.getHost_convenience_1() == "true")?"T":"F";
+		convenience2 = (hostingDTO.getHost_convenience_2() == "true")?"T":"F";
+		convenience3 = (hostingDTO.getHost_convenience_3() == "true")?"T":"F";
+		convenience4 = (hostingDTO.getHost_convenience_4() == "true")?"T":"F";
+		convenience5 = (hostingDTO.getHost_convenience_5() == "true")?"T":"F";
+		convenience6 = (hostingDTO.getHost_convenience_6() == "true")?"T":"F";
+		convenience7 = (hostingDTO.getHost_convenience_7() == "true")?"T":"F";
+		convenience8 = (hostingDTO.getHost_convenience_8() == "true")?"T":"F";
+		convenience9 = (hostingDTO.getHost_convenience_9() == "true")?"T":"F";
+		convenience10 = (hostingDTO.getHost_convenience_10() == "true")?"T":"F";
+		convenience11 = (hostingDTO.getHost_convenience_11() == "true")?"T":"F";
+		convenience12 = (hostingDTO.getHost_convenience_12() == "true")?"T":"F";
+		convenience13 = (hostingDTO.getHost_convenience_13() == "true")?"T":"F";
+		convenience = convenience1 + "-" + convenience2 + "-" + convenience3 + "-" + convenience4 + "-" + convenience5 + "-" + convenience6
+				+ "-" + convenience7 + "-" + convenience8 + "-" + convenience9 + "-" + convenience10 + "-" + convenience11 + "-" + convenience12 + "-" + convenience13;
+		logger.info("HostingController :: {}.", "regist4");
+		logger.info("HostingController :: Regist :: host_convenience_1 :: {}",convenience1);
+		logger.info("HostingController :: Regist :: host_convenience_2 :: {}",convenience2);
+		logger.info("HostingController :: Regist :: host_convenience_3 :: {}",convenience3);
+		logger.info("HostingController :: Regist :: host_convenience_4 :: {}",convenience4);
+		logger.info("HostingController :: Regist :: host_convenience_5 :: {}",convenience5);
+		logger.info("HostingController :: Regist :: host_convenience_6 :: {}",convenience6);
+		logger.info("HostingController :: Regist :: host_convenience_7 :: {}",convenience7);
+		logger.info("HostingController :: Regist :: host_convenience_8 :: {}",convenience8);
+		logger.info("HostingController :: Regist :: host_convenience_9 :: {}",convenience9);
+		logger.info("HostingController :: Regist :: host_convenience_10 :: {}",convenience10);
+		logger.info("HostingController :: Regist :: host_convenience_11 :: {}",convenience11);
+		logger.info("HostingController :: Regist :: host_convenience_12 :: {}",convenience12);
+		logger.info("HostingController :: Regist :: host_convenience_13 :: {}",convenience13);
+		logger.info("HostingController :: Regist :: convenience :: {}",convenience);
+		retval.setMessage("success4");
+		return retval;
+	}
 	
 	@RequestMapping("/manage_1")
 	public String hostingManage1(){

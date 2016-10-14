@@ -12,42 +12,112 @@ var hosting = (function(){
 		$('#pub_article').on('click','#hosting_regist_1',function(){
 			$('#pub_article').html(hosting_regist_1);
 			
-			
 		})
 		$('#pub_article').on('click','#hosting_regist_2',function(){
-		
 			var regist_data_1 = {
 					'room_type' : $('#host_room_type option:selected').val(),
-					'guest_cnt' : $('#host_guest_cnt option:selected').val()
+					'guest_cnt' : $('#host_guest_cnt option:selected').val(),
+					'building_type' : $('#host_building_type option:selected').val()
 			};
 				$.ajax({
-					url : app.context()+'/hosting/regist',
+					url : app.context()+'/hosting/regist1',
 					type : 'POST',
 					data : JSON.stringify(regist_data_1),
 					dataType : 'json',
 					contentType : 'application/json',
 					async : false,
 					success : function(data){
-						alert(data.message);
-						$('#pub_article').html(hosting_regist_2);	
+						if(data.message === 'success1'){
+						$('#pub_article').html(hosting_regist_2);
+						}
 					},
 					error : function(x,s,m){
-						alert('regist시 error 발생 : ' + m);
+						alert('regist1시 error 발생 : ' + m);
 					}
 				});
 				
 		})
 		$('#pub_article').on('click','#hosting_regist_3',function(){
-			$('#pub_article').html(hosting_regist_3);
+			var regist_data_2 = {
+					'bed_cnt' : $('#host_bed_cnt').val(),
+					'bathroom_cnt' : $('#host_bathroom_cnt').val()
+			}
+			$.ajax({
+				url : app.context()+'/hosting/regist2',
+				type : 'POST',
+				data : JSON.stringify(regist_data_2),
+				dataType : 'json',
+				contentType : 'application/json',
+				success : function(data){
+					if (data.message === 'success2') {
+						$('#pub_article').html(hosting_regist_3);
+					}
+				},
+				error : function(x,s,m){
+					alert('regist2시 error 발생 : ' + m);
+				}
+			});
+		
 		})
 		$('#pub_article').on('click','#hosting_regist_4',function(){
-			$('#pub_article').html(hosting_regist_4);
+			var regist_data_3 = {
+					country : $('#host_country option:selected').val(),
+					state : $('#host_state').val(),
+					city : $('#host_city').val(),
+					street : $('#host_street').val(),
+					optional : $('#host_optional').val(),
+					zip_code : $('#host_zip_code').val()
+			};
+			$.ajax({
+				url : app.context()+'/hosting/regist3',
+				type : 'POST',
+				data : JSON.stringify(regist_data_3),
+				dataType : 'json',
+				contentType : 'application/json',
+				success : function(data){
+					if (data.message === 'success3') {
+						$('#pub_article').html(hosting_regist_4);
+					}
+				},
+				error : function(x,s,m){
+					alert('regist3시 error 발생 : ' + m);
+				}
+			});
 		})
 		$('#pub_article').on('click','#hosting_regist_5',function(){
 			$('#pub_article').html(hosting_regist_5);
 		})
 		$('#pub_article').on('click','#hosting_regist_6',function(){
-			$('#pub_article').html(hosting_regist_6);
+			var regist_data_4 = {
+				host_convenience_1 : $('#host_convenience_1').prop('checked'),
+				host_convenience_2 : $('#host_convenience_2').prop('checked'),
+				host_convenience_3 : $('#host_convenience_3').prop('checked'),
+				host_convenience_4 : $('#host_convenience_4').prop('checked'),
+				host_convenience_5 : $('#host_convenience_5').prop('checked'),
+				host_convenience_6 : $('#host_convenience_6').prop('checked'),
+				host_convenience_7 : $('#host_convenience_7').prop('checked'),
+				host_convenience_8 : $('#host_convenience_8').prop('checked'),
+				host_convenience_9 : $('#host_convenience_9').prop('checked'),
+				host_convenience_10 : $('#host_convenience_10').prop('checked'),
+				host_convenience_11 : $('#host_convenience_11').prop('checked'),
+				host_convenience_12 : $('#host_convenience_12').prop('checked'),
+				host_convenience_13 : $('#host_convenience_13').prop('checked')
+			};
+			$.ajax({
+				url : app.context()+'/hosting/regist4',
+				type : 'POST',
+				data : JSON.stringify(regist_data_4),
+				dataType : 'json',
+				contentType : 'application/json',
+				success : function(data){
+					if (data.message === 'success4') {
+						$('#pub_article').html(hosting_regist_6);
+					}
+				},
+				error : function(x,s,m){
+					alert('regist4시 error 발생 : ' + m);
+				}
+			});
 		})
 		$('#pub_article').on('click','#hosting_regist_7',function(){
 			$('#pub_article').html(hosting_regist_7);
@@ -290,7 +360,7 @@ var hosting_regist_1 =
 +'<option value="다인실">다인실</option>'
 +'</select><br>'
 +'<select class="host_regist_select1" id="host_guest_cnt">'
-+'<option value="1">게스트  1명</option>'
++'<option selected="selected" value="1">게스트  1명</option>'
 +'<option value="2">게스트  2명</option>'
 +'<option value="3">게스트  3명</option>'
 +'<option value="4">게스트  4명</option>'
@@ -308,11 +378,12 @@ var hosting_regist_1 =
 +'<option value="16">게스트  16명 + </option>'
 +'</select><br><br>'
 +'<h3>숙소의 건물 유형을 알려주세요.</h3><br>'
-+'<select class="host_regist_select1">'
-+'<option>하나를 선택해주세요.</option>'
++'<select class="host_regist_select1" id="host_building_type">'
++'<option selected="selected" value="temp">하나를 선택해주세요.</option>'
++'<option value="temp2">하나를 선택해주세요.</option>'
 +'</select><br><br><hr>'
-+'<a href="#" id="hosting_go"><input type="button" value="뒤로" class="btn btn-info" id="host_regist_prev"></a>'
-+'<a href="#" id="hosting_regist_2"><input type="button" value="다음" class="btn btn-danger" id="host_regist_next"></a>'
++'<a href="#" id="hosting_go"><input type="button" value="뒤로" class="btn btn-info" class="host_regist_prev"></a>'
++'<a href="#" id="hosting_regist_2"><input type="button" value="다음" class="btn btn-danger" class="host_regist_next"></a>'
 +'</div>'
 +'</div>'
 +'<div id="host_regist_div_right1">'
@@ -324,15 +395,15 @@ var hosting_regist_2 =
 +'<div id="host_regist_div_left3">'
 +'<div id="host_regist_div_left4">'
 +'<h2>숙소에 얼마나 많은 인원을 수용할 수 있나요?</h2><br>'
-+'<input type="text" value="침대 1개" id="host_regist_count">'
++'<input type="text" value="1" placeholder="침대 갯수" class="host_regist_count" id="host_bed_cnt">'
 +'<input type="button" value="+" class="btn btn-default" id="host_regist_cal"><input type="button" value="-" class="btn btn-default" id="host_regist_cal"><br><br><br><br><br>'
 +'<h2>욕실은 몇 개인가요?</h2><br>'
-+'<input type="text" value="욕실 1개" id="host_regist_count">'
++'<input type="text" value="1" placeholder="욕실 갯수" class="host_regist_count" id="host_bathroom_cnt">'
 +'<input type="button" value="+" class="btn btn-default" id="host_regist_cal"><input type="button" value="-" class="btn btn-default" id="host_regist_cal"><br>'
 +'<br><br><br>'
 +'<hr>'
-+'<a href="#" id="hosting_regist_1"><input type="button" value="뒤로" class="btn btn-info" id="host_regist_prev"></a>'
-+'<a href="#" id="hosting_regist_3"><input type="button" value="다음" class="btn btn-danger" id="host_regist_next"></a>'
++'<a href="#" id="hosting_regist_1"><input type="button" value="뒤로" class="btn btn-info" class="host_regist_prev"></a>'
++'<a href="#" id="hosting_regist_3"><input type="button" value="다음" class="btn btn-danger" class="host_regist_next"></a>'
 +'</div>'
 +'</div>'
 +'<div id="host_regist_div_right2">'
@@ -350,23 +421,24 @@ var hosting_regist_3 =
 +'<div id="host_regist_div_left4">'
 +'<h2>숙소의 위치를 알려주세요.</h2><br>'
 +'<h4>국가</h4>'
-+'<select id="host_regist_select1">'
-+'<option>한국</option>'
++'<select class="host_regist_select1" id="host_country">'
++'<option selected="selected" value="한국">한국</option>'
++'<option value="미국">미국</option>'
 +'</select><br><br>'
 +'<div style="float:left; width:50%;">'
 +'<h4>도시</h4>'
-+'<input type="text" value="서울특별시" id="host_regist_count2">'
++'<input type="text" value="서울특별시" class="host_regist_count2" id="host_state">'
 +'</div>'
 +'<div style="float:left; width:50%;">'
 +'<h4>시 / 군</h4>'
-+'<input type="text" value="" placeholder="예) 강남구" id="host_regist_count2">'
++'<input type="text" value="" placeholder="예) 강남구" class="host_regist_count2" id="host_city">'
 +'</div><br><br><br><br><br>'
 +'<h4>도로명 / 건물번호 / 아파트 이름 / 건물 이름</h4>'
-+'<input type="text" placeholder="예) 언주로 406" id="host_regist_count2"><br><br><br>'
++'<input type="text" placeholder="예) 언주로 406" class="host_regist_count2" id="host_street"><br><br><br>'
 +'<h4>빌딩 번호, 빌딩/아파트 이름(및 호실)</h4>'
-+'<input type="text" placeholder="예) 35동 4층 407호" id="host_regist_count2"><br><br><br>'
++'<input type="text" placeholder="예) 35동 4층 407호" class="host_regist_count2" id="host_optional"><br><br><br>'
 +'<h4>우편번호</h4>'
-+'<input type="text" placeholder="예) 135-919" id="host_regist_count2"><br><br><br>'
++'<input type="text" placeholder="예) 135-919" class="host_regist_count2" id="host_zip_code"><br><br><br>'
 +'<hr>'
 +'<a href="#" id="hosting_regist_2"><input type="button" value="뒤로" class="btn btn-info" id="host_regist_prev"></a>'
 +'<a href="#" id="hosting_regist_4"><input type="button" value="다음" class="btn btn-danger" id="host_regist_next"></a>'
@@ -410,26 +482,28 @@ var hosting_regist_5 =
 +'<div id="host_regist_div_left3">'
 +'<div id="host_regist_div_left4">'
 +'<h2>어떤 편의시설을 제공하시나요?</h2><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">필수 품목</span><br><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">무선인터넷</span><br><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">샴푸</span><br><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">옷장/서랍장</span><br><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">TV</span><br><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">난방</span><br><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">에어컨</span><br><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">조식,커피,차</span><br><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">책상/작업공간</span><br><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">벽난로</span><br><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">다리미</span><br><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">헤어 드라이기</span><br><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">집에서 키우는 반려동물</span><br><br>'
++'<form id="host_convenience">'
++'<input type="checkbox" class="host_regist_input_box" id="host_convenience_1"><span class="host_regist_input_text">필수 품목</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box" id="host_convenience_2"><span class="host_regist_input_text">무선인터넷</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box" id="host_convenience_3"><span class="host_regist_input_text">샴푸</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box" id="host_convenience_4"><span class="host_regist_input_text">옷장/서랍장</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box" id="host_convenience_5"><span class="host_regist_input_text">TV</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box" id="host_convenience_6"><span class="host_regist_input_text">난방</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box" id="host_convenience_7"><span class="host_regist_input_text">에어컨</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box" id="host_convenience_8"><span class="host_regist_input_text">조식,커피,차</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box" id="host_convenience_9"><span class="host_regist_input_text">책상/작업공간</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box" id="host_convenience_10"><span class="host_regist_input_text">벽난로</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box" id="host_convenience_11"><span class="host_regist_input_text">다리미</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box" id="host_convenience_12"><span class="host_regist_input_text">헤어 드라이기</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box" id="host_convenience_13"><span class="host_regist_input_text">집에서 키우는 반려동물</span><br><br>'
++'</form>'
 +'<h2>안전시설</h2><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">연기 감지기</span><br><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">일산화탄소 감지기</span><br><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">구급상자</span><br><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">안전 카드</span><br><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">소화기</span><br><br>'
-+'<input type="checkbox" id="host_regist_input_box"><span id="host_regist_input_text">침실에 잠금장치 있음</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box"><span class="host_regist_input_text">연기 감지기</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box"><span class="host_regist_input_text">일산화탄소 감지기</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box"><span class="host_regist_input_text">구급상자</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box"><span class="host_regist_input_text">안전 카드</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box"><span class="host_regist_input_text">소화기</span><br><br>'
++'<input type="checkbox" class="host_regist_input_box"><span class="host_regist_input_text">침실에 잠금장치 있음</span><br><br>'
 +'<hr>'
 +'<a href="#" id="hosting_regist_4"><input type="button" value="뒤로" class="btn btn-info" id="host_regist_prev"></a>'
 +'<a href="#" id="hosting_regist_6"><input type="button" value="다음" class="btn btn-danger" id="host_regist_next"></a>'
