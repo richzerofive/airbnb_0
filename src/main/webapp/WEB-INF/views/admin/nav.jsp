@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Dream</title>
+    <title>Airbnb</title>
     <!-- Bootstrap Styles-->
     <link href="${css}/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
@@ -22,12 +22,12 @@
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-   <nav class="navbar-default navbar-side" role="navigation">
+   <nav id="admin_nav" class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="${context}/admin/main"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a class="active-menu" id="admin_nav_main"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
                         <a class="active-menu" href="${context}/admin/list"><i class="fa fa-desktop"></i> List</a>

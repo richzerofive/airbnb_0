@@ -9,7 +9,7 @@
 <c:set var="js" value="${context}/resources/js"/>
 
     <div id="wrapper">
-        <nav class="navbar navbar-default top-navbar" role="navigation">
+        <nav id="admin_header" class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -17,7 +17,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="${context}/">AIRBNB</a>
+                <a class="navbar-brand" >AIRBNB</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">

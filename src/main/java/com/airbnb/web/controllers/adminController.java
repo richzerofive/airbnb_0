@@ -35,7 +35,7 @@ public class adminController {
 	@RequestMapping("/list")
 	public String adminList(){
 		logger.info("----- ADMIN_CONTOLLER list -----");
-		return "admin:admin/list.tiles";
+		return "admin/list.jsp";
 	}
 	@RequestMapping("/r-list")
 	public String adminRevList(){
