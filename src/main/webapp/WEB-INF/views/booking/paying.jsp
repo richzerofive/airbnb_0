@@ -7,7 +7,6 @@
 <link href="https://a1.muscache.com/airbnb/static/packages/map_search-6524c10aa13b7d045b8eabe42cd2fb39.css" media="screen" rel="stylesheet" type="text/css" />
 
 <main id="site-content" role="main">
-
 <div data-hypernova-key="p4flash_messagebundlejs"><span data-react-checksum="464588145"></span></div>
 <div id="main-view" class="main-view page-container-responsive space-top-md-6 space-md-6 space-top-lg-6 space-lg-6">
   <form action="/payments/create_booking_v2" method="post" id="checkout-form">

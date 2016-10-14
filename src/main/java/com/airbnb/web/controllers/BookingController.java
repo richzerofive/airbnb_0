@@ -19,7 +19,7 @@ public class BookingController {
 		
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	@RequestMapping("/main")
+/*	@RequestMapping("/main")
 	public String main() {
 		logger.info("예약 컨트롤러 {}.","booking");
 		return "public:booking/booking.tiles";
@@ -33,6 +33,6 @@ public class BookingController {
 	public String cancel() {
 		logger.info("예약 컨트롤러 {}.","cancel");
 		return "member:booking/cancel.tiles";
-	}
+	}*/
 	
 }

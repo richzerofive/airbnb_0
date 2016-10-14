@@ -3,6 +3,7 @@ var app = (function() {
 		session.init(context);
 		onCreate();
 		member.init();
+		booking.init();
 	};
 	var context = function() {
 		return session.getContextPath();

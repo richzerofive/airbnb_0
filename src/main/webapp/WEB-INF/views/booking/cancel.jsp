@@ -5,6 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="context" value="<%=request.getContextPath()%>" />
 <c:set var="img" value="${context}/resources/img" />
+
  <div id="cancel_form" class="formbox2">
   <h2>예약취소</h2>
 <p class="m_b_5">* <span class="red">예약정보</span>를 잘 확인하여 취소하시기 바랍니다.</p>
