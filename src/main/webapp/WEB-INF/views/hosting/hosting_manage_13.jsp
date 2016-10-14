@@ -58,7 +58,7 @@
 	</div>
 
 	<div id="host_manage_detail_right1">
-		<div id="host_manage_detail_right2">
+		<div id="host_manage_detail_right2" style="overflow:scroll; height:820px;">
 			<div id="host_manage_detail_right2_2">
 				<h2>회원님이#도시이름#에서 좋아하는 것들을 소개해 주세요.</h2>
 				<hr>
@@ -109,9 +109,6 @@
 				</div>
 			</div>
 		</div>
-		
-		
-
 
 
 		<div id="host_manage_detail_right3">
