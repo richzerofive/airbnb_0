@@ -42,7 +42,7 @@
 					</div>
 				</div>
 			<div class="comp pull-right hide-host comp-become-a-host ">
-				<a class="hdr-btn link-reset lys-link js-become-a-host-link comp-become-a-host__link" href="${context}/hosting/main">
+				<a class="hdr-btn link-reset lys-link js-become-a-host-link comp-become-a-host__link" href="#" id="hosting_go">
 				<span class="btn btn-small btn-become-a-host"> 호스팅 하기 <i class="icon icon-gift icon-host-referral-gift js-host-referral-gift-icon hide "></i>
 				</span>
 				</a>

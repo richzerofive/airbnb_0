@@ -13,7 +13,7 @@ header {width: 100%;height: 5%;position: static;}
 #host_main_way3 {float: left; width: 33%; padding-right:5%;}
 #host_main_media1 {margin-top:20%; background-image:url(../../img/hosting/host_media.jpg);}
 #host_main_media2 {padding-top:10%; padding-bottom:15%;}
-#host_main_bottom1 {padding-top: 5%; margin-top:5%; margin-left:20%; margin-right:20%; margin-bottom:15%;}
+#host_main_bottom1 {padding-top: 5%; margin-top:5%; margin-left:20%; margin-right:20%; margin-bottom:15%; background-image:url(../../img/hosting/host_main_bottom.png)}
 #host_main_bottom2 {margin-left:15%; margin-bottom:5%; padding-bottom:10%;}
 #host_regist_div_page1 {width:100%; height:950px;}
 #host_regist_div_page2 {width:100%; height:800px;}
@@ -41,7 +41,7 @@ header {width: 100%;height: 5%;position: static;}
 #host_regist_div_right6 {padding-top: 15%; padding-bottom: 120%; padding-left: 10%; padding-right:10%; background-color:white;}
 #host_regist_div_center1 {width:80%; margin-top:10%;}
 #host_regist_div_center2 {margin-top:10%;}
-#host_regist_select1{width:100%; padding-bottom:3%; padding-top:3%;}
+.host_regist_select1{width:100%; padding-bottom:3%; padding-top:3%;}
 #host_regist_next{float:right; padding-left:10%; padding-right:10%;}
 #host_regist_prev{float:left; padding-left:10%; padding-right:10%;}
 #host_regist_next2{float:right; padding-left:10%; padding-right:10%;}

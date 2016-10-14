@@ -2,82 +2,34 @@ package com.airbnb.web.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.airbnb.web.domains.HostingDTO;
+import com.airbnb.web.domains.Retval;
 @Controller
 @RequestMapping("/hosting")
 public class HostingController {
 	private static final Logger logger = LoggerFactory.getLogger(HostingController.class);
-	@RequestMapping("/main")
-	public String hostingMain(){
-		logger.info("HostingController :: {}.", "Main");
-		return "public:hosting/hosting_main.tiles";
+	@Autowired private Retval retval;
+	
+	@RequestMapping(value="/regist", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingRegist(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: {}.", "regist");
+		logger.info("HostingController :: Regist :: room_type :: {}",hostingDTO.getRoom_type());
+		logger.info("HostingController :: Regist :: guest_cnt :: {}",hostingDTO.getGuest_cnt());
+		retval.setMessage("success");
+		return retval;
 	}
-	@RequestMapping("/regist_1")
-	public String hostingRegist1(){
-		logger.info("HostingController :: {}.", "regist_1");
-		return "public:hosting/hosting_regist_1.tiles";
-	}
-	@RequestMapping("/regist_2")
-	public String hostingRegist2(){
-		logger.info("HostingController :: {}.", "regist_2");
-		return "public:hosting/hosting_regist_2.tiles";
-	}
-	@RequestMapping("/regist_3")
-	public String hostingRegist3(){
-		logger.info("HostingController :: {}.", "regist_3");
-		return "public:hosting/hosting_regist_3.tiles";
-	}
-	@RequestMapping("/regist_4")
-	public String hostingRegist4(){
-		logger.info("HostingController :: {}.", "regist_4");
-		return "public:hosting/hosting_regist_4.tiles";
-	}
-	@RequestMapping("/regist_5")
-	public String hostingRegist5(){
-		logger.info("HostingController :: {}.", "regist_5");
-		return "public:hosting/hosting_regist_5.tiles";
-	}
-	@RequestMapping("/regist_6")
-	public String hostingRegist6(){
-		logger.info("HostingController :: {}.", "regist_6");
-		return "public:hosting/hosting_regist_6.tiles";
-	}
-	@RequestMapping("/regist_7")
-	public String hostingRegist7(){
-		logger.info("HostingController :: {}.", "regist_7");
-		return "public:hosting/hosting_regist_7.tiles";
-	}
-	@RequestMapping("/regist_8")
-	public String hostingRegist8(){
-		logger.info("HostingController :: {}.", "regist_8");
-		return "public:hosting/hosting_regist_8.tiles";
-	}
-	@RequestMapping("/regist_9")
-	public String hostingRegist9(){
-		logger.info("HostingController :: {}.", "regist_9");
-		return "public:hosting/hosting_regist_9.tiles";
-	}
-	@RequestMapping("/regist_10")
-	public String hostingRegist10(){
-		logger.info("HostingController :: {}.", "regist_10");
-		return "public:hosting/hosting_regist_10.tiles";
-	}
-	@RequestMapping("/regist_11")
-	public String hostingRegist11(){
-		logger.info("HostingController :: {}.", "regist_11");
-		return "public:hosting/hosting_regist_11.tiles";
-	}
-	@RequestMapping("/regist_12")
-	public String hostingRegist12(){
-		logger.info("HostingController :: {}.", "regist_12");
-		return "public:hosting/hosting_regist_12.tiles";
-	}
-	@RequestMapping("/regist_13")
-	public String hostingRegist13(){
-		logger.info("HostingController :: {}.", "regist_13");
-		return "public:hosting/hosting_regist_13.tiles";
-	}
+	
+	
+	
 	@RequestMapping("/manage_1")
 	public String hostingManage1(){
 		logger.info("HostingController :: {}.", "manage_1");
