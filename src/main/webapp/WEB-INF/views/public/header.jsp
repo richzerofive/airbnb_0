@@ -29,9 +29,9 @@
 		</div>
 		<header class="regular-header clearfix hide-sm" id="new-header"	role="banner">
 			<div class="comp pull-left">
-				<a href="${context}/" class="hdr-btn link-reset belo-container" aria-label="에어비앤비"> <i
-					class="icon icon-pos--lower icon-airbnb-alt h2 show-login"></i> <i
-					class="icon icon-pos--lower icon-airbnb show-logout"></i>
+				<a href="${context}/" class="hdr-btn link-reset belo-container" aria-label="에어비앤비"> 
+				<i class="icon icon-pos--lower icon-airbnb-alt h2 show-login"></i> 
+				<i class="icon icon-pos--lower icon-airbnb show-logout"></i>
 				</a>
 			</div>
 			<div class="comp pull-right show-logout"><div id="m_signup" class="hdr-btn link-reset">회원가입</div></div>
