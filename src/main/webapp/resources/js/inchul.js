@@ -1,4 +1,4 @@
-var ADMIN_MAIN =
+var ADMIN_HEAD =
 	'<!doctype html>'
 	+'<html lang="en">'
 	+'<head>'
@@ -43,8 +43,9 @@ var ADMIN_MAIN =
 	+'</nav>'
 	+'<!--/. NAV TOP -->'
 	+'</div>'
-	+'</header>'
-	+'<nav>'
+	+'</header>' 
+var ADMIN_NAV =
+	'<nav>'
 	+'<div id="admin_nav">'
 	+'<head>'
 	+'<meta charset="utf-8" />'
@@ -93,7 +94,8 @@ var ADMIN_MAIN =
 	+'<!-- /. NAV SIDE -->'
 	+'</div>'
 	+'</nav>'
-	+'<section>'
+var ADMIN_SECTION =
+	'<section>'
 	+'<article id="admin_article">'
 	+''
 	+'<body>'
@@ -241,7 +243,8 @@ var ADMIN_MAIN =
 	+'<!-- /. ROW -->'
 	+'</article>'
 	+'</section>'
-	+'<footer>'
+var ADMIN_FOOTER =
+	'<footer>'
 	+'<div id="admin_footer">'
 	+'<footer><p align="center">All right reserved. HANBIT: CIC </a></p></footer>'
 	+'</div>'
@@ -272,6 +275,9 @@ var ADMIN_MAIN =
 	+'</script>'
 	+'</html>'
 var admin =(function(){
+	$('#admin_header').empty().load(app.context()+'/admin/header');
+	$('#admin_header').empty().load(app.context()+'/admin/header');
+	$('#admin_header').empty().load(app.context()+'/admin/header');
 	$('#admin_header').empty().load(app.context()+'/admin/header');
 	$('#adm_nav').empty().load(app.context()+'/admin/nav');
 	var init =(function(){onCreate();});
