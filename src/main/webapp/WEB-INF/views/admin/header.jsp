@@ -17,7 +17,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" >AIRBNB</a>
+                <a id="admin_dashboard" class="navbar-brand" >AIRBNB</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">

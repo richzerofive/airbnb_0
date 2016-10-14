@@ -31,7 +31,6 @@
 					</select>
 				</div>
 				<h4>Input Groups</h4>
-
 				<div class="form-group input-group">
 					<input type="text" class="form-control"> <span
 						class="input-group-btn">
@@ -100,9 +99,6 @@
 											<td class="center">defaul.jpg</td>
 											<td class="center">2016-10-15</td>
 										</tr>
-
-
-
 									</tbody>
 								</table>
 							</div>

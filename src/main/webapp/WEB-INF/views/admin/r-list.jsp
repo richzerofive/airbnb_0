@@ -18,7 +18,6 @@
                     </div>
                 </div> 
                  <!-- /. ROW  -->
-               
             <div class="row">
                 <div class="col-md-12">
                     <!-- Advanced Tables -->
@@ -103,7 +102,6 @@
                         </div>
                     </div>
                     <!--End Advanced Tables -->
-                
                     <!--  end  Context Classes  -->
                 </div>
             </div>

@@ -18,7 +18,6 @@
                     </div>
                 </div> 
                  <!-- /. ROW  -->
-               
             <div class="row">
                 <div class="col-md-12">
                     <!-- Advanced Tables -->
@@ -67,17 +66,12 @@
                                             <td class="center">defaul.jpg</td>
                                             <td class="center">2016-10-15</td>
                                         </tr>
-                                     
-                                      
-                                       
                                     </tbody>
                                 </table>
                             </div>
-                            
                         </div>
                     </div>
                     <!--End Advanced Tables -->
-                
                     <!--  end  Context Classes  -->
                 </div>
             </div>

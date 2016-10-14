@@ -1,18 +1,51 @@
+var admin =(function(){
+	alert("admin init")
+	var init =function(){
+		onCreate();};
+	var setContentView =function(){
+	};
+	var onCreate =function(){
+		setContentView();
+		alert("setContentView  진입")
+		$('#admin_nav_main').click(function(){
+			$.ajax({
+				url:'',
+				type:'',
+				data:{},
+				dataType:'',
+				success:function(data){
+					alert("success data = "+data);
+					$('#admin_header').empty().html(ADMIN_HEADER);
+					alert("setContentView  ADMIN_NAV");
+					$('#admin_nav').empty().html(ADMIN_NAV);
+					alert("setContentView  ADMIN_ARTICLE")
+					$('#admin_article').empty().html(ADMIN_ARTICLE);
+					alert("setContentView  ADMIN_FOOTER")
+					$('#admin_footer').empty().html(ADMIN_FOOTER);
+					alert("setContentView  출")
+				},
+				error:function(x,e,m){
+					alert("admin nav errror"+m);
+				}
+			});
+			
+		
+		
+		});
+	
+		$().click(function(){});
+		
+	};
+	  return{
+          init : init,
+          onCreate : onCreate,
+          setContentView : setContentView
+       
+  }
+})();
 var ADMIN_HEAD =
-	'<!doctype html>'
-	+'<html lang="en">'
-	+'<head>'
-	+'<title>에어비앤비 (Airbnb) – 어디서나 우리집처럼 편안하게</title>'
-	+'<link rel="stylesheet" href="/web/resources/css/application.css" type="text/css"/>'
-	+'<link rel="stylesheet" href="/web/resources/css/bootstrap.css" type="text/css"/>'
-	+'<link rel="stylesheet" href="/web/resources/css/custom-styles.css" type="text/css"/>'
-	+'<link rel="stylesheet" href="/web/resources/css/font-awesome.css" type="text/css"/>'
-	+'</head>'
-	+'<body>'
-	+'<header>'
-	+'<div id="admin_header">'
-	+'<div id="wrapper">'
-	+'<nav id="admin_header" class="navbar navbar-default top-navbar" role="navigation">'
+	/*'<div id="wrapper">'
+	+*/'<nav id="admin_header" class="navbar navbar-default top-navbar" role="navigation">'
 	+'<div class="navbar-header">'
 	+'<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">'
 	+'<span class="sr-only">Toggle navigation</span>'
@@ -20,7 +53,7 @@ var ADMIN_HEAD =
 	+'<span class="icon-bar"></span>'
 	+'<span class="icon-bar"></span>'
 	+'</button>'
-	+'<a class="navbar-brand" >AIRBNB</a>'
+	+'<a id="admin_dashboard" class="navbar-brand" >AIRBNB_JS</a>'
 	+'</div>'
 	+'<ul class="nav navbar-top-links navbar-right">'
 	+'<li class="dropdown">'
@@ -69,24 +102,24 @@ var ADMIN_NAV =
 	+'<a class="active-menu" id="admin_nav_main"><i class="fa fa-dashboard"></i> Dashboard</a>'
 	+'</li>'
 	+'<li>'
-	+'<a class="active-menu" href="/web/admin/list"><i class="fa fa-desktop"></i> List</a>'
+	+'<a class="active-menu" id="admin_nav_list"><i class="fa fa-desktop"></i> List</a>'
 	+'<ul class="nav nav-second-level">'
 	+'<li>'
-	+'<a href="/web/admin/list">회원 리스트</a>'
+	+'<a id="admin_nav_mlist">회원 리스트</a>'
 	+'</li>'
 	+'<li>'
-	+'<a href="/web/admin/h-list">호스팅 리스트</a>'
+	+'<a id="admin_nav_hlist">호스팅 리스트</a>'
 	+'</li>'
 	+'<li>'
-	+'<a href="/web/admin/r-list">예약 현황 리스트</a>'
+	+'<a id="admin_nav_rlist">예약 현황 리스트</a>'
 	+'</li>'
 	+'</ul>'
 	+'</li>'
 	+'<li>'
-	+'<a class="active-menu" href="/web/admin/chart"><i class="fa fa-bar-chart-o"></i> Charts</a>'
+	+'<a class="active-menu" id="admin_nav_chart"><i class="fa fa-bar-chart-o"></i> Charts</a>'
 	+'</li>'
 	+'<li>'
-	+'<a class="active-menu" href="/web/admin/search"><i class="fa fa-qrcode"></i> Search</a>'
+	+'<a class="active-menu" id="admin_nav_search"><i class="fa fa-qrcode"></i> Search</a>'
 	+'</li>'
 	+'</ul>'
 	+'</div>'
@@ -94,7 +127,7 @@ var ADMIN_NAV =
 	+'<!-- /. NAV SIDE -->'
 	+'</div>'
 	+'</nav>'
-var ADMIN_SECTION =
+var ADMIN_ARTICLE =
 	'<section>'
 	+'<article id="admin_article">'
 	+''
@@ -274,75 +307,429 @@ var ADMIN_FOOTER =
 	+'app.init("/web");'
 	+'</script>'
 	+'</html>'
-var admin =(function(){
-	$('#admin_header').empty().load(app.context()+'/admin/header');
-	$('#admin_header').empty().load(app.context()+'/admin/header');
-	$('#admin_header').empty().load(app.context()+'/admin/header');
-	$('#admin_header').empty().load(app.context()+'/admin/header');
-	$('#adm_nav').empty().load(app.context()+'/admin/nav');
-	var init =(function(){onCreate();});
-	var setContentView =(function(){});
-	var onCreate =(function(){
-		setContentView();
-		$('#admin_nav #admin_nav_main').click(function(){admin.main()});
-		$().click(function(){});
-		$().click(function(){});
-		$().click(function(){});
-	});
-});
-
-/*var admin= (function () {
-	var _pass;
-	var getPass= function() {return this._pass;};
-	var setPass= function(pass) {this._pass=pass;};
-	var init = function(){onCreate();};
-	var setContentView = function (){
-		$('#admin_header').css('height','50px');
-		$('.navbar-header').css('height','50px');
-		$('#admin_header #exit').addClass('cursor');
-	};
-	var onCreate = function(){
-		setContentView();
-		$('#admin_nav #member_mgmt #list').click(function(){user.student_list(1)});
-		$('#admin_nav #member_mgmt #find_by').click(function(){controller.move('member','find_by');});
-		$('#admin_nav #member_mgmt #count').click(function(){controller.move('member','count');});
-		$('#admin_nav #account_mgmt #b_delete').click(function(){controller.move('account','b_delete');});
-		$('#admin_nav #account_mgmt #b_list').click(function(){controller.move('account','b_list');});
-		$('#admin_nav #account_mgmt #b_search').click(function(){controller.move('account','b_search');});
-		$('#admin_nav #account_mgmt #b_count').click(function(){controller.move('account','b_count');});
-		$('#admin_nav #grade_mgmt #g_regist').click(function(){controller.move('grade','g_regist');});
-		$('#admin_nav #grade_mgmt #g_update').click(function(){controller.move('grade','g_update');});
-		$('#admin_nav #grade_mgmt #g_delete').click(function(){controller.move('grade','g_delete');});
-		$('#admin_nav #grade_mgmt #g_list').click(function(){controller.move('grade','g_list');});
-		$('#admin_nav #grade_mgmt #g_count').click(function(){controller.move('grade','g_count');});
-		$('#admin_nav #grade_mgmt #g_search').click(function(){controller.move('grade','g_search');});
-		$('#admin_header #exit').click(function() {controller.home();});
-		$('#admin_header #go_admin_home').click(function() {controller.move('admin','main');});
-		$('#g_regist').click(function () {alert("등록으로 이동 합니다");controller.move('member','list')});
-		$('#g_update').click(function () {alert("등록으로 이동 합니다");controller.move('member','list')});
-	};
-	return {
-init:init,
-getPass : getPass,
-setpass : setPass,
-check : function() {
-	controller.move('admin','main');
-},
-check2 : function() {
-	setPass(1);
-	var isAdmin = window.confirm('관리자입니까? :');
-	if (!isAdmin) {
-		alert('관리자만 접근 가능합니다');
-	} else {
-		var password = prompt('관리자 비번을 입력해라');
-		if (password == getPass()) {
-			controller.move('admin', 'main');}
-		else {
-			alert('비번이 틀림')
-		}
-	}
-}
-};
-
-})();*/
+var ADMIN_LIST=
+	'<div id="page-wrapper" >'
+	+'<div id="page-inner">'
+	+'<div class="row">'
+	+'<div class="col-md-12">'
+	+'<h1 class="page-header">'
+	+'회원  <small>가입 리스트</small>'
+	+'</h1>'
+	+'</div>'
+	+'</div>'
+	+'<!-- /. ROW  -->'
+	+'<div class="row">'
+	+'<div class="col-md-12">'
+	+'<!-- Advanced Tables -->'
+	+'<div class="panel panel-default">'
+	+'<div class="panel-heading">'
+	+'회원리스트'
+	+'</div>'
+	+'<div class="panel-body">'
+	+'<div class="table-responsive">'
+	+'<table class="table table-striped table-bordered table-hover" id="dataTables-example">'
+	+'<thead>'
+	+'<tr>'
+	+'<th>E-MAIL</th>'
+	+'<th>NAME</th>'
+	+'<th>PHONE</th>'
+	+'<th>PROFILE_IMG</th>'
+	+'<th>REG_DATE</th>'
+	+'</tr>'
+	+'</thead>'
+	+'<tbody>'
+	+'<tr class="odd gradeX">'
+	+'<td>hong@hong.com</td>'
+	+'<td>홍길동</td>'
+	+'<td>010-5477-6715</td>'
+	+'<td class="center">defaul.jpg</td>'
+	+'<td class="center">2016-10-15</td>'
+	+'</tr>'
+	+'<tr class="odd gradeX">'
+	+'<td>hong1@hong.com</td>'
+	+'<td>홍길동1</td>'
+	+'<td>010-51277-6715</td>'
+	+'<td class="center">defaul.jpg</td>'
+	+'<td class="center">2016-10-15</td>'
+	+'</tr>'
+	+'<tr class="odd gradeX">'
+	+'<td>choi@hong.com</td>'
+	+'<td>홍길동</td>'
+	+'<td>010-5477-6715</td>'
+	+'<td class="center">defaul.jpg</td>'
+	+'<td class="center">2016-10-15</td>'
+	+'</tr>'
+	+'<tr class="odd gradeX">'
+	+'<td>choi2@hong.com</td>'
+	+'<td>홍길동1</td>'
+	+'<td>010-51277-6715</td>'
+	+'<td class="center">defaul.jpg</td>'
+	+'<td class="center">2016-10-15</td>'
+	+'</tr>'
+	+'</tbody>'
+	+'</table>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'<!--End Advanced Tables -->'
+	+'<!--  end  Context Classes  -->'
+	+'</div>'
+	+'</div>'
+	+'<!-- /. ROW  -->'
+	+'</div>'
+var ADMIN_HLIST
+	'<div id="page-wrapper" >'
+	+'<div id="page-inner">'
+	+'<div class="row">'
+	+'<div class="col-md-12">'
+	+'<h1 class="page-header">'
+	+'호스팅  <small>현황 리스트</small>'
+	+'</h1>'
+	+'</div>'
+	+'</div>'
+	+'<!-- /. ROW  -->'
+	+'<div class="row">'
+	+'<div class="col-md-12">'
+	+'<!-- Advanced Tables -->'
+	+'<div class="panel panel-default">'
+	+'<div class="panel-heading">'
+	+'호스팅현황리스트'
+	+'</div>'
+	+'<div class="panel-body">'
+	+'<div class="table-responsive">'
+	+'<table class="table table-striped table-bordered table-hover">'
+	+'<thead>'
+	+'<tr>'
+	+'<th>house_seq</th>'
+	+'<th>Room_type</th>'
+	+'<th>체크인 시작 가능일자 </th>'
+	+'<th>최소숙박가능일</th>'
+	+'<th>최대 숙박가능일</th>'
+	+'<th>Title</th>'
+	+'<th>Price</th>'
+	+'<th>Reg date</th>'
+	+'</tr>'
+	+'</thead>'
+	+'<tbody>'
+	+'<tr>'
+	+'<td>1000</td>'
+	+'<td>아파트</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>1</td>'
+	+'<td>10</td>'
+	+'<td>멋진 도쿄 호스팅</td>'
+	+'<td>50000</td>'
+	+'<td>2016-10-09</td>'
+	+'</tr>'
+	+'<tr>'
+	+'<td>1000</td>'
+	+'<td>아파트</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>1</td>'
+	+'<td>10</td>'
+	+'<td>멋진 도쿄 호스팅</td>'
+	+'<td>50000</td>'
+	+'<td>2016-10-09</td>'
+	+'</tr>'
+	+'<tr>'
+	+'<td>1001</td>'
+	+'<td>빌라</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>1</td>'
+	+'<td>10</td>'
+	+'<td>멋진 도쿄 호스팅</td>'
+	+'<td>50000</td>'
+	+'<td>2016-10-09</td>'
+	+'</tr>'
+	+'<tr>'
+	+'<td>1000</td>'
+	+'<td>아파트</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>1</td>'
+	+'<td>10</td>'
+	+'<td>멋진 도쿄 호스팅</td>'
+	+'<td>50000</td>'
+	+'<td>2016-10-09</td>'
+	+'</tr>'
+	+'<tr>'
+	+'<td>1000</td>'
+	+'<td>아파트</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>1</td>'
+	+'<td>10</td>'
+	+'<td>멋진 도쿄 호스팅</td>'
+	+'<td>50000</td>'
+	+'<td>2016-10-09</td>'
+	+'</tr>'
+	+'<tr>'
+	+'<td>1000</td>'
+	+'<td>아파트</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>1</td>'
+	+'<td>10</td>'
+	+'<td>멋진 도쿄 호스팅</td>'
+	+'<td>50000</td>'
+	+'<td>2016-10-09</td>'
+	+'</tr>'
+	+'</tbody>'
+	+'</table>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'<!--End Advanced Tables -->'
+	+'<!--  end  Context Classes  -->'
+	+'</div>'
+	+'</div>'
+	+'<!-- /. ROW  -->'
+	+'</div>'
+var ADMIN_RLIST =
+	'<div id="page-wrapper" >'
+	+'<div id="page-inner">'
+	+'<div class="row">'
+	+'<div class="col-md-12">'
+	+'<h1 class="page-header">'
+	+'예약  <small>최근 예약 리스트</small>'
+	+'</h1>'
+	+'</div>'
+	+'</div>'
+	+'<!-- /. ROW  -->'
+	+'<div class="row">'
+	+'<div class="col-md-12">'
+	+'<!-- Advanced Tables -->'
+	+'<div class="panel panel-default">'
+	+'<div class="panel-heading">'
+	+'예약현황리스트'
+	+'</div>'
+	+'<div class="panel-body">'
+	+'<div class="table-responsive">'
+	+'<table class="table table-striped table-bordered table-hover">'
+	+'<thead>'
+	+'<tr>'
+	+'<th>예약번호</th>'
+	+'<th>결재일</th>'
+	+'<th>예약자 ID </th>'
+	+'<th>Hoisting ID</th>'
+	+'<th>Check in date</th>'
+	+'<th>Check out date</th>'
+	+'<th>Address</th>'
+	+'</tr>'
+	+'</thead>'
+	+'<tbody>'
+	+'<tr>'
+	+'<td>1000</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>Doe</td>'
+	+'<td>John15482</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>2016-10-19</td>'
+	+'<td>seoul</td>'
+	+'</tr>'
+	+'<tr>'
+	+'<td>1001</td>'
+	+'<td>2016-10-10</td>'
+	+'<td>choi Doe</td>'
+	+'<td>John15482</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>2016-10-19</td>'
+	+'<td>LA</td>'
+	+'</tr>'
+	+'<tr>'
+	+'<td>1002</td>'
+	+'<td>2016-10-10</td>'
+	+'<td>choi Doe</td>'
+	+'<td>John15482</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>2016-10-19</td>'
+	+'<td>LA</td>'
+	+'</tr>'
+	+'<tr>'
+	+'<td>1003</td>'
+	+'<td>2016-10-10</td>'
+	+'<td>choi Doe</td>'
+	+'<td>John15482</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>2016-10-19</td>'
+	+'<td>LA</td>'
+	+'</tr>'
+	+'<tr>'
+	+'<td>1004</td>'
+	+'<td>2016-10-10</td>'
+	+'<td>choi Doe</td>'
+	+'<td>John15482</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>2016-10-19</td>'
+	+'<td>busan</td>'
+	+'</tr>'
+	+'<tr>'
+	+'<td>1006</td>'
+	+'<td>2016-10-10</td>'
+	+'<td>choi Doe</td>'
+	+'<td>John15482</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>2016-10-19</td>'
+	+'<td>LA</td>'
+	+'</tr>'
+	+'</tbody>'
+	+'</table>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'<!--End Advanced Tables -->'
+	+'<!--  end  Context Classes  -->'
+	+'</div>'
+	+'</div>'
+	+'<!-- /. ROW  -->'
+	+'</div>'
+var ADMIN_CHART=
+	'<div id="page-wrapper">'
+	+'<div id="page-inner">'
+	+'<div class="row">'
+	+'<div class="col-md-12">'
+	+'<h1 class="page-header">'
+	+'통계<small>회원 호스팅 예약 관련 통계 자료 </small>'
+	+'</h1>'
+	+'</div>'
+	+'</div>'
+	+'<!-- /. ROW  -->'
+	+'<div class="row">'
+	+'<div class="col-md-6 col-sm-12 col-xs-12">'
+	+'<div class="panel panel-default">'
+	+'<div class="panel-heading">2016년 월별 회원 가입 현황</div>'
+	+'<div class="panel-body">'
+	+'<div id="morris-bar-chart"></div>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'<div class="col-md-6 col-sm-12 col-xs-12">'
+	+'<div class="panel panel-default">'
+	+'<div class="panel-heading">2016년 월별 회원 및 호스팅 가입,예약 통계</div>'
+	+'<div class="panel-body">'
+	+'<div id="morris-area-chart"></div>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'<!-- /. ROW  -->'
+	+'<div class="row">'
+	+'<div class="col-md-6 col-sm-12 col-xs-12">'
+	+'<div class="panel panel-default">'
+	+'<div class="panel-heading">연도별 회원 및 호스팅 가입 통계</div>'
+	+'<div class="panel-body">'
+	+'<div id="morris-line-chart"></div>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'<div class="col-md-6 col-sm-12 col-xs-12">'
+	+'<div class="panel panel-default">'
+	+'<div class="panel-heading">순수 회원 및 호스팅 회원 통계</div>'
+	+'<div class="panel-body">'
+	+'<div id="morris-donut-chart"></div>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'<!-- /. ROW  -->'
+var ADMIN_SEARCH=
+	'<div id="page-wrapper">'
+	+'<div id="page-inner">'
+	+'<div class="row">'
+	+'<div class="col-md-6">'
+	+'<h1 class="page-header">'
+	+'관련 정보 검색 <small>검색</small>'
+	+'</h1>'
+	+'</div>'
+	+'</div>'
+	+'<!-- /. ROW  -->'
+	+'<div class="row">'
+	+'<div class="col-md-6">'
+	+'<div class="form-group">'
+	+'<label>Selects</label> <select class="form-control">'
+	+'<option>회원 이메일</option>'
+	+'<option>주소</option>'
+	+'<option>이름</option>'
+	+'<option>예약번호</option>'
+	+'<option>결재일</option>'
+	+'</select>'
+	+'</div>'
+	+'<h4>Input Groups</h4>'
+	+'<div class="form-group input-group">'
+	+'<input type="text" class="form-control"> <span'
+	+'class="input-group-btn">'
+	+'<button class="btn btn-default" type="button">'
+	+'<i class="fa fa-search"></i>'
+	+'</button>'
+	+'</span>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'<!-- <div id="page-wrapper">'
+	+'<div id="page-inner"> -->'
+	+'<div class="row">'
+	+'<div class="col-md-12">'
+	+'<h1 class="page-header">'
+	+'목록 <small>회원 리스트</small>'
+	+'</h1>'
+	+'</div>'
+	+'</div>'
+	+'<!-- /. ROW  -->'
+	+'<div  class="row">'
+	+'<div class="col-md-12">'
+	+'<!-- Advanced Tables -->'
+	+'<div  class="panel panel-default">'
+	+'<div class="panel-heading">회원리스트</div>'
+	+'<div class="panel-body">'
+	+'<div class="table-responsive">'
+	+'<table class="table table-striped table-bordered table-hover"'
+	+'id="dataTables-example">'
+	+'<thead>'
+	+'<tr>'
+	+'<th>E-MAIL</th>'
+	+'<th>NAME</th>'
+	+'<th>PHONE</th>'
+	+'<th>PROFILE_IMG</th>'
+	+'<th>REG_DATE</th>'
+	+'</tr>'
+	+'</thead>'
+	+'<tbody>'
+	+'<tr class="odd gradeX">'
+	+'<td>hong@hong.com</td>'
+	+'<td>홍길동</td>'
+	+'<td>010-5477-6715</td>'
+	+'<td class="center">defaul.jpg</td>'
+	+'<td class="center">2016-10-15</td>'
+	+'</tr>'
+	+'<tr class="odd gradeX">'
+	+'<td>hong1@hong.com</td>'
+	+'<td>홍길동1</td>'
+	+'<td>010-51277-6715</td>'
+	+'<td class="center">defaul.jpg</td>'
+	+'<td class="center">2016-10-15</td>'
+	+'</tr>'
+	+'<tr class="odd gradeX">'
+	+'<td>choi@hong.com</td>'
+	+'<td>홍길동</td>'
+	+'<td>010-5477-6715</td>'
+	+'<td class="center">defaul.jpg</td>'
+	+'<td class="center">2016-10-15</td>'
+	+'</tr>'
+	+'<tr class="odd gradeX">'
+	+'<td>choi2@hong.com</td>'
+	+'<td>홍길동1</td>'
+	+'<td>010-51277-6715</td>'
+	+'<td class="center">defaul.jpg</td>'
+	+'<td class="center">2016-10-15</td>'
+	+'</tr>'
+	+'</tbody>'
+	+'</table>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'<!--End Advanced Tables -->'
+	+'<!--  end  Context Classes  -->'
+	+'</div>'
+	+'</div>'
+	+'<!-- /. end list  -->'
+	+'</div>'
+	+'</div>'
+	
 
