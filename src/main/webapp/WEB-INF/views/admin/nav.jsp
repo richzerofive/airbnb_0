@@ -33,7 +33,7 @@
                         <a class="active-menu" href="${context}/admin/list"><i class="fa fa-desktop"></i> List</a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="${context}/admin/list">회원  리스트</a>
+                                <a id="admin_nav_mlist">회원  리스트</a>
                             </li>
                             <li>
                                 <a href="${context}/admin/h-list">호스팅 리스트</a>

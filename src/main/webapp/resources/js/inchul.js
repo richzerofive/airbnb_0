@@ -6,26 +6,25 @@ var admin =(function(){
 	};
 	var onCreate =function(){
 		setContentView();
+		
 		alert("setContentView  진입")
-		$('#admin_nav_main').click(function(){
+		$('#admin_nav_mlist').click(function(){
+			alert('click');
 			$.ajax({
-				url:'',
-				type:'',
-				data:{},
-				dataType:'',
+				url:app.context()+'/admin/admin_main',
 				success:function(data){
-					alert("success data = "+data);
-					$('#admin_header').empty().html(ADMIN_HEADER);
-					alert("setContentView  ADMIN_NAV");
-					$('#admin_nav').empty().html(ADMIN_NAV);
-					alert("setContentView  ADMIN_ARTICLE")
-					$('#admin_article').empty().html(ADMIN_ARTICLE);
-					alert("setContentView  ADMIN_FOOTER")
-					$('#admin_footer').empty().html(ADMIN_FOOTER);
-					alert("setContentView  출")
+					alert("success data = "+data.message);
+					if(data.message ==='success'){
+						$('#admin_article').empty().html(ADMIN_MLIST);
+						alert("setContentView  ADMIN_FOOTER")
+						
+					}else{
+						alert('sucess error');
+					}
+					
 				},
 				error:function(x,e,m){
-					alert("admin nav errror"+m);
+					alert("admin nav errror "+m);
 				}
 			});
 			
@@ -33,7 +32,7 @@ var admin =(function(){
 		
 		});
 	
-		$().click(function(){});
+	
 		
 	};
 	  return{
@@ -307,7 +306,7 @@ var ADMIN_FOOTER =
 	+'app.init("/web");'
 	+'</script>'
 	+'</html>'
-var ADMIN_LIST=
+var ADMIN_MLIST=
 	'<div id="page-wrapper" >'
 	+'<div id="page-inner">'
 	+'<div class="row">'
