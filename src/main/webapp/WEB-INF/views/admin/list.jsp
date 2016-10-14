@@ -67,9 +67,6 @@
                                             <td class="center">defaul.jpg</td>
                                             <td class="center">2016-10-15</td>
                                         </tr>
-                                     
-                                      
-                                       
                                     </tbody>
                                 </table>
                             </div>

@@ -76,6 +76,17 @@
     <img src="${img}/public/bangkok.jpg" id="b_main4" alt="Bangkok" style="width:25%;height:400px;"> 
     <img src="${img}/public/london.jpg" id="b_main5" alt="London" style="width:25%;height:400px;"> 
   </div>
+  
+      <div align="center" style="width:100%;height:1200px;">
+   <div style="padding-top:100px;"><h2 style = "font-style: italic;">가이드북</h2><br></br>
+	<h4>가이드북을 소개합니다</h4></div><br>
+<button type="button" class="btn btn-primary" id="guide_mgmt"><a href="${context}/guide/content">가이드 북 관리</a></button>
+<button type="button" class="btn btn-primary" id="guide_mgmt2"><a href="${context}/guide/content2">구글API 테스트</a></button>
+<button type="button" class="btn btn-primary" id="guidebook"><a href="${context}/guidebook/content">가이드 북 보기</a></button>
+</section>
+</div>
  </html>
+ 
+
 
 

@@ -47,4 +47,29 @@
     <definition name="*/*/*.jsp" extends="noTiles">
     	<put-attribute name="noTemplate" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
     </definition>
-</tiles-definitions>
+
+<!-- 가이드 타일즈 -->
+	<definition name="guide" template="/WEB-INF/views/layouts/guide.jsp">
+		<put-attribute name="title" value="가이드북"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/public/header.jsp" />
+		<put-attribute name="g_header" value="/WEB-INF/views/guide/header.jsp" />
+		<put-attribute name="sidenav" value="/WEB-INF/views/guide/sidenav.jsp" />
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/guide/footer.jsp" />
+	</definition>
+	<definition name="guide:*/*.tiles" extends="guide">
+		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
+
+	<!-- 가이드 북 화면 타일즈 -->
+	<definition name="guidebook" template="/WEB-INF/views/layouts/guidebook.jsp">
+		<put-attribute name="title" value="가이드북 화면"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/public/header.jsp" />
+		<put-attribute name="body" value=""></put-attribute>
+	</definition>
+	<definition name="guidebook:*/*.tiles" extends="guidebook">
+		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
+	
+	</tiles-definitions>
+	
