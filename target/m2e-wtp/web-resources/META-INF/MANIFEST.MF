@@ -1,0 +1,33 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+Manifest-Version: 1.0
+<<<<<<< HEAD
+Built-By: Jackie
+=======
+Built-By: hb2011
+>>>>>>> 1f4435a5cf6c5cca9718a0c7426e10d12bee0c24
+Build-Jdk: 1.8.0_91
+Created-By: Maven Integration for Eclipse
+
+=======
+Manifest-Version: 1.0
+Built-By: hb2017
+Build-Jdk: 1.8.0_91
+Created-By: Maven Integration for Eclipse
+
+>>>>>>> 5992c69eedf1b3fb04df68fd6dc8eb4d1ee4b115
+=======
+Manifest-Version: 1.0
+Built-By: cmh
+Build-Jdk: 1.8.0_91
+Created-By: Maven Integration for Eclipse
+
+>>>>>>> 8e762b02befbf0a67ac4d6c367dba6308b30e0df
+=======
+Manifest-Version: 1.0
+Built-By: hb2002
+Build-Jdk: 1.8.0_91
+Created-By: Maven Integration for Eclipse
+
+>>>>>>> e8209e7e89b5f6de83169aebb24cb089b0e62f98
