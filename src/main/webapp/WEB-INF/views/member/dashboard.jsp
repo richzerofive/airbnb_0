@@ -307,7 +307,6 @@ You were going t...
               (Jun 8 - 12, 2015)
         </span>
       </div>
-</a>    <div class="col-2">
         <span class="label label-gray label-info">Canceled</span>
         <br/>
         $1750
