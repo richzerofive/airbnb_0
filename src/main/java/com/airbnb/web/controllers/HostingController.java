@@ -46,41 +46,56 @@ public class HostingController {
 		retval.setMessage("success3");
 		return retval;
 	}
-	@RequestMapping(value="/regist4", method=RequestMethod.POST, consumes="application/json")
-	public @ResponseBody Retval hostingRegist4(@RequestBody HostingDTO hostingDTO){
-		String convenience, convenience1, convenience2,	convenience3, convenience4, convenience5, convenience6,
-		convenience7, convenience8, convenience9, convenience10, convenience11, convenience12, convenience13 = "";
-		convenience1 = (hostingDTO.getHost_convenience_1() == "true")?"T":"F";
-		convenience2 = (hostingDTO.getHost_convenience_2() == "true")?"T":"F";
-		convenience3 = (hostingDTO.getHost_convenience_3() == "true")?"T":"F";
-		convenience4 = (hostingDTO.getHost_convenience_4() == "true")?"T":"F";
-		convenience5 = (hostingDTO.getHost_convenience_5() == "true")?"T":"F";
-		convenience6 = (hostingDTO.getHost_convenience_6() == "true")?"T":"F";
-		convenience7 = (hostingDTO.getHost_convenience_7() == "true")?"T":"F";
-		convenience8 = (hostingDTO.getHost_convenience_8() == "true")?"T":"F";
-		convenience9 = (hostingDTO.getHost_convenience_9() == "true")?"T":"F";
-		convenience10 = (hostingDTO.getHost_convenience_10() == "true")?"T":"F";
-		convenience11 = (hostingDTO.getHost_convenience_11() == "true")?"T":"F";
-		convenience12 = (hostingDTO.getHost_convenience_12() == "true")?"T":"F";
-		convenience13 = (hostingDTO.getHost_convenience_13() == "true")?"T":"F";
-		convenience = convenience1 + "-" + convenience2 + "-" + convenience3 + "-" + convenience4 + "-" + convenience5 + "-" + convenience6
-				+ "-" + convenience7 + "-" + convenience8 + "-" + convenience9 + "-" + convenience10 + "-" + convenience11 + "-" + convenience12 + "-" + convenience13;
-		logger.info("HostingController :: {}.", "regist4");
-		logger.info("HostingController :: Regist :: host_convenience_1 :: {}",convenience1);
-		logger.info("HostingController :: Regist :: host_convenience_2 :: {}",convenience2);
-		logger.info("HostingController :: Regist :: host_convenience_3 :: {}",convenience3);
-		logger.info("HostingController :: Regist :: host_convenience_4 :: {}",convenience4);
-		logger.info("HostingController :: Regist :: host_convenience_5 :: {}",convenience5);
-		logger.info("HostingController :: Regist :: host_convenience_6 :: {}",convenience6);
-		logger.info("HostingController :: Regist :: host_convenience_7 :: {}",convenience7);
-		logger.info("HostingController :: Regist :: host_convenience_8 :: {}",convenience8);
-		logger.info("HostingController :: Regist :: host_convenience_9 :: {}",convenience9);
-		logger.info("HostingController :: Regist :: host_convenience_10 :: {}",convenience10);
-		logger.info("HostingController :: Regist :: host_convenience_11 :: {}",convenience11);
-		logger.info("HostingController :: Regist :: host_convenience_12 :: {}",convenience12);
-		logger.info("HostingController :: Regist :: host_convenience_13 :: {}",convenience13);
-		logger.info("HostingController :: Regist :: convenience :: {}",convenience);
-		retval.setMessage("success4");
+	@RequestMapping(value="/regist5", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingRegist5(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: Regist :: convenience :: {}",hostingDTO.getConvenience());
+		logger.info("HostingController :: Regist :: safety_fac :: {}",hostingDTO.getSafety_fac());
+		retval.setMessage("success5");
+		return retval;
+	}
+	@RequestMapping(value="/regist6", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingRegist6(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: Regist :: space :: {}",hostingDTO.getSpace());
+		retval.setMessage("success6");
+		return retval;
+	}
+	@RequestMapping(value="/regist8", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingRegist8(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: Regist :: explaination :: {}",hostingDTO.getExplaination());
+		retval.setMessage("success8");
+		return retval;
+	}
+	@RequestMapping(value="/regist9", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingRegist9(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: Regist :: title :: {}",hostingDTO.getTitle());
+		retval.setMessage("success9");
+		return retval;
+	}
+	@RequestMapping(value="/regist10", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingRegist10(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: Regist :: rules :: {}",hostingDTO.getRules());
+		logger.info("HostingController :: Regist :: other_rule :: {}",hostingDTO.getOther_rule());
+		retval.setMessage("success10");
+		return retval;
+	}
+	@RequestMapping(value="/regist11", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingRegist11(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: Regist :: checkin_term :: {}",hostingDTO.getCheckin_term());
+		logger.info("HostingController :: Regist :: checkin_time :: {}",hostingDTO.getCheckin_time());
+		retval.setMessage("success11");
+		return retval;
+	}
+	@RequestMapping(value="/regist12", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingRegist12(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: Regist :: min_nights :: {}",hostingDTO.getMin_nights());
+		logger.info("HostingController :: Regist :: max_nights :: {}",hostingDTO.getMax_nights());
+		retval.setMessage("success12");
+		return retval;
+	}
+	@RequestMapping(value="/regist13", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingRegist13(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: Regist :: price :: {}",hostingDTO.getPrice());
+		retval.setMessage("success13");
 		return retval;
 	}
 	
@@ -99,50 +114,62 @@ public class HostingController {
 		logger.info("HostingController :: {}.", "manage_3");
 		return "public:hosting/hosting_manage_3.tiles";
 	}
-	@RequestMapping("/manage_4")
-	public String hostingManage4(){
-		logger.info("HostingController :: {}.", "manage_4");
-		return "public:hosting/hosting_manage_4.tiles";
+	@RequestMapping(value="/manage4", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingManage4(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: manage :: rules :: {}",hostingDTO.getRules());
+		logger.info("HostingController :: manage :: other_rule :: {}",hostingDTO.getOther_rule());
+		retval.setMessage("manage4");
+		return retval;
 	}
-	@RequestMapping("/manage_5")
-	public String hostingManage5(){
-		logger.info("HostingController :: {}.", "manage_5");
-		return "public:hosting/hosting_manage_5.tiles";
+	@RequestMapping(value="/manage5", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingManage5(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: manage :: checkin_time :: {}",hostingDTO.getCheckin_time());
+		retval.setMessage("manage5");
+		return retval;
 	}
 	@RequestMapping("/manage_6")
 	public String hostingManage6(){
 		logger.info("HostingController :: {}.", "manage_6");
 		return "public:hosting/hosting_manage_6.tiles";
 	}
-	@RequestMapping("/manage_7")
-	public String hostingManage7(){
-		logger.info("HostingController :: {}.", "manage_7");
-		return "public:hosting/hosting_manage_7.tiles";
+	@RequestMapping(value="/manage7", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingManage7(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: manage :: building_type :: {}",hostingDTO.getBuilding_type());
+		logger.info("HostingController :: manage :: room_type :: {}",hostingDTO.getRoom_type());
+		logger.info("HostingController :: manage :: guest_cnt :: {}",hostingDTO.getGuest_cnt());
+		logger.info("HostingController :: manage :: bed_cnt :: {}",hostingDTO.getBed_cnt());
+		logger.info("HostingController :: manage :: bathroom_cnt :: {}",hostingDTO.getBathroom_cnt());
+		retval.setMessage("manage7");
+		return retval;
 	}
-	@RequestMapping("/manage_8")
-	public String hostingManage8(){
-		logger.info("HostingController :: {}.", "manage_8");
-		return "public:hosting/hosting_manage_8.tiles";
+	@RequestMapping(value="/manage8", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingManage8(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: manage :: title :: {}",hostingDTO.getTitle());
+		logger.info("HostingController :: manage :: explaination :: {}",hostingDTO.getExplaination());
+		retval.setMessage("manage8");
+		return retval;
 	}
 	@RequestMapping("/manage_9")
 	public String hostingManage9(){
 		logger.info("HostingController :: {}.", "manage_9");
 		return "public:hosting/hosting_manage_9.tiles";
 	}
-	@RequestMapping("/manage_10")
-	public String hostingManage10(){
-		logger.info("HostingController :: {}.", "manage_10");
-		return "public:hosting/hosting_manage_10.tiles";
+	@RequestMapping(value="/manage10", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingManage10(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: manage :: convenience :: {}",hostingDTO.getConvenience());
+		retval.setMessage("manage10");
+		return retval;
 	}
 	@RequestMapping("/manage_11")
 	public String hostingManage11(){
 		logger.info("HostingController :: {}.", "manage_11");
 		return "public:hosting/hosting_manage_11.tiles";
 	}
-	@RequestMapping("/manage_12")
-	public String hostingManage12(){
-		logger.info("HostingController :: {}.", "manage_12");
-		return "public:hosting/hosting_manage_12.tiles";
+	@RequestMapping(value="/manage12", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingManage12(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: manage :: safety_fac :: {}",hostingDTO.getSafety_fac());
+		retval.setMessage("manage12");
+		return retval;
 	}
 	@RequestMapping("/manage_13")
 	public String hostingManage13(){
