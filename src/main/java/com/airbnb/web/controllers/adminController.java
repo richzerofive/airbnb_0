@@ -4,11 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.airbnb.web.domains.AdminDTO;
 import com.airbnb.web.domains.Retval;
 
 @Controller
@@ -18,6 +16,7 @@ public class adminController {
 	private static final Logger logger = LoggerFactory.getLogger(adminController.class);
 	@Autowired Retval retval;
 	@Autowired 
+	
 	@RequestMapping("/main")
 	public String goMain(){
 		logger.info("Welcome home! The client locale is 1111{}", "디버깅 모드");
@@ -41,28 +40,33 @@ public class adminController {
 		return "admin/nav.jsp";
 	}
 	@RequestMapping("/chart")
-	public String adminChart(){
+	public @ResponseBody Retval adminChart(){
 		logger.info("----- ADMIN_CONTOLLER chart -----");
-		return "admin:admin/chart.tiles";
+		retval.setMessage("success");
+		return retval;
 	}	
-	@RequestMapping("/list")
-	public String adminList(){
-		logger.info("----- ADMIN_CONTOLLER list -----");
-		return "admin/list.jsp";
+	@RequestMapping("/mlist")
+	public @ResponseBody Retval adminList(){
+		logger.info("----- ADMIN_CONTOLLER adminlist -----");
+		retval.setMessage("success");
+		return retval;
 	}
-	@RequestMapping("/r-list")
-	public String adminRevList(){
-		logger.info("----- ADMIN_CONTOLLER list -----");
-		return "admin:admin/r-list.tiles";
+	@RequestMapping("/rlist")
+	public @ResponseBody Retval adminRevList(){
+		logger.info("----- ADMIN_CONTOLLER REVlist -----");
+		retval.setMessage("success");
+		return retval;
 	}
-	@RequestMapping("/h-list")
-	public String adminHouseList(){
-		logger.info("----- ADMIN_CONTOLLER list -----");
-		return "admin:admin/h-list.tiles";
+	@RequestMapping("/hlist")
+	public @ResponseBody Retval adminHouseList(){
+		logger.info("----- ADMIN_CONTOLLER HOUSElist -----");
+		retval.setMessage("success");
+		return retval;
 	}
 	@RequestMapping("/search")
-	public String adminSearch(){
+	public @ResponseBody Retval adminSearch(){
 		logger.info("----- ADMIN_CONTOLLER search -----");
-		return "admin:admin/search.tiles";
+		retval.setMessage("success");
+		return retval;
 	}
 }

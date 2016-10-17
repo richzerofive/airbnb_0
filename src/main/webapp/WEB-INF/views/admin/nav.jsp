@@ -27,7 +27,7 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" id="admin_nav_main"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a class="active-menu" id="admin_main"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
                         <a class="active-menu" href="${context}/admin/list"><i class="fa fa-desktop"></i> List</a>
@@ -36,20 +36,20 @@
                                 <a id="admin_nav_mlist">회원  리스트</a>
                             </li>
                             <li>
-                                <a href="${context}/admin/h-list">호스팅 리스트</a>
+                                <a id="admin_nav_hlist">호스팅 리스트</a>
                             </li>
                             <li>
-                                <a href="${context}/admin/r-list">예약 현황 리스트</a>
+                                <a id="admin_nav_rlist">예약 현황 리스트</a>
                                 
                             </li>
                         </ul>
                         
                     </li>
 					<li>
-                        <a class="active-menu" href="${context}/admin/chart"><i class="fa fa-bar-chart-o"></i> Charts</a>
+                        <a class="active-menu" id="admin_nav_chart"><i class="fa fa-bar-chart-o"></i> Charts</a>
                     </li>
                     <li>
-                        <a class="active-menu" href="${context}/admin/search"><i class="fa fa-qrcode"></i> Search</a>
+                        <a class="active-menu" id="admin_nav_search"><i class="fa fa-qrcode"></i> Search</a>
                     </li>
                 </ul>
             </div>

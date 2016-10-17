@@ -42,12 +42,16 @@
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <div class="panel panel-primary text-center no-boder bg-color-green">
                             <div  class="panel-body">
-                            <a  href="${context}/admin/list">
+                          
                                 <i class="fa fa-user fa-5x"></i>
-                                <h3>8,457  </h3>
+                                <h3>
+                                  <a  id="admin_main_mlist">
+                                	8,457  
+                                </a>
+                                </h3>
                             </div>
                             <div class="panel-footer back-footer-green" >
-                                가입회원자수</a>
+                                가입회원자수
 
                             </div>
                         </div>
@@ -55,9 +59,12 @@
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <div class="panel panel-primary text-center no-boder bg-color-blue">
                             <div class="panel-body">
-                            <a  href="${context}/admin/h-list">
+                            
                                 <i class="fa fa-home fa-5x"></i>
-                                <h3>52,160 </h3>
+                                <h3>
+                                <a  id="admin_main_hlist">
+                                52,160 </a>
+                                </h3>
                             </div>
                             <div class="panel-footer back-footer-blue">
                                 호스팅 회원수</a>
@@ -68,9 +75,12 @@
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <div class="panel panel-primary text-center no-boder bg-color-red">
                             <div class="panel-body">
-                            <a  href="${context}/admin/r-list">
+                            
                                 <i class="fa fa-book fa-5x"></i>
-                                <h3>15,823 </h3>
+                                <h3>
+                                <a  id="admin_main_rlist">
+                                15,823 </a>
+                                </h3>
                             </div>
                             <div class="panel-footer back-footer-red">
                               예약 현황</a>

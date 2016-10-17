@@ -1,44 +1,145 @@
 var admin =(function(){
-	alert("admin init")
 	var init =function(){
 		onCreate();};
 	var setContentView =function(){
 	};
 	var onCreate =function(){
 		setContentView();
-		
-		alert("setContentView  진입")
-		$('#admin_nav_mlist').click(function(){
-			alert('click');
+		$('#admin_main').click(function(){
 			$.ajax({
 				url:app.context()+'/admin/admin_main',
 				success:function(data){
-					alert("success data = "+data.message);
 					if(data.message ==='success'){
-						$('#admin_article').empty().html(ADMIN_MLIST);
-						alert("setContentView  ADMIN_FOOTER")
-						
+						$('#admin_article').empty().html(ADMIN_MAIN);
+						$('#admin_main_mlist').click(function() {
+							alert('click admin_main_mlist');
+							admin.mlist();
+						});
+						$('#admin_main_hlist').click(function() {
+							alert('click admin_main_hlist');
+							admin.hlist();
+						});
+						$('#admin_main_rlist').click(function() {
+							alert('click admin_main_rlist');
+							admin.rlist();
+						});
 					}else{
 						alert('sucess error');
 					}
-					
 				},
 				error:function(x,e,m){
 					alert("admin nav errror "+m);
 				}
 			});
 			
-		
-		
 		});
-	
-	
+		$('#admin_nav_mlist').click(function(){
+			alert('click mlist');
+			admin.mlist();
+		});
+		$('#admin_main_mlist').click(function(){
+			alert('click mlist');
+			admin.mlist();
+		});
 		
+		$('#admin_nav_hlist').click(function(){
+			admin.hlist();
+		});
+		$('#admin_main_hlist').click(function(){
+			alert('click hlist');
+			admin.hlist();
+		});
+		$('#admin_nav_rlist').click(function(){
+			admin.rlist();
+		});
+		$('#admin_main_rlist').click(function(){
+			alert('click hlist');
+			admin.rlist();
+		});
+		$('#admin_nav_chart').click(function(){
+			$.ajax({
+				url:app.context()+'/admin/chart',
+				success:function(data){
+					if (data.message==="success") {
+						$('#admin_article').empty().html(ADMIN_CHART);
+					}else{
+						ALERT('SUCCESS ERROR chart ')
+					}
+				},
+				error:function(x,e,m){
+					alert("admin nav chart error : " +m)
+				}
+			});
+		});
+		$('#admin_nav_search').click(function(){
+			$.ajax({
+				url:app.context()+'/admin/search',
+				success:function(data){
+					if (data.message==="success") {
+						$('#admin_article').empty().html(ADMIN_SEARCH);
+					}else{
+						ALERT('SUCCESS ERROR search ')
+					}
+				},
+				error:function(x,e,m){
+					alert("admin nav search error : " +m)
+				}
+			});	
+		});
 	};
 	  return{
           init : init,
           onCreate : onCreate,
-          setContentView : setContentView
+          setContentView : setContentView,
+          mlist:function(){
+        	  
+        	  $.ajax({
+  				url:app.context()+'/admin/mlist',
+  				success:function(data){
+  					if(data.message ==='success'){
+  						$('#admin_article').empty().html(ADMIN_MLIST);
+  						
+  					}else{
+  						alert('sucess error');
+  					}
+  				},
+  				error:function(x,e,m){
+  					alert("admin nav errror "+m);
+  				}
+  			});
+          },
+          hlist:function(){
+        		$.ajax({
+    				url:app.context()+'/admin/hlist',
+    			
+    				success:function(data){
+    					if (data.message==="success") {
+    						$('#admin_article').empty().html(ADMIN_HLIST);
+    					}
+    					else{
+    						ALERT('SUCCESS ERROR HLIST')
+    					}
+    				},
+    				error:function(x,e,m){
+    					alert("admin nav Hlist error" +m)
+    				}
+    			});
+          },
+          rlist:function(){
+        	  $.ajax({
+  				url:app.context()+'/admin/rlist',
+  				success:function(data){
+  					if (data.message==="success") {
+  						$('#admin_article').empty().html(ADMIN_RLIST);
+  					}else{
+  						ALERT('SUCCESS ERROR RLIST')
+  					}
+  				},
+  				error:function(x,e,m){
+  					alert("admin nav Rlist error : " +m)
+  				}
+  			});
+          }
        
   }
 })();
@@ -307,7 +408,8 @@ var ADMIN_FOOTER =
 	+'</script>'
 	+'</html>'
 var ADMIN_MLIST=
-	'<div id="page-wrapper" >'
+	'<article id="admin_article">'
+	+'<div id="page-wrapper" >'
 	+'<div id="page-inner">'
 	+'<div class="row">'
 	+'<div class="col-md-12">'
@@ -376,8 +478,10 @@ var ADMIN_MLIST=
 	+'</div>'
 	+'<!-- /. ROW  -->'
 	+'</div>'
-var ADMIN_HLIST
-	'<div id="page-wrapper" >'
+	+'</article>'
+var ADMIN_HLIST=
+	'<article id="admin_article">'
+	+'<div id="page-wrapper" >'
 	+'<div id="page-inner">'
 	+'<div class="row">'
 	+'<div class="col-md-12">'
@@ -481,8 +585,10 @@ var ADMIN_HLIST
 	+'</div>'
 	+'<!-- /. ROW  -->'
 	+'</div>'
+	+'</article>'
 var ADMIN_RLIST =
-	'<div id="page-wrapper" >'
+	'<article id="admin_article">'
+	+'<div id="page-wrapper" >'
 	+'<div id="page-inner">'
 	+'<div class="row">'
 	+'<div class="col-md-12">'
@@ -579,8 +685,10 @@ var ADMIN_RLIST =
 	+'</div>'
 	+'<!-- /. ROW  -->'
 	+'</div>'
+	+'</article>'
 var ADMIN_CHART=
-	'<div id="page-wrapper">'
+	'<article id="admin_article">'
+	+'<div id="page-wrapper">'
 	+'<div id="page-inner">'
 	+'<div class="row">'
 	+'<div class="col-md-12">'
@@ -628,8 +736,10 @@ var ADMIN_CHART=
 	+'</div>'
 	+'</div>'
 	+'<!-- /. ROW  -->'
+	+'</article>'
 var ADMIN_SEARCH=
-	'<div id="page-wrapper">'
+	'<article id="admin_article">'
+	+'<div id="page-wrapper">'
 	+'<div id="page-inner">'
 	+'<div class="row">'
 	+'<div class="col-md-6">'
@@ -730,5 +840,155 @@ var ADMIN_SEARCH=
 	+'<!-- /. end list  -->'
 	+'</div>'
 	+'</div>'
+	+'</article>'
+var ADMIN_MAIN =
+	'<article id="admin_main">'
+	+'<div id="page-wrapper">'
+	+'<div id="page-inner">'
+	+'<div class="row">'
+	+'<div class="col-md-12">'
+	+'<h1 class="page-header">'
+	+'Dashboard <small>Summary of AIRBNB</small>'
+	+'</h1>'
+	+'</div>'
+	+'</div>'
+	+'<!-- /. ROW  -->'
+	+'<div class="row">'
+	+'<div class="col-md-3 col-sm-12 col-xs-12">'
+	+'<div class="panel panel-primary text-center no-boder bg-color-green">'
+	+'<div  class="panel-body">'
+	+'<i class="fa fa-user fa-5x"></i>'
+	+'<h3>'
+	+'<a id="admin_main_mlist">'
+	+'15,823 </a></h3>'
+	+'</div>'
+	+'<div class="panel-footer back-footer-green" >'
+	+'가입회원자수</a>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'<div class="col-md-3 col-sm-12 col-xs-12">'
+	+'<div class="panel panel-primary text-center no-boder bg-color-blue">'
+	+'<div class="panel-body">'
+	+'<i class="fa fa-home fa-5x"></i>'
+	+'<h3>'
+	+'<a  id="admin_main_hlist">'
+	+'15,823 </a></h3>'
+	+'</div>'
+	+'<div class="panel-footer back-footer-blue">'
+	+'호스팅 회원수</a>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'<div class="col-md-3 col-sm-12 col-xs-12">'
+	+'<div class="panel panel-primary text-center no-boder bg-color-red">'
+	+'<div class="panel-body">'
+	+'<i class="fa fa-book fa-5x"></i>'
+	+'<h3>'
+	+'<a  id="admin_main_rlist">'
+	+'15,823 </a></h3>'
+	+'</div>'
+	+'<div class="panel-footer back-footer-red">'
+	+'예약 현황</a>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'<div class="col-md-3 col-sm-12 col-xs-12">'
+	+'<div  class="panel panel-primary text-center no-boder bg-color-brown">'
+	+'<div class="panel-body">'
+	+'<i class="fa fa-users fa-5x" ></i>'
+	+'<h3>'
+	+'<a  id="admin_main_rlist">'
+	+'25,823 </a></h3>'
+	+'</div>'
+	+'<div class="panel-footer back-footer-brown">'
+	+'Daily Visits'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'<div class="row">'
+	+'<div class="col-md-12 col-sm-12 col-xs-12">'
+	+'<div class="panel panel-default">'
+	+'<div class="panel-heading">'
+	+'Latest booking status list'
+	+'</div>'
+	+'<div class="panel-body">'
+	+'<div class="table-responsive">'
+	+'<table class="table table-striped table-bordered table-hover">'
+	+'<thead>'
+	+'<tr>'
+	+'<th>예약번호</th>'
+	+'<th>결재일</th>'
+	+'<th>예약자 ID </th>'
+	+'<th>Hoisting ID</th>'
+	+'<th>Check in date</th>'
+	+'<th>Check out date</th>'
+	+'<th>Address</th>'
+	+'</tr>'
+	+'</thead>'
+	+'<tbody>'
+	+'<tr>'
+	+'<td>1000</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>Doe</td>'
+	+'<td>John15482</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>2016-10-19</td>'
+	+'<td>seoul</td>'
+	+'</tr>'
+	+'<tr>'
+	+'<td>1001</td>'
+	+'<td>2016-10-10</td>'
+	+'<td>choi Doe</td>'
+	+'<td>John15482</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>2016-10-19</td>'
+	+'<td>LA</td>'
+	+'</tr>'
+	+'<tr>'
+	+'<td>1002</td>'
+	+'<td>2016-10-10</td>'
+	+'<td>choi Doe</td>'
+	+'<td>John15482</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>2016-10-19</td>'
+	+'<td>LA</td>'
+	+'</tr>'
+	+'<tr>'
+	+'<td>1003</td>'
+	+'<td>2016-10-10</td>'
+	+'<td>choi Doe</td>'
+	+'<td>John15482</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>2016-10-19</td>'
+	+'<td>LA</td>'
+	+'</tr>'
+	+'<tr>'
+	+'<td>1004</td>'
+	+'<td>2016-10-10</td>'
+	+'<td>choi Doe</td>'
+	+'<td>John15482</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>2016-10-19</td>'
+	+'<td>busan</td>'
+	+'</tr>'
+	+'<tr>'
+	+'<td>1006</td>'
+	+'<td>2016-10-10</td>'
+	+'<td>choi Doe</td>'
+	+'<td>John15482</td>'
+	+'<td>2016-10-09</td>'
+	+'<td>2016-10-19</td>'
+	+'<td>LA</td>'
+	+'</tr>'
+	+'</tbody>'
+	+'</table>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'</div>'
+	+'</article>'
 	
 
