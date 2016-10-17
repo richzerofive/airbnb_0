@@ -6,16 +6,20 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.airbnb.web.domains.Retval;
 
 @Controller
 @RequestMapping("/member")
 public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
-
+	@Autowired Retval retval;
 	/*
 	@RequestMapping(value = "/regist1", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody Retval hostingRegist1(@RequestBody HostingDTO hostingDTO) {
@@ -70,8 +74,9 @@ public class MemberController {
 	}
 
 	@RequestMapping("/account")
-	public String memberaccount() {
+	public @ResponseBody Retval memberaccount() {
 		logger.info("----- member_CONTOLLER accountPASS -----");
+		retval.setMessage("success");
 		return "member:member/account.tiles";
 	}
 
