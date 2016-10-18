@@ -20,7 +20,7 @@
 	media="screen" rel="stylesheet" type="text/css">
 
 <div style="margin-top: 2%;">
-	<div class="col-md-12">
+	<div class="col-md-12" id = "g_article">
 		<h2>
 			<span>가이드북</span>
 		</h2>
@@ -41,10 +41,10 @@
 							<div>
 								<div>
 									<div >
-										<img src="${img}/guide/guide_seoul.PNG" id="g_seoul
+										<img src="${img}/guide/guide_seoul.PNG" 
 											alt="Seoul" style="width: 25%; height: 25%;"> 
-											<a href="${context}/guidebook/g_Seoul">
-											<h4>서울</h4>
+											<%-- <a href="${context}/guidebook/g_Seoul"> --%>
+											<h4><a  id="g_Seoul">서울</a></h4>
 										</a>
 											<span>숙소 1111개</span>	
 									</div>

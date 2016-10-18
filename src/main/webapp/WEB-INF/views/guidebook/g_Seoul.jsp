@@ -8,7 +8,6 @@
 <c:set var="img" value="${context}/resources/img" />
 <c:set var="css" value="${context}/resources/css" />
 <c:set var="js" value="${context}/resources/js" />
-
 <meta charset="utf-8">
 <link href="https://a1.muscache.com/airbnb/static/packages/common_o2.1-50a45a2f41dab81f98765e60188dc94c.css" media="all" rel="stylesheet" type="text/css">
 <link href="https://a1.muscache.com/airbnb/static/packages/manage_listing-5a21a78e524e212ada30b6a27fa6a498.css" media="screen" rel="stylesheet" type="text/css">
@@ -36,166 +35,7 @@
 						</h1>
 						<h4 class="guidebook-new-guest-page__introduction">
 							<span>돌아다닐 때 이것만 있으면 끝! 이 지역 에어비앤비 호스트가 추천하는 현지의 숨겨진 보석 같은
-								장소들을 모은 가이드북입니다.</span>
-						</h4>
-						<hr class="guidebook-new-guest-page__hr-tag">
-						<div class="guidebook-new-guest-page__carousel">
-							<div class="guidebook-nav-card-carousel">
-								<div class="guidebook-nav-card-carousel__right-icon">
-									<i class="icon icon-chevron-right icon-gray icon-size-2"></i>
-								</div>
-								<div class="guidebook-nav-card-carousel__scroll">
-									<div class="guidebook-nav-card-carousel__window">
-										<div class="guidebook-nav-card-carousel__window-item">
-											<div class="guidebook-nav-card-carousel__window-item">
-												<div class="guidebook-nav-card fixed-small"
-													style="background-image: url(https://a2.muscache.com/ac/pictures/13044183-9eee-4ac2-bf25-bedbe8e7dbac.jpg?interpolation=lanczos-none&amp;amp;size=x_medium&amp;amp;output-format=jpg&amp;amp;output-quality=70);"
-													data-reactid=".1ze0k5z3k74.3.1.1.0.0.0.3.0.2.0.$0.$0.0">
-													<div style="position: absolute;">
-														<div class="guidebook-nav-card__text-wrapper">
-															<a class="link-reset" href="#">
-															<h4 class="guidebook-nav-card__title">음식</h4></a>
-														</div>
-													</div>
-													<a href="#" class="guidebook-nav-card__button-overlay col-sm-12"></a>
-												</div>
-											</div>
-										</div>
-										<div class="guidebook-nav-card-carousel__window-item">
-											<div class="guidebook-nav-card-carousel__window-item">
-												<div class="guidebook-nav-card fixed-small" style="background-image: url(https://a2.muscache.com/ac/pictures/0c1607c8-aadc-4dfd-a0df-d3eb957c1621.jpg?interpolation=lanczos-none&amp;amp;size=x_medium&amp;amp;output-format=jpg&amp;amp;output-quality=70);">
-													<div style="position: absolute;">
-														<div class="guidebook-nav-card__text-wrapper">
-															<a class="link-reset" href="#">
-															<h4 class="guidebook-nav-card__title">바와 클럽</h4></a>
-														</div>
-													</div>
-													<a href="#" class="guidebook-nav-card__button-overlay col-sm-12"></a>
-												</div>
-											</div>
-										</div>
-										<div class="guidebook-nav-card-carousel__window-item">
-											<div class="guidebook-nav-card-carousel__window-item">
-												<div class="guidebook-nav-card fixed-small"
-													style="background-image: url(https://a2.muscache.com/ac/pictures/48f52aeb-5ffa-4de1-9603-6235a4947461.jpg?interpolation=lanczos-none&amp;amp;size=x_medium&amp;amp;output-format=jpg&amp;amp;output-quality=70);">
-													<div style="position: absolute;">
-														<div class="guidebook-nav-card__text-wrapper">
-															<a class="link-reset" href="#">
-															<h4 class="guidebook-nav-card__title">관광</h4></a>
-														</div>
-													</div>
-													<a href="#" class="guidebook-nav-card__button-overlay col-sm-12"></a>
-												</div>
-											</div>
-										</div>
-										<div class="guidebook-nav-card-carousel__window-item">
-											<div class="guidebook-nav-card-carousel__window-item">
-												<div class="guidebook-nav-card fixed-small" style="background-image: url(https://a2.muscache.com/ac/pictures/e83b0f22-f080-49c8-8608-ca32bbb2e34f.jpg?interpolation=lanczos-none&amp;amp;size=x_medium&amp;amp;output-format=jpg&amp;amp;output-quality=70);">
-													<div style="position: absolute;">
-														<div class="guidebook-nav-card__text-wrapper">
-															<a class="link-reset" href="#">
-															<h4 class="guidebook-nav-card__title">공원 및 자연</h4></a>
-														</div>
-													</div>
-													<a href="#" class="guidebook-nav-card__button-overlay col-sm-12"></a>
-												</div>
-											</div>
-										</div>
-										<div class="guidebook-nav-card-carousel__window-item">
-											<div class="guidebook-nav-card-carousel__window-item">
-												<div class="guidebook-nav-card fixed-small" style="background-image: url(https://a2.muscache.com/ac/pictures/ef914b14-4f0e-4bdb-b29a-cad12045f660.jpg?interpolation=lanczos-none&amp;amp;size=x_medium&amp;amp;output-format=jpg&amp;amp;output-quality=70);">
-													<div style="position: absolute;">
-														<div class="guidebook-nav-card__text-wrapper">
-															<a class="link-reset"
-																href="#">
-																<h4 class="guidebook-nav-card__title">예술과 문화</h4></a>
-														</div>
-													</div>
-													<a href="#" class="guidebook-nav-card__button-overlay col-sm-12"></a>
-												</div>
-											</div>
-										</div>
-										<div class="guidebook-nav-card-carousel__window-item">
-											<div class="guidebook-nav-card-carousel__window-item">
-												<div class="guidebook-nav-card fixed-small"
-													style="background-image: url(https://a2.muscache.com/ac/pictures/9d3ef11b-1c14-4539-ab6d-71f6fc18449d.jpg?interpolation=lanczos-none&amp;amp;size=x_medium&amp;amp;output-format=jpg&amp;amp;output-quality=70);">
-													<div style="position: absolute;">
-														<div class="guidebook-nav-card__text-wrapper">
-															<a class="link-reset" href="#">
-																<h4 class="guidebook-nav-card__title">쇼핑</h4></a>
-														</div>
-													</div>
-													<a href="#" class="guidebook-nav-card__button-overlay col-sm-12"></a>
-												</div>
-											</div>
-										</div>
-										<div class="guidebook-nav-card-carousel__window-item">
-											<div class="guidebook-nav-card-carousel__window-item">
-												<div class="guidebook-nav-card fixed-small"
-													style="background-image: url(https://a2.muscache.com/ac/pictures/228f99a4-73bd-4de1-b044-3cd160f73d66.jpg?interpolation=lanczos-none&amp;amp;size=x_medium&amp;amp;output-format=jpg&amp;amp;output-quality=70);">
-													<div style="position: absolute;">
-														<div class="guidebook-nav-card__text-wrapper">
-															<a class="link-reset" href="#">
-															<h4 class="guidebook-nav-card__title">생활 필수 서비스</h4></a>
-														</div>
-													</div>
-													<a href="#" class="guidebook-nav-card__button-overlay col-sm-12"></a>
-												</div>
-											</div>
-										</div>
-										<div class="guidebook-nav-card-carousel__window-item">
-											<div class="guidebook-nav-card-carousel__window-item">
-												<div class="guidebook-nav-card fixed-small"
-													style="background-image: url(https://a2.muscache.com/ac/pictures/7a680927-6485-4a61-8203-7100eb878689.jpg?interpolation=lanczos-none&amp;amp;size=x_medium&amp;amp;output-format=jpg&amp;amp;output-quality=70);">
-													<div style="position: absolute;">
-														<div class="guidebook-nav-card__text-wrapper">
-															<a class="link-reset"
-																href="#">
-																<h4 class="guidebook-nav-card__title">엔터테인먼트와 액티비티</h4></a>
-														</div>
-													</div>
-													<a href="#"
-														class="guidebook-nav-card__button-overlay col-sm-12"></a>
-												</div>
-											</div>
-										</div>
-										<div class="guidebook-nav-card-carousel__window-item">
-											<div class="guidebook-nav-card-carousel__window-item">
-												<div class="guidebook-nav-card fixed-small"
-													style="background-image: url(https://a2.muscache.com/ac/pictures/edcd1252-db7a-4388-8025-141976842a9a.jpg?interpolation=lanczos-none&amp;amp;size=x_medium&amp;amp;output-format=jpg&amp;amp;output-quality=70);">
-													<div style="position: absolute;">
-														<div class="guidebook-nav-card__text-wrapper">
-															<a class="link-reset"
-																href="#">
-																<h4 class="guidebook-nav-card__title">교통편</h4></a>
-														</div>
-													</div>
-													<a href="#"
-														class="guidebook-nav-card__button-overlay col-sm-12"></a>
-												</div>
-											</div>
-										</div>
-										<div class="guidebook-nav-card-carousel__window-item">
-											<div class="guidebook-nav-card-carousel__window-item">
-												<div class="guidebook-nav-card fixed-small"
-													style="background-image: url(https://a2.muscache.com/ac/pictures/ea5eca00-3f0a-42f6-8a69-17f4e8f5c7a3.jpg?interpolation=lanczos-none&amp;amp;size=x_medium&amp;amp;output-format=jpg&amp;amp;output-quality=70);">
-													<div style="position: absolute;">
-														<div class="guidebook-nav-card__text-wrapper">
-															<a class="link-reset"
-																href="#">
-																<h4 class="guidebook-nav-card__title" >기타</h4></a>
-														</div>
-													</div>
-													<a href="#"
-														class="guidebook-nav-card__button-overlay col-sm-12"></a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						
+								장소들을 모은 가이드북입니다.</span></h4>
 						<hr class="guidebook-new-guest-page__cut-off">
 						<h3 class="guidebook-new-guest-page__best-of-best">
 							<span>추천 장소 모음</span>
@@ -215,7 +55,7 @@
 									<a class="guidebook-place-card__save-button link-reset"">
 									<i class="icon icon-size-2 icon-heart-alt"></i></a>
 								</div>
-								<h3 class="guidebook-place-card__title">서울의 명소!!</h3>
+								<h3 class="guidebook-place-card__title">서울의 명소</h3>
 								<a href="#" class="guidebook-place-card__category"> 공원 및 자연</a>
 								<a href="#" class="guidebook-place-card__category">공원</a>
 								<div class="guidebook-place-card__other-highlights">

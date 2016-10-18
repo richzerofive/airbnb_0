@@ -8,14 +8,13 @@
 <c:set var="img" value="${context}/resources/img" />
 <c:set var="css" value="${context}/resources/css" />
 <c:set var="js" value="${context}/resources/js" />
+
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="${css}/hosting.css" />
-
 <style>
 #map {
 	height: 97%;
 }
-
 .controls {
 	background-color: #fff;
 	border-radius: 2px;
@@ -33,12 +32,10 @@
 	text-overflow: ellipsis;
 	width: 400px;
 }
-
 .controls:focus {
 	border-color: #4d90fe;
 }
 </style>
-
 <div id="host_regist_div_page7">
 	<div id="host_manage_detail_left1">
 		<h5>호스팅</h5>
@@ -78,10 +75,8 @@
 			<a href="${context}/hosting/manage_12">숙소 안전</a>
 		</h6>
 		<br>
-		<h5>게스트 자료</h5>
-		<h6>
-			<a href="${context}/hosting/manage_13">가이드북</a>
-		</h6>
+	<h5>게스트 자료</h5>
+	<h6><a id = "manage13">가이드북</a></h6><br>	
 		<br>
 	</div>
 

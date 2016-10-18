@@ -34,7 +34,7 @@
 	<h6><a href="${context}/hosting/manage_11">사진</a></h6>
 	<h6><a href="${context}/hosting/manage_12">숙소 안전</a></h6><br>
 	<h5>게스트 자료</h5>
-	<h6><a href="${context}/hosting/manage_13">가이드북</a></h6><br>	
+	<h6><a id = "manage13">가이드북</a></h6><br>	
 </div>
 <div id="host_manage_detail_right1">
 	<div id="host_manage_detail_right2">

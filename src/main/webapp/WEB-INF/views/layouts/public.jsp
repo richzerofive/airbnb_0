@@ -42,9 +42,9 @@
 	</footer>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="${js}/seungjoon.js"></script>
 <script src="${js}/application.js"></script>
 <script>
 	app.init('${pageContext.request.contextPath}');
-	
 </script>
 </html>

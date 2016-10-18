@@ -130,9 +130,6 @@
 		<button>
 			<span><a href="${context}/guidebook/content">전체보기</a></span>
 			</button>
-			<button>
-			<span><a href="${context}/guidebook/g_Seoul">서울 가이드 북 보기</a></span>
-		</button>
 		</div>
 		<br>
 		<div align="center" style="width: 100%; height: 1200px;">
