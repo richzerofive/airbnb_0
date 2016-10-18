@@ -41,7 +41,9 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="${js}/application.js"></script>
+<script src="${js}/jackie.js"></script>
 <script>
 	app.init('${pageContext.request.contextPath}');
+	member.init();
 </script>
 </html>

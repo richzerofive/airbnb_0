@@ -10,15 +10,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-<link
-	href="https://a2.muscache.com/airbnb/static/rooms/index-7374baadc22324be8518327ace801b29.css"
-	media="screen" rel="stylesheet" type="text/css" />
+<link href="https://a2.muscache.com/airbnb/static/rooms/index-7374baadc22324be8518327ace801b29.css" media="screen" rel="stylesheet" type="text/css" />
 <title>Your Listings</title>
 </head>
 <body>
 	<div class="page-container-responsive space-top-4 space-4">
-
-
 		<div class="row">
 			<div class="col-md-3 space-sm-3">
 				<ul class="sidenav-list">

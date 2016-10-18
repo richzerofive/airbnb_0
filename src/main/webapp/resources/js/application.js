@@ -173,7 +173,8 @@ var nav = (function() {
 		init : init
 	};
 })();
-var member = (function() {
+
+/*var member = (function() {
 	var init = function() {
 		onCreate();
 	};
@@ -209,4 +210,4 @@ var member = (function() {
 	return {
 		init : init
 	};
-})();
+})();*/

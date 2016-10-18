@@ -1,227 +1,202 @@
 // member
+
 var member = (function(){
 	var init = function(){onCreate();};
 	var setContentView = function(){
-		//individual css specified in ajax
+		$('#pub_header').on('click','#m_management',function(){
+		    
+		    $('#dashboard-item').html(DASHBOARD);
+		    $('#inbox-item').html(INBOX);
+		    $('#your-trips-item').html(TRIPS);
+		    $('#user-profile-item').html(EDIT);
+		    $('#booking-item').html(BOOKING);
+		    $('#go_admin').html(ADMIN);
+		    $('#account-item').click(function(){
+				alert('account click!');
+				$.ajax({
+					url : app.context()+'/member/account',
+					success : function(data){
+						alert('click account');
+						if(data.message==="success"){
+							$('#article').empty().html(ACCOUNT);
+						}
+					},
+					error : function(x,s,n){'alert'}
+				});
+			});
+	      });
 	};
 	var onCreate = function(){
 		setContentView();
-		$('#dashboard-item').click(function(){
-			$.ajax({
-				url : app.context()+'/member/dashboard',
-				success : function(data){
-					alert('input data value: '+data.message);
-					if (data.message==="success") {
-						$('#pub_article').empty().html(DASHBOARD);
-					} else {
-						alert('success error');
-					}
-				},
-				error : function(x,s,m){alert('error '+m);}
-			});
-		});
-		$('#inbox-item').click(function(){
-			$.ajax({
-				url : app.context()+'/member/inbox',
-				success : function(data){
-					if (data.message==="success") {
-						$('#pub-article').empty().html(INBOX);
-					} else {
-						alert('success error');
-					}
-				},
-				error : function(xhr, status, msg){
-					alert('error '+msg);}
-			});
-		});
-		$('#rooms-item').click(function(){
-			$.ajax({
-				url : app.context+'/member/rooms',
-				success : function(data){
-					if (data.message==="success") {
-						$('#pub_article').empty().html(ROOMS);
-					} else {
-						alert('success error');
-					}
-				},
-				error : function(xhr, status, msg){alert('error: '+msg);}
-			});
-		});
-		$('#your-trips-item').click();
-		$('#user-profile-item').click(function(){
-			$.ajax({
-				
-			});
-		});
-		$('#account-item').click(function(){
-			$.ajax({
-				url : app.context()+'/member/account',
-				success : function(data){
-					alert('input data value: '+data.message);
-					if (data.message==="success") {
-						$('#pub_article').empty().html(ACCOUNT);
-					} else {
-						alert('success error');
-					}
-				},
-				error : function(x,s,n){alert('error '+m);}
-			});
-		});
-		$('#booking-item').click();
-		$('#go_admin').click();
 	};
-	return {
-		init : init,
-	}
-		
+	return {init : init};
 })();
 
-var ACCOUNT = 
-'<div id="pub_article">'
-+'<link href="https://a2.muscache.com/airbnb/static/packages/common-86180c1646b448bc4a69535df81ff5de.css" media="all" rel="stylesheet" type="text/css">'
-+'<title>Account</title>'
+
+var nav = (function(){
+	var init = function(){onCreate();};
+	var setContentView = function(){
+		$('#header_brand').attr('src',app.img()+'/default/hanbit.jpg').css('height','80px').css('width','100px').css('padding-bottom','20px');
+		$('#footer').addClass('bottom').addClass('footer');
+		$('#global_content').addClass('box');
+		$('#nav ul').addClass('list_style_none').addClass('over_hidden').addClass('bg_color_black')
+		.css('margin','0').css('padding','0');
+		$('#nav li').addClass('float_left').addClass('display_inline')
+		.css('border-right','1px').css('solid','#bbb');
+		$('#nav li:last-child').css('border-right','none');
+		$('#nav li a').addClass('display_block').addClass('font_color_white').addClass('text_center').addClass('text_deco_none')
+		.css('padding','14px 16px')
+		$('#nav li a:hover:not(.active)').addClass('bg_color_green')
+		$('#nav .active').addClass('bg_color_black');
+	};
+	var onCreate = function(){
+		setContentView();
+		$('#a_member').click(function(){controller.move('member','main');});
+		$('#a_grade').click(function(){controller.move('grade','main');});
+		
+		$('#a_shool').click(function(){controller.move('global','school_info');});
+	};
+	return {
+		init : init
+	};
+})(); 
+
+var ACCOUNT =
+'<link href="https://a2.muscache.com/airbnb/static/packages/common-86180c1646b448bc4a69535df81ff5de.css" media="all" rel="stylesheet" type="text/css">'
 +'<div class="page-container-responsive space-top-4 space-4">'
-+'<div class="row">'
-+'<div class="col-md-3">'
-+'<ul class="sidenav-list">'
-+'<li>'
-+'<a href="https://www.airbnb.com/users/payment_methods/27430889" aria-selected="false" class="sidenav-item" aria-selected="false" class="sidenav-item">Payment Methods</a>'
-+'</li>'
-+'<li>'
-+'<a href="https://www.airbnb.com/users/transaction_history/27430889" aria-selected="false" class="sidenav-item">Transaction History</a>'
-+'</li>'
-+'<li>'
-+'<a href="${context}/member/change_pw" aria-selected="false" class="sidenav-item" id="change-pw">Change Password</a>'
-+'</li>'
-+'<li>'
-+'<a href="${context}/member/cancel" aria-selected="false" class="sidenav-item" id="remove-account">Remove Account</a>'
-+'</li>'
-+'</ul>'
-+'</div>'
-+'<div class="col-md-9">'
-+'<div class="panel">'
-+'<form accept-charset="UTF-8" action="https://www.airbnb.com/users/update_notifications/27430889" id="notification_settings_form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="V4$.airbnb.com$Bs_UKVcOd84$zhU64aViGgU8vqLzRx_UJNSBJvszYBWE7HMICcIe0QQ="></div>'
-+'<input id="id" name="id" type="hidden" value="27430889">'
-+'<div class="panel-header">'
-+'Push Notification Settings'
-+'</div>'
-+'<section class="panel-body">'
-+'<div class="row">'
-+'<div class="col-sm-4">'
-+'<p>Receive Push Notifications to your iPhone, iPad or Android device.</p>'
-+'</div>'
-+'<div class="col-sm-8">'
-+'<div>'
-+'Download the <a href="/mobile">Airbnb App</a> to receive push notifications instead of plain text messages. Once you enable push notifications on your mobile device, the settings will appear here.'
-+'</div>'
-+'</div>'
-+'</div>'
-+'</section>'
-+'</form></div>'
-+'<div class="panel space-top-4">'
-+'<div class="panel-header">'
-+'Text Message Settings'
-+'</div>'
-+'<section class="panel-body">'
-+'<div class="row">'
-+'<div class="col-sm-4">'
-+'<p>Receive mobile updates by regular SMS text message.</p>'
-+'<p><b>Note:</b> For more information, text HELP to 247262. To cancel mobile notifications, reply STOP to 247262. Message and Data rates may apply.</p>'
-+'</div>'
-+'<div class="col-sm-8">'
-+'<div class="row">'
-+'<label class="col-sm-6" for="sms_phone_number_id">Receive SMS notifications to:'
-+'<p><a href="${context}/member/edit">Change phone numbers</a></p>'
-+'</label>'
-+'<div class="select">'
-+'<select id="sms_phone_number_id" name="sms_phone_number_id"><option value="11625073" selected="selected">+1 *** *** 4345</option></select>'
-+'</div>'
-+'</div>'
-+'<label class="col-sm-1 checkbox">'
-+'<input checked="checked" id="sms_messages" name="sms[messages]" type="checkbox" value="1">'
-+'</label>'
-+'<label class="col-sm-11" for="settings_messages">'
-+'<strong>Messages</strong><br>'
-+'From hosts and guests'
-+'</label>'
-+'<label class="col-sm-1 checkbox">'
-+'<input checked="checked" id="sms_reservations" name="sms[reservations]" type="checkbox" value="1">'
-+'</label>'
-+'<label class="col-sm-11" for="settings_messages">'
-+'<strong>Reservation Updates</strong><br>'
-+'Requests, confirmations, changes and more'
-+'</label>'
-+'<label class="col-sm-1 checkbox">'
-+'<input checked="checked" id="sms_other" name="sms[other]" type="checkbox" value="1">'
-+'</label>'
-+'<label class="col-sm-11" for="settings_messages">'
-+'<strong>Other</strong><br>'
-+'Feature updates and more'
-+'</label>'
-+'</div>'
-+'</div>'
-+'</section>'
-+'</div>'
-+'<div class="panel space-top-4">'
-+'<div class="panel-header">'
-+'Email Settings'
-+'</div>'
-+'<section class="panel-body">'
-+'<div class="row">'
-+'<div class="col-sm-4">'
-+'<h5>I want to receive:</h5>'
-+'<p>You can disable these at any time.</p>'
-+'</div>'
-+'<div class="col-sm-8">'
-+'<label class="col-sm-1 checkbox">'
-+'<input name="user_profile_info[receive_promotional_email]" type="hidden" value="0"><input id="user_profile_info_receive_promotional_email" name="user_profile_info[receive_promotional_email]" type="checkbox" value="1">'
-+'</label>'
-+'<label class="col-sm-11" for="user_profile_info_receive_promotional_email">'
-+'General promotions, updates, news about Airbnb or general promotions for partner campaigns and services, user surveys, inspiration, and love from Airbnb.'
-+'</label>'
-+'<label class="col-sm-1 checkbox">'
-+'<input name="user_profile_info[receive_informative_email]" type="hidden" value="0"><input id="user_profile_info_receive_informative_email" name="user_profile_info[receive_informative_email]" type="checkbox" value="1">'
-+'</label>'
-+'<label class="col-sm-11" for="user_profile_info_receive_informative_email">'
-+'Reservation and review reminders.'
-+'</label>'
-+'</div>'
-+'</div>'
-+'</section>'
-+'</div>'
-+'<div class="panel space-top-4">'
-+'<div class="panel-header">'
-+'Phone Preferences'
-+'</div>'
-+'<section class="panel-body">'
-+'<div class="row">'
-+'<div class="col-sm-4">'
-+'<h5>I want to receive:</h5>'
-+'<p>You can change this at any time.</p>'
-+'</div>'
-+'<div class="col-sm-8">'
-+'<label class="col-sm-1 checkbox">'
-+'<input checked="checked" id="can_receive_phone_call" name="can_receive_phone_call" type="checkbox" value="1">'
-+'</label>'
-+'<label class="col-sm-11" for="user_can_receive_phone_call">'
-+'<strong>Calls about my account, listings, reservations, or the Airbnb community'
-+'</strong><br>'
-+'If you opt out, we may still call you about your account if it’s urgent or if previous emails didn’t reach you.'
-+'</label>'
-+'</div>'
-+'</div>'
-+'</section>'
-+'</div>'
-+'<div class="panel-footer">'
-+'<input class="btn btn-primary" id="user_submit" name="commit" type="submit" value="Save">'
-+'</div>'
-+'</div>'
-+'</div>'
-+'</div>'
++ '<div class="row">'
++ '<div class="col-md-3">'    
++ '<ul class="sidenav-list">'
++ '<li><a href="#" aria-selected="false" class="sidenav-item">Payment Methods</a></li>'
++ '<li><a href="#" aria-selected="false" class="sidenav-item">Transaction History</a></li>'
++ '<li><a href="#" aria-selected="false" class="sidenav-item">Change Password</a></li>'
++ '	<li>'
++ '<a href="#" aria-selected="false" class="sidenav-item">Remove Account</a>'
++ '</li>'
++ '</ul>'
++ '</div>'
++ '<div class="col-md-9">'
++ '<div class="panel">'
++ '<form accept-charset="UTF-8" action="https://www.airbnb.com/users/update_notifications/27430889" id="notification_settings_form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="V4$.airbnb.com$Bs_UKVcOd84$zhU64aViGgU8vqLzRx_UJNSBJvszYBWE7HMICcIe0QQ="></div>'
++ '	<input id="id" name="id" type="hidden" value="27430889">'
++ '<div class="panel-header">'
++ 'Push Notification Settings'
++ '</div>'
++ '<section class="panel-body">'
++ 'div class="row">'
++ '<div class="col-sm-4">'
++ '<p>Receive Push Notifications to your iPhone, iPad or Android device.</p>'
++ '</div>'
++ '<div class="col-sm-8">'
++ '<div>'
++ 'Download the <a href="/mobile">Airbnb App</a> to receive push notifications instead of plain text messages. Once you enable push notifications on your mobile device, the settings will appear here.'
++ '</div>'
++ '</div>'
++ '</div>'
++ '</section>'
++ '</form></div>'
++ '<div class="panel space-top-4">'
++ '<div class="panel-header">'
++ 'Text Message Settings'
++ '</div>'
++ '<section class="panel-body">'
++ '<div class="row">'
++ '<div class="col-sm-4">'
++ '<p>Receive mobile updates by regular SMS text message.</p>'
++ '<p><b>Note:</b> For more information, text HELP to 247262. To cancel mobile notifications, reply STOP to 247262. Message and Data rates may apply.</p>'
++ '</div>'
++ '<div class="col-sm-8">'
++ '<div class="row">'
++ '<label class="col-sm-6" for="sms_phone_number_id">Receive SMS notifications to:'
++ '	<p><a href="${context}/member/edit">Change phone numbers</a></p>'
++ '</label>'
++ '<div class="select">'
++ '<select id="sms_phone_number_id" name="sms_phone_number_id"><option value="11625073" selected="selected">+1 *** *** 4345</option></select>'
++ '</div>'
++ '</div>'
++ '<label class="col-sm-1 checkbox">'
++ '<input checked="checked" id="sms_messages" name="sms[messages]" type="checkbox" value="1">'
++ '</label>'
++ '<label class="col-sm-11" for="settings_messages">'
++ '<strong>Messages</strong><br>'
++ 'From hosts and guests'
++ '</label>'
++ '<label class="col-sm-1 checkbox">'
++ '<input checked="checked" id="sms_reservations" name="sms[reservations]" type="checkbox" value="1">'
++ '</label>'
++ '<label class="col-sm-11" for="settings_messages">'
++ '<strong>Reservation Updates</strong><br>'
++ 'Requests, confirmations, changes and more'
++ '</label>'
++ '<label class="col-sm-1 checkbox">'
++ '<input checked="checked" id="sms_other" name="sms[other]" type="checkbox" value="1">'
++ '</label>'
++ '<label class="col-sm-11" for="settings_messages">'
++ '<strong>Other</strong><br>'
++ 'Feature updates and more'
++ '</label>'
++ '</div>'
++ '</div>'
++ '</section>'
++ '</div>'
++ '<div class="panel space-top-4">'
++ '<div class="panel-header">'
++ 'Email Settings'
++ '</div>'
++ '<section class="panel-body">'
++ '<div class="row">'
++ '<div class="col-sm-4">'
++ '<h5>I want to receive:</h5>'
++ '<p>You can disable these at any time.</p>'
++ '</div>'
++ '<div class="col-sm-8">'
++ '<label class="col-sm-1 checkbox">'
++ '<input name="user_profile_info[receive_promotional_email]" type="hidden" value="0"><input id="user_profile_info_receive_promotional_email" name="user_profile_info[receive_promotional_email]" type="checkbox" value="1">'
++ ' </label>'
++ ' <label class="col-sm-11" for="user_profile_info_receive_promotional_email">'
++ 'General promotions, updates, news about Airbnb or general promotions for partner campaigns and services, user surveys, inspiration, and love from Airbnb.'
++ ' </label>'
++ ' <label class="col-sm-1 checkbox">'
++ '   <input name="user_profile_info[receive_informative_email]" type="hidden" value="0"><input id="user_profile_info_receive_informative_email" name="user_profile_info[receive_informative_email]" type="checkbox" value="1">'
++ ' </label>'
++ ' <label class="col-sm-11" for="user_profile_info_receive_informative_email">'
++ '   Reservation and review reminders.'
++ ' </label>'
++ ' </div>'
++ '</div>'
++ '</section>'
++ '</div>'
++ ' <div class="panel space-top-4">'
++ '<div class="panel-header">'
++ 'Phone Preferences'
++ '</div>'
++ '<section class="panel-body">'
++ '<div class="row">'
++ '<div class="col-sm-4">'
++ '<h5>I want to receive:</h5>'
++ '<p>You can change this at any time.</p>'
++ '</div>'
++ '<div class="col-sm-8">'
++ '<label class="col-sm-1 checkbox">'
++ '<input checked="checked" id="can_receive_phone_call" name="can_receive_phone_call" type="checkbox" value="1">'
++ '</label>'
++ '<label class="col-sm-11" for="user_can_receive_phone_call">'
++ '<strong>Calls about my account, listings, reservations, or the Airbnb community</strong><br>'
++ 'If you opt out, we may still call you about your account if it’s urgent or if previous emails didn’t reach you.'
++ '</label>'
++ ' </div>'
++ '</div>'
++ '  </section>'
++ '</div>'
++ '<div class="panel-footer">'
++ '<input class="btn btn-primary" id="user_submit" name="commit" type="submit" value="Save">'
++ '</div>'
++ '</div>'
++ '</div>'
 +'</div>';
+
 var DASHBOARD = 
-'<div id="pub_article">'	
-+'<div class="page-container-responsive space-top-4 space-4">'
+'<div class="page-container-responsive space-top-4 space-4">'
 +'<div class="row">'
 +'<div class="col-md-3">'
 +'<div class="panel space-4">'
@@ -485,24 +460,10 @@ var DASHBOARD =
 +'</div>'
 +'</div>'
 +'</div>'
-+'</div>'
 +'</div>';
+
+
 var INBOX = 
-	'<div id="pub_article">'
-	+'<title>Inbox</title>'
-	+'<link href="https://a0.muscache.com/airbnb/static/threads-23739502f63a2c47290664ebfb93b415.css" media="screen" rel="stylesheet" type="text/css" /><link href="https://a0.muscache.com/airbnb/static/cohosting/cohost_intro_banner-098855ecb44b7df08cf1a9fd27a673a0.css" media="screen" rel="stylesheet" type="text/css" />'
-	+'<meta name="viewport" content="width=device-width, initial-scale=1">'
-	+'<link rel="image_src" href="https://a2.muscache.com/airbnb/static/logos/belo-200x200-4d851c5b28f61931bf1df28dd15e60ef.png">'
-	+'<link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Airbnb">'
-	+'<meta name="mobile-web-app-capable" content="yes">'
-	+'<meta name="theme-color" content="#f5f5f5">'
-	+'<link rel="apple-touch-icon" href="https://a0.muscache.com/airbnb/static/icons/apple-touch-icon-76x76-3b313d93b1b5823293524b9764352ac9.png" />'
-	+'<link rel="apple-touch-icon" sizes="76x76" href="https://a0.muscache.com/airbnb/static/icons/apple-touch-icon-76x76-3b313d93b1b5823293524b9764352ac9.png" />'
-	+'<link rel="apple-touch-icon" sizes="120x120" href="https://a1.muscache.com/airbnb/static/icons/apple-touch-icon-120x120-52b1adb4fe3a8f825fc4b143de12ea4b.png" />'
-	+'<link rel="apple-touch-icon" sizes="152x152" href="https://a0.muscache.com/airbnb/static/icons/apple-touch-icon-152x152-7b7c6444b63d8b6ebad9dae7169e5ed6.png" />'
-	+'<link rel="apple-touch-icon" sizes="180x180" href="https://a2.muscache.com/airbnb/static/icons/apple-touch-icon-180x180-bcbe0e3960cd084eb8eaf1353cf3c730.png" />'
-	+'<link rel="icon" sizes="192x192" href="https://a1.muscache.com/airbnb/static/icons/android-icon-192x192-c0465f9f0380893768972a31a614b670.png" />'
-	+'<link rel="shortcut icon" sizes="76x76" type="image/x-icon" href="https://a1.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico" />'
 	+'<div data-hypernova-key="inboxbundlejs">'
 	+'<div id="inbox-container"'
 	+'class="page-container-responsive page-container-inbox space-7 space-top-7"'
@@ -1099,36 +1060,4 @@ var INBOX =
 	+'</div>'
 	+'</div>'
 	+'</div>'
-	+'</div>';
-var ROOMS = 
-'<div id="pub_article">'
-+'<link href="https://a2.muscache.com/airbnb/static/rooms/index-7374baadc22324be8518327ace801b29.css" media="screen" rel="stylesheet" type="text/css" />'
-+'<title>Your Listings</title>'
-+'<div class="page-container-responsive space-top-4 space-4">'
-+'<div class="row">'
-+'<div class="col-md-3 space-sm-3">'
-+'<ul class="sidenav-list">'
-+'<li><a href="${context}/member/rooms" aria-selected="true" class="sidenav-item">Your'
-+'Listings</a></li>'
-+'<li><a href="#" aria-selected="false"'
-+'class="sidenav-item">Your Reservations</a></li>'
-+'<li><a href="#" aria-selected="false"'
-+'class="sidenav-item">Reservation Requirements</a></li>'
-+'<div class="space-top-4 space-4">'
-+'<a href="#" aria-selected="false" class="btn btn-host">Add'
-+'New Listings</a>'
-+'</div>'
-+'</ul>'
-+'</div>'
-+'<div class="col-md-9">'
-+'<div class="your-listings-flash-container"></div>'
-+'<div class="h3 space-3">You don’t have any listings!</div>'
-+'<p>Make money by renting out your extra space on Airbnb. You’ll'
-+'also get to meet interesting travelers from around the world!</p>'
-+'<a class="btn btn-primary" href="#" id="post-listing-new">'
-+'Post a new listing </a>'
-+'</div>'
-+'</div>'
-+'</div>'	
-+'</div>';
-	
+

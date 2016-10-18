@@ -1,16 +1,10 @@
 package com.airbnb.web.controllers;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.airbnb.web.domains.Retval;
@@ -38,9 +32,9 @@ public class MemberController {
 	}
 
 	@RequestMapping("/signup")
-	public String membersignUp() {
+	public @ResponseBody Retval  membersignUp() {
 		logger.info("----- member_CONTOLLER signUp PASS -----");
-		return "public:member/signUp.tiles";
+		return retval;
 	}
 
 	@RequestMapping("/main")
@@ -48,41 +42,53 @@ public class MemberController {
 		logger.info("Welcome home! The client locale is 1111{}", "디버깅 모드");
 		return "member:member/show.tiles";
 	}
-
+	@RequestMapping("/cancel")
+	public String memberCancel() {
+		logger.info("memberCancel");
+		return "member:member/cancel.tiles";
+	}
+	@RequestMapping("/change_pw")
+	public String memberChangePw() {
+		logger.info("memberChangePw");
+		return "member:member/change_pw.tiles";
+	}
 	@RequestMapping("/dashboard")
-	public String memberHeader() {
-		logger.info("----- member_dashboard PASS -----");
-		return "member:member/dashboard.tiles";
+	public @ResponseBody Retval memberHeader() {
+		logger.info("Member_Dashboard: {}", retval.getMessage());
+		System.out.println("Dashboard: "+retval.getMessage());
+		return retval;
 	}
 
 	@RequestMapping("/inbox")
-	public String memberinbox() {
+	public @ResponseBody Retval memberinbox() {
 		logger.info("----- member_CONTOLLER inbox -----");
-		return "member:member/inbox.tiles";
+		return retval;
 	}
 
 	@RequestMapping("/trip")
-	public String memberTrip() {
+	public @ResponseBody Retval memberTrip() {
 		logger.info("----- member_CONTOLLER trip PASS -----");
-		return "member:member/trips.tiles";
+		return retval;
 	}
 
 	@RequestMapping("/edit")
-	public String memberEdit() {
+	public @ResponseBody Retval memberEdit() {
 		logger.info("----- member_CONTOLLER edit PASS -----");
-		return "member:member/edit.tiles";
+		return retval;
 	}
 
 	@RequestMapping("/account")
 	public @ResponseBody Retval memberaccount() {
-		logger.info("----- member_CONTOLLER accountPASS -----");
+		logger.info("----- member_CONTOLLER Member/Account -----");
 		retval.setMessage("success");
-		return "member:member/account.tiles";
+		logger.info("Account: {}", retval.getMessage());
+		System.out.println("Account: "+retval.getMessage());
+		return retval;
 	}
-
-	@RequestMapping("/asrasr")
-	public String membera5w25() {
-		logger.info("----- member_CONTOLLER accountPASS -----");
-		return "member:member/account.tiles";
-	}
+	@RequestMapping("/rooms")
+	public @ResponseBody Retval memberRooms(){
+		logger.info("memberController: rooms");
+		System.out.println("Rooms: "+retval.getMessage());
+		return retval;
+	};
 }
