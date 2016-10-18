@@ -46,6 +46,13 @@ public class HostingController {
 		retval.setMessage("success3");
 		return retval;
 	}
+	@RequestMapping(value="/regist4", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingRegist4(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: Regist :: latitude :: {}",hostingDTO.getLatitude());
+		logger.info("HostingController :: Regist :: longitude :: {}",hostingDTO.getLongitude());
+		retval.setMessage("success4");
+		return retval;
+	}
 	@RequestMapping(value="/regist5", method=RequestMethod.POST, consumes="application/json")
 	public @ResponseBody Retval hostingRegist5(@RequestBody HostingDTO hostingDTO){
 		logger.info("HostingController :: Regist :: convenience :: {}",hostingDTO.getConvenience());
@@ -109,10 +116,11 @@ public class HostingController {
 		logger.info("HostingController :: {}.", "manage_2");
 		return "public:hosting/hosting_manage_2.tiles";
 	}
-	@RequestMapping("/manage_3")
-	public String hostingManage3(){
-		logger.info("HostingController :: {}.", "manage_3");
-		return "public:hosting/hosting_manage_3.tiles";
+	@RequestMapping(value="/manage3", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingManage3(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: manage :: price :: {}",hostingDTO.getPrice());
+		retval.setMessage("manage3");
+		return retval;
 	}
 	@RequestMapping(value="/manage4", method=RequestMethod.POST, consumes="application/json")
 	public @ResponseBody Retval hostingManage4(@RequestBody HostingDTO hostingDTO){
