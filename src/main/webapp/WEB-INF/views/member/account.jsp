@@ -36,7 +36,6 @@
 							Password</a></li>
 					<li><a href="${context}/member/cancel" aria-selected="false"
 						class="sidenav-item" id="remove-account">Remove Account</a></li>
-
 				</ul>
 
 			</div>
