@@ -9,10 +9,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/guidebook")
 public class GuidebookController {
 	private static final Logger logger = LoggerFactory.getLogger(GuidebookController.class);
+	
 	@RequestMapping("/content")
 	public String guidebook(){
 		logger.info("GuideController ! content() ");
-		return "guidebook:guidebook/content.tiles";
+		return "public:guidebook/content.tiles";
+	}
+	
+	@RequestMapping("/g_Seoul")
+	public String guidebook_Seoul(){
+		logger.info("GuideController ! g_Seoul() ");
+		return "public:guidebook/g_Seoul.tiles";
 	}
 	
 
