@@ -1,13 +1,33 @@
+  function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Year', 'Sales', 'Expenses', 'Profit'],
+        ['2014', 1000, 400, 200],
+        ['2015', 1170, 460, 250],
+        ['2016', 660, 1120, 300],
+        ['2017', 1030, 540, 350]
+      ]);
+      var options = {
+        chart: {
+          title: 'Company Performance',
+          subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+        }
+      };
+      var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+      chart.draw(data, options);
+    }
 var admin =(function(){
-	var init =function(){
+	var init =function(context){
 		onCreate();};
+	var context = function() {
+			return session.getContextPath();
+		};
 	var setContentView =function(){
 	};
 	var onCreate =function(){
 		setContentView();
 		$('#admin_main').click(function(){
 			$.ajax({
-				url:app.context()+'/admin/admin_main',
+				url:admin.context()+'/admin/admin_main',
 				success:function(data){
 					if(data.message ==='success'){
 						$('#admin_article').empty().html(ADMIN_MAIN);
@@ -58,10 +78,10 @@ var admin =(function(){
 		});
 		$('#admin_nav_chart').click(function(){
 			$.ajax({
-				url:app.context()+'/admin/chart',
+				url:admin.context()+'/admin/chart',
 				success:function(data){
 					if (data.message==="success") {
-						$('#admin_article').empty().html(ADMIN_CHART);
+						$('#admin_article').empty().html(ADMIN_MCHART);
 					}else{
 						ALERT('SUCCESS ERROR chart ')
 					}
@@ -73,7 +93,7 @@ var admin =(function(){
 		});
 		$('#admin_nav_search').click(function(){
 			$.ajax({
-				url:app.context()+'/admin/search',
+				url:admin.context()+'/admin/search',
 				success:function(data){
 					if (data.message==="success") {
 						$('#admin_article').empty().html(ADMIN_SEARCH);
@@ -90,11 +110,12 @@ var admin =(function(){
 	  return{
           init : init,
           onCreate : onCreate,
+          context : context,
           setContentView : setContentView,
           mlist:function(){
         	  
         	  $.ajax({
-  				url:app.context()+'/admin/mlist',
+  				url:admin.context()+'/admin/mlist',
   				success:function(data){
   					if(data.message ==='success'){
   						$('#admin_article').empty().html(ADMIN_MLIST);
@@ -110,7 +131,7 @@ var admin =(function(){
           },
           hlist:function(){
         		$.ajax({
-    				url:app.context()+'/admin/hlist',
+    				url:admin.context()+'/admin/hlist',
     			
     				success:function(data){
     					if (data.message==="success") {
@@ -127,7 +148,7 @@ var admin =(function(){
           },
           rlist:function(){
         	  $.ajax({
-  				url:app.context()+'/admin/rlist',
+  				url:admin.context()+'/admin/rlist',
   				success:function(data){
   					if (data.message==="success") {
   						$('#admin_article').empty().html(ADMIN_RLIST);
@@ -142,6 +163,34 @@ var admin =(function(){
           }
        
   }
+})();
+var session = (function() {
+	var init = function(context) {
+		sessionStorage.setItem('context', context);
+		sessionStorage.setItem('js', context + '/resources/js');
+		sessionStorage.setItem('css', context + '/resources/css');
+		sessionStorage.setItem('img', context + '/resources/img');
+	};
+	var getContextPath = function() {
+		return sessionStorage.getItem('context');
+	};
+	var getJavascriptPath = function() {
+		return sessionStorage.getItem('js');
+	};
+	var getCssPath = function() {
+		return sessionStorage.getItem('js');
+	};
+	var getImagePath = function() {
+		return sessionStorage.getItem('img');
+	};
+	return {
+		init : init,
+		getContextPath : getContextPath,
+		getJavascriptPath : getJavascriptPath,
+		getCssPath : getCssPath,
+		getImagePath : getImagePath
+	};
+
 })();
 var ADMIN_HEAD =
 	/*'<div id="wrapper">'
@@ -990,5 +1039,39 @@ var ADMIN_MAIN =
 	+'</div>'
 	+'</div>'
 	+'</article>'
+	/*
+	=============== Mchart_js ===============
+	@AUTHOR :math89@gmail.com
+	@CREATE DATE: 2016-10-19
+	@UPDATE DATE: 2016-10-19
+	@DESC :월별 회원 가입
+	=============== ADMIN ===============
+	*/
 	
+  
+	var ADMIN_MCHART=
+		'<article id="admin_article">'
+		+'<div id="page-wrapper">'
+		+'<div id="page-inner">'
+		+'<div class="row">'
+		+'<div class="col-md-12">'
+		+'<h1 class="page-header">'
+		+'통계<small>회원 호스팅 예약 관련 통계 자료 </small>'
+		+'</h1>'
+		+'</div>'
+		+'</div>'
+		+'<!-- /. ROW -->'
+		+'<div class="row">'
+		+'<div class="col-md-6 col-sm-12 col-xs-12">'
+		+'<div class="panel panel-default">'
+		+'<div class="panel-heading">2016년 월별 회원 가입 현황</div>'
+		+'<div class="panel-body">'
+		+'<div id="columnchart_material" style="width: 800px; height: 400px;"></div>'
+		+'</div>'
+		+'</div>'
+		+'</div>'
+		+'</div>'
+		+'<head>'
+		+'<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'
+		+'</article>'
 

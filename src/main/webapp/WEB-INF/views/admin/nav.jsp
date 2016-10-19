@@ -47,6 +47,18 @@
                     </li>
 					<li>
                         <a class="active-menu" id="admin_nav_chart"><i class="fa fa-bar-chart-o"></i> Charts</a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a id="admin_nav_mchart">월별회원가입현황</a>
+                            </li>
+                            <li>
+                                <a id="admin_nav_hchart">월별호스팅 및 예약현황</a>
+                            </li>
+                            <li>
+                                <a id="admin_nav_rchart">순수회원 및 호스팅 회원통계</a>
+                               
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a class="active-menu" id="admin_nav_search"><i class="fa fa-qrcode"></i> Search</a>

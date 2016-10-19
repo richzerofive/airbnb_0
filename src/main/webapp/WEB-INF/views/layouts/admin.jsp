@@ -49,18 +49,22 @@
     <script src="${js}/jquery.metisMenu.js"></script>
     <!-- Morris Chart Js -->
     <script src="${js}/morris/raphael-2.1.0.min.js"></script>
-    <script src="${js}/morris/morris.js"></script>
+   <%--  <script src="${js}/morris/morris.js"></script> --%>
     <!-- Custom Js -->
     <script src="${js}/custom-scripts.js"></script>
      <!-- inchul Js -->
     <script src="${js}/inchul.js"></script>
 	<script src="${js}/application.js"></script>
-
+<script type="text/javascript" src="https://www.google.com/jsapi">
+google.charts.load('current', {'packages':['bar']});
+google.charts.setOnLoadCallback(drawChart);
+</script>
 
 <script>
 
 	app.init('${pageContext.request.contextPath}');
-		admin.init();
+		admin.init('${pageContext.request.contextPath}');
+		
 </script>
 </html>
 
