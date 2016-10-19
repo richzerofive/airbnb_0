@@ -8,16 +8,16 @@
 <c:set var="css" value="${context}/resources/css"/>
 <c:set var="js" value="${context}/resources/js"/>
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-<link rel="stylesheet" href="${css}/hosting.css" />
+ <link rel="stylesheet" href="${css}/hosting.css" />
 <link rel="stylesheet" href="${css}/hosting_clndr.css" />
-<link rel="stylesheet" href="${css}/hosting_style.css" />
+<link rel="stylesheet" href="${css}/hosting_style.css" /> 
 <link href='//fonts.googleapis.com/css?family=Maven+Pro:700,400' rel='stylesheet' type='text/css'>
 <script src="${js}/hosting_jquery-1.11.1.min.js"></script>
 <script src="${js}/hosting_responsiveslides.min.js"></script>
 <script src="${js}/hosting_underscore-min.js"></script>
 <script src= "${js}/hosting_moment-2.2.1.js"></script>
 <script src="${js}/hosting_clndr.js"></script>
-<script src="${js}/hosting_site.js"></script>
+<script src="${js}/hosting_site.js"></script> 
 <div id="host_regist_div_page7">
 <div id="host_manage_detail_left1">
 	<h5>호스팅</h5>

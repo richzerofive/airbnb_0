@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.airbnb.web.domains.HostingDTO;
 import com.airbnb.web.domains.Retval;
@@ -64,6 +65,12 @@ public class HostingController {
 	public @ResponseBody Retval hostingRegist6(@RequestBody HostingDTO hostingDTO){
 		logger.info("HostingController :: Regist :: space :: {}",hostingDTO.getSpace());
 		retval.setMessage("success6");
+		return retval;
+	}
+	@RequestMapping(value="/regist7", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingRegist7(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: Regist :: picture :: {}",hostingDTO.getPicture());
+		retval.setMessage("success7");
 		return retval;
 	}
 	@RequestMapping(value="/regist8", method=RequestMethod.POST, consumes="application/json")
@@ -157,10 +164,12 @@ public class HostingController {
 		retval.setMessage("manage8");
 		return retval;
 	}
-	@RequestMapping("/manage_9")
-	public String hostingManage9(){
-		logger.info("HostingController :: {}.", "manage_9");
-		return "public:hosting/hosting_manage_9.tiles";
+	@RequestMapping(value="/manage9", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingManage9(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: manage :: latitude :: {}",hostingDTO.getLatitude());
+		logger.info("HostingController :: manage :: longitude :: {}",hostingDTO.getLongitude());
+		retval.setMessage("manage9");
+		return retval;
 	}
 	@RequestMapping(value="/manage10", method=RequestMethod.POST, consumes="application/json")
 	public @ResponseBody Retval hostingManage10(@RequestBody HostingDTO hostingDTO){
@@ -168,10 +177,11 @@ public class HostingController {
 		retval.setMessage("manage10");
 		return retval;
 	}
-	@RequestMapping("/manage_11")
-	public String hostingManage11(){
-		logger.info("HostingController :: {}.", "manage_11");
-		return "public:hosting/hosting_manage_11.tiles";
+	@RequestMapping(value="/manage11", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingManage11(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: manage :: picture :: {}",hostingDTO.getPicture());
+		retval.setMessage("manage11");
+		return retval;
 	}
 	@RequestMapping(value="/manage12", method=RequestMethod.POST, consumes="application/json")
 	public @ResponseBody Retval hostingManage12(@RequestBody HostingDTO hostingDTO){

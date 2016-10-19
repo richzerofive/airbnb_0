@@ -34,7 +34,7 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
-		return "public:public/content.tiles";
+		return "public:public/test.tiles";
 	}
 	
 }

@@ -7,6 +7,8 @@
 <c:set var="img" value="${context}/resources/img" />
 <c:set var="css" value="${context}/resources/css" />
 <c:set var="js" value="${context}/resources/js"/>
+
+
 <body class="with-new-header home_view v2 p1 fixed-header">
 	<span class="screen-reader-only"> 에어비앤비 </span>
 	<noscript>

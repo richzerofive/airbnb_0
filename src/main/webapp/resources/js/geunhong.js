@@ -212,7 +212,6 @@ var hosting = (function(){
 			var regist_data_6 = {
 				'space' : space
 			}
-				
 			$.ajax({
 				url : app.context()+'/hosting/regist6',
 				type : 'POST',
@@ -221,60 +220,22 @@ var hosting = (function(){
 				contentType : 'application/json',
 				success : function(data){
 					if (data.message === 'success6') {
-						$('#pub_article').html(hosting_regist_7);
-							$.fn.setPreview = function(opt){
-							    "use strict"
-							    var defaultOpt = {
-							        inputFile: $(this),
-							        img: null,
-							        w: 200,
-							        h: 200
-							    };
-							    $.extend(defaultOpt, opt);
-							    var previewImage = function(){
-							        if (!defaultOpt.inputFile || !defaultOpt.img) return;
-							 
-							        var inputFile = defaultOpt.inputFile.get(0);
-							        var img       = defaultOpt.img.get(0);
-
-							        if (window.FileReader) {
-							            if (!inputFile.files[0].type.match(/image\//)) return;
-							            try {
-							                var reader = new FileReader();
-							                reader.onload = function(e){
-							                    img.src = e.target.result;
-							                    img.style.width  = defaultOpt.w+'px';
-							                    img.style.height = defaultOpt.h+'px';
-							                    img.style.display = '';
-							                }
-							                reader.readAsDataURL(inputFile.files[0]);
-							            } catch (e) {
-							            }
-
-							        } else if (img.filters) {
-							            inputFile.select();
-							            inputFile.blur();
-							            var imgSrc = document.selection.createRange().text;
-							 
-							            img.style.width  = defaultOpt.w+'px';
-							            img.style.height = defaultOpt.h+'px';
-							            img.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enable='true',sizingMethod='scale',src=\""+imgSrc+"\")";            
-							            img.style.display = '';
-							        } else {
-							        }
-							    };
-							    $(this).change(function(){
-							        previewImage();
-							    });
-							};
-							$(document).ready(function(){
-							    var opt = {
-							        img: $('#img_preview'),
-							        w: 200,
-							        h: 200
-							    };
-							    $('#input_file').setPreview(opt);
-							});
+						 $('#pub_article').html(hosting_regist_7);
+						 $('#fine-uploader-gallery').fineUploader({
+					            template: 'qq-template-gallery',
+					            request: {
+					                endpoint: '/server/uploads'
+					            },
+					            thumbnails: {
+					                placeholders: {
+					                    waitingPath: '/source/placeholders/waiting-generic.png',
+					                    notAvailablePath: '/source/placeholders/not_available-generic.png'
+					                }
+					            },
+					            validation: {
+					                allowedExtensions: ['jpeg', 'jpg', 'gif', 'png']
+					            }
+					        });
 						
 					}
 				},
@@ -284,7 +245,24 @@ var hosting = (function(){
 			});
 		})
 		$('#pub_article').on('click','#hosting_regist_8',function(){
-			$('#pub_article').html(hosting_regist_8);
+			var regist_data_7 = {
+				'picture' : $('#host_upload_img').text()
+			}
+			$.ajax({
+				url : app.context()+'/hosting/regist7',
+				type : 'POST',
+				data : JSON.stringify(regist_data_7),
+				dataType : 'json',
+				contentType : 'application/json',
+				success : function(data){
+					if (data.message === 'success7') {
+						$('#pub_article').html(hosting_regist_8);
+					}
+				},
+				error : function(x,s,m){
+					alert('regist7시 error 발생 : ' + m);
+				}
+			});
 		})
 		$('#pub_article').on('click','#hosting_regist_9',function(){
 			var regist_data_8 = {
@@ -449,6 +427,9 @@ var hosting = (function(){
 		$('#pub_article').on('click','#hosting_manage_2',function(){
 			$('#pub_article').html(hosting_manage_menu)
 			$('#host_manage_detail_right1').html(hosting_manage_2)
+			$('#pub_article').on('click','#temp_temp',function(){
+				alert('하이요');
+			})
 		})
 		$('#pub_article').on('click','#hosting_manage_3',function(){
 			$('#pub_article').html(hosting_manage_menu)
@@ -591,6 +572,54 @@ var hosting = (function(){
 		$('#pub_article').on('click','#hosting_manage_9',function(){
 			$('#pub_article').html(hosting_manage_menu)
 			$('#host_manage_detail_right1').html(hosting_manage_9)
+			var map;
+			var myCenter = new google.maps.LatLng(37.552615, 126.937665);
+				var mapProp = {
+					center:myCenter,
+					zoom : 13,
+					mapTypeId : google.maps.MapTypeId.ROADMAP
+				};
+				map = new google.maps.Map(document.getElementById("googleMap_manage"),mapProp);
+				google.maps.event.addListener(map, 'click', function(event){
+					placeMarker(event.latLng);
+				});
+			function placeMarker(location){
+				var marker = new google.maps.Marker({
+					position : location,
+					map : map,
+				});
+				var infowindow = new google.maps.InfoWindow({
+					content : 'Latitude: ' + location.lat() + '<br>Longitude : ' + location.lng()
+				});
+				infowindow.open(map,marker);
+				$('#hosting_manage_map_lat').prop('value', location.lat());
+				$('#hosting_manage_map_long').prop('value', location.lng());
+				google.maps.event.addListener(map, 'click', function(event){
+					marker.setMap(null);
+				});
+			}
+
+			$('#host_manage_submit_9').click(function(){
+				var manage_data_9 = {
+					'latitude' : $('#hosting_manage_map_lat').val(),
+					'longitude' : $('#hosting_manage_map_long').val()
+				}
+				$.ajax({
+					url : app.context()+'/hosting/manage9',
+					type : 'POST',
+					data : JSON.stringify(manage_data_9),
+					dataType : 'json',
+					contentType : 'application/json',
+					success : function(data){
+						if (data.message === 'manage9') {
+							alert('수정완료');
+						}
+					},
+					error : function(x,s,m){
+						alert('manage9시 error 발생 : ' + m);
+					}
+				});
+			});	
 		})
 		$('#pub_article').on('click','#hosting_manage_10',function(){
 			$('#pub_article').html(hosting_manage_menu)
@@ -634,6 +663,43 @@ var hosting = (function(){
 		$('#pub_article').on('click','#hosting_manage_11',function(){
 			$('#pub_article').html(hosting_manage_menu)
 			$('#host_manage_detail_right1').html(hosting_manage_11)
+			$('#fine-uploader-gallery_manage').fineUploader({
+		            template: 'qq-template-gallery',
+		            request: {
+		                endpoint: '/server/uploads'
+		            },
+		            thumbnails: {
+		                placeholders: {
+		                    waitingPath: '/source/placeholders/waiting-generic.png',
+		                    notAvailablePath: '/source/placeholders/not_available-generic.png'
+		                }
+		            },
+		            validation: {
+		                allowedExtensions: ['jpeg', 'jpg', 'gif', 'png']
+		            }
+		        });
+			$('#host_manage_submit_11').click(function(){
+				var manage_data_11 = {
+					'picture' : $('#host_upload_img').text()
+				}
+				$.ajax({
+					url : app.context()+'/hosting/manage11',
+					type : 'POST',
+					data : JSON.stringify(manage_data_11),
+					dataType : 'json',
+					contentType : 'application/json',
+					success : function(data){
+						if (data.message === 'manage11') {
+							alert('수정완료');
+						}
+					},
+					error : function(x,s,m){
+						alert('manage11시 error 발생 : ' + m);
+					}
+				});
+			})
+			
+			
 		})
 		$('#pub_article').on('click','#hosting_manage_12',function(){
 			$('#pub_article').html(hosting_manage_menu)
@@ -995,12 +1061,14 @@ var hosting_regist_6 =
 +'</div>';
 var hosting_regist_7 = 
 '<div id="host_regist_div_page5">'
-+'<div id="host_regist_div_left5"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>'
++'<div id="host_regist_div_left5" style="height:1000px;"></div>'
 +'<div id="host_regist_div_center1">'
 +'<div id="host_regist_div_center2">'
++'<script type="text/javascript" src="'+app.js()+'/jquery.fine-uploader.js"></script>'
 +'<img src="https://a0.muscache.com/airbnb/static/list_your_space/tip-icon-73f3ef1d10a9545bfd15fd266803da48.png" alt="" style="float:right"/>'
-+'<h3>사진</h3><br><br><br><br><br><br><br><img id="img_preview" style="width:100%; height:100%;"/><br><br><br><br><br><br><br>'
-+'<hr><center><input type="file" name="img" id="input_file"></center>'
++'<h3>사진</h3><br><br><div id="fine-uploader-gallery"></div><br><br>'
++'<input type="hidden" id="hosting_image_value">'
++'<hr>'
 +'<a href="#" id="hosting_regist_6"><input type="button" value="뒤로" class="btn btn-info host_regist_prev2"></a>'
 +'<a href="#" id="hosting_regist_8"><input type="button" value="다음" class="btn btn-danger host_regist_next2"></a>'
 +'</div>'
@@ -1218,7 +1286,13 @@ var hosting_manage_menu =
 +'</div>'
 +'<div id="host_manage_detail_right1">';
 var hosting_manage_2 =
-'<div id="host_manage_detail_right2">'
+'<script type="text/javascript" src="'+app.js()+'/hosting_underscore-min.js" ></script>'
++'<script type="text/javascript" src="'+app.js()+'/hosting_jquery-1.11.1.min.js"></script>' 
++'<script type="text/javascript" src="'+app.js()+'/hosting_responsiveslides.min.js"></script>' 
++'<script type="text/javascript" src="'+app.js()+'/hosting_moment-2.2.1.js"></script>'
++'<script type="text/javascript" src="'+app.js()+'/hosting_clndr.js"></script>'
++'<script type="text/javascript" src="'+app.js()+'/hosting_site.js"></script> '
++'<div id="host_manage_detail_right2">'
 +'<div class="column_right_grid calender">'
 +'<div class="cal1"><div class="clndr">'
 +'<div class="clndr-controls">'
@@ -1243,7 +1317,7 @@ var hosting_manage_2 =
 +'<td class="day past adjacent-month last-month calendar-day-2015-08-31">'
 +'<div class="day-contents">31</div></td>'
 +'<td class="day past calendar-day-2015-09-01">'
-+'<div class="day-contents">1</div></td>'
++'<div class="day-contents" id="temp_temp">temp</div></td>'
 +'<td class="day past calendar-day-2015-09-02">'
 +'<div class="day-contents">2</div></td>'
 +'<td class="day past calendar-day-2015-09-03">'
@@ -1471,9 +1545,10 @@ var hosting_manage_9 =
 +'<div id="host_manage_detail_right2_2">'
 +'<h3><b>게스트가 숙소를 찾을 수 있도록 위치 정보를 제공하세요.</b></h3><br>'
 +'<h6>게스트는 이 정보를 활용하여 숙소를 찾습니다.</h6>'
-+'<hr><br>'
-+'<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.800141854769!2d126.94011931519535!3d37.55977223227346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c989012a611d1%3A0xc5593fcec0823803!2z7Iug7LSM7Jet!5e0!3m2!1sko!2skr!4v1472798523149" width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>'
-+'<hr><a href="${context}/hosting/regist_12"><input type="button" value="수정" class="btn btn-danger" id="host_regist_next"></a>'
++'<div id="googleMap_manage" style="width:100%; height:380px;"></div>'
++'<input type="hidden" id="hosting_manage_map_lat">'
++'<input type="hidden" id="hosting_manage_map_long">'
++'<hr><a href="#" id="host_manage_submit_9"><input type="button" value="수정" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
 +'<div id="host_manage_detail_right3">'
@@ -1511,11 +1586,11 @@ var hosting_manage_11 =
 +'<div id="host_manage_detail_right1">'
 +'<div id="host_manage_detail_right2">'
 +'<div id="host_manage_detail_right2_2">'
++'<script type="text/javascript" src="'+app.js()+'/jquery.fine-uploader.js"></script>'
 +'<h3><b>사진을 더하면 숙소를 실감하게 보여줄 수 있습니다.</b></h3><br>'
-+'<h6>게스트가 접근할 수 있는 장소의 사진을 최소 1장 올려주세요. 나중에 언제든 사진을 추가하실 수 있습니다.</h6>'
-+'<hr><br>'
-+'<input type="button" value="사진 추가하기" class="btn btn-default">'
-+'<hr><a href="${context}/hosting/regist_12"><input type="button" value="수정" class="btn btn-danger" id="host_regist_next"></a>'
++'<h6>게스트가 접근할 수 있는 장소의 사진을 최소 1장 올려주세요. 나중에 언제든 사진을 수정하실 수 있습니다.</h6>'
++'<div id="fine-uploader-gallery_manage"></div>'
++'<hr><a href="#" id="host_manage_submit_11"><input type="button" value="수정" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
 +'<div id="host_manage_detail_right3">'
@@ -1543,16 +1618,5 @@ var hosting_manage_12 =
 +'&nbsp;'
 +'</div>'
 +'</div>';
-
-
-
-
-
-
-
-
-
-
-
 
 
