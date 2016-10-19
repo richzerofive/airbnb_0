@@ -41,11 +41,9 @@
 							<div>
 								<div>
 									<div >
-										<img src="${img}/guide/guide_seoul.PNG" 
-											alt="Seoul" style="width: 25%; height: 25%;"> 
-											<%-- <a href="${context}/guidebook/g_Seoul"> --%>
-											<h4><a  id="g_Seoul">서울</a></h4>
-										</a>
+										
+											<h4><a  id="g_Seoul"><img src="${img}/guide/guide_seoul.PNG" 
+											alt="Seoul" style="width: 25%; height: 25%;"> </a></h4>
 											<span>숙소 1111개</span>	
 									</div>
 								</div>

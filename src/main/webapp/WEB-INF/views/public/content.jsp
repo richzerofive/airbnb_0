@@ -127,9 +127,7 @@
 		
 		<div>
 		<div  align="right">
-		<button>
-			<span><a href="${context}/guidebook/content">전체보기</a></span>
-			</button>
+		<button><span><a href="${context}/guidebook/content">전체보기</a></span></button>
 		</div>
 		<br>
 		<div align="center" style="width: 100%; height: 1200px;">
