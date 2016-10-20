@@ -16,7 +16,6 @@
 	<title><tiles:getAsString name="title"/></title>
 
 	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-<link rel="stylesheet" href="${css}/hosting/hosting.css" />
 	<link rel="stylesheet" href="${css}/application.css" type="text/css"/>
 	  <link href="https://a1.muscache.com/airbnb/static/packages/common_o2.1-50a45a2f41dab81f98765e60188dc94c.css" media="all" rel="stylesheet" type="text/css" />
 <link href="https://a0.muscache.com/airbnb/static/packages/common-c797852784aa37fdff8ec44a848e3d10.css" media="all" rel="stylesheet" type="text/css" />
@@ -24,19 +23,31 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 
 
 
-
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDQ-NnjOtdXE_zPAsWQIknvFjA1WNuY2_Y"></script>
-<link href="${css}/hosting/fine-uploader-new.css" rel="stylesheet">
-<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-<link rel="stylesheet" href="${css}/hosting/hosting.css" />
-<link rel="stylesheet" href="${css}/hosting/hosting_clndr.css" />
-<link rel="stylesheet" href="${css}/hosting/hosting_style.css" />
+<!-- geunhong CSS -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="${css}/hosting/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="${css}/hosting/prism.css" />
+	<link rel="stylesheet" type="text/css" href="${css}/hosting/calendar-style.css" />
+	<link rel="stylesheet" type="text/css" href="${css}/hosting/pignose.calendar.css" />
+	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+	<link rel="stylesheet" href="${css}/hosting/hosting.css" />
+	<link rel="stylesheet" href="${css}/hosting/fine-uploader-new.css" >
+<!-- geunhong CSS -->
+<!-- geunhong JS -->
+	<script type="text/javascript" src="${js}/hosting_jquery.latest.min.js"></script>
+	<script type="text/javascript" src="${js}/hosting_bootstrap.min.js"></script>
+	<script type="text/javascript" src="${js}/hosting_prism.min.js"></script>
+	<script type="text/javascript" src="${js}/hosting_moment.min.js"></script>
+	<script type="text/javascript" src="${js}/hosting_pignose.calendar.js"></script>
+	<script type="text/javascript" src="${js}/hosting_jquery.fine-uploader.js"></script>
+<!-- geunhong JS -->
 <link href='//fonts.googleapis.com/css?family=Maven+Pro:700,400' rel='stylesheet' type='text/css'>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDQ-NnjOtdXE_zPAsWQIknvFjA1WNuY2_Y"></script>
 <script type="text/template" id="qq-template-gallery">
         <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Drop files here">
             <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
@@ -151,5 +162,4 @@
 	app.init('${pageContext.request.contextPath}');
 	
 </script>
-
 </html>

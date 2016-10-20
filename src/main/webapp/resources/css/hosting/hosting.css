@@ -17,38 +17,36 @@ header {width: 100%;height: 5%;position: static;}
 #host_main_media2 {padding-top:10%; padding-bottom:15%;}
 #host_main_bottom1 {padding-top: 5%; margin-top:5%; margin-left:20%; margin-right:20%; margin-bottom:15%; background-image:url(../../img/hosting/host_main_bottom.png)}
 #host_main_bottom2 {margin-left:15%; margin-bottom:5%; padding-bottom:10%;}
-#host_regist_div_page1 {width:100%; height:950px; margin-top:2%;}
-#host_regist_div_page2 {width:100%; height:800px; margin-top:2%;}
-#host_regist_div_page3 {width:100%; height:1100px; margin-top:2%;}
-#host_regist_div_page4 {width:100%; height:1500px; margin-top:2%;}
-#host_regist_div_page5 {width:100%; height:550px; margin-top:2%;}
-#host_regist_div_page6 {width:100%; height:450px; margin-top:2%;}
-#host_regist_div_page7 {width:100%; height:850px; margin-top:2%;}
-#host_regist_div_page8 {width:100%; height:1030px; margin-top:2%;}
-#host_regist_div_page9 {width:100%; height:1080px; margin-top:2%;}
-#host_regist_div_page10 {width:100%; height:700px; margin-top:2%;}
-#host_regist_div_page11 {width:100%; height:950px; margin-top:2%;}
-#host_regist_div_page12 {width:100%; height:850px; margin-top:2%;}
-#host_regist_div_page13 {width:100%; height:1250px; margin-top:2%;}
-#host_regist_div_page14 {width:100%; height:750px; margin-top:2%;}
-#host_regist_div_page15 {width:100%; height:700px; margin-top:2%;}
+#host_regist_div_page_1 {width:100%; height:800px; margin-top:2%;}
+#host_regist_div_page_2 {width:100%; height:800px; margin-top:2%;}
+#host_regist_div_page_3 {width:100%; height:1030px; margin-top:2%;}
+#host_regist_div_page_4 {width:100%; height:850px; margin-top:2%;}
+#host_regist_div_page_5 {width:100%; height:1350px; margin-top:2%;}
+#host_regist_div_page_6 {width:100%; height:750px; margin-top:2%;}
+#host_regist_div_page_7 {width:100%; height:550px; margin-top:2%;}
+#host_regist_div_page_8 {width:100%; height:550px; margin-top:2%;}
+#host_regist_div_page_9 {width:100%; height:700px; margin-top:2%;}
+#host_regist_div_page_10 {width:100%; height:800px; margin-top:2%;}
+#host_regist_div_page_11 {width:100%; height:700px; margin-top:2%;}
+#host_regist_div_page_12 {width:100%; height:850px; margin-top:2%;}
+#host_regist_div_page_13 {width:100%; height:600px; margin-top:2%;}
 #host_regist_div_left1 {float:left; width:50%;}
 #host_regist_div_left2 {margin-left:25%; margin-top:15%;}
 #host_regist_div_left3 {float:left; width:50%;}
 #host_regist_div_left4 {margin-left:35%; margin-top:12%;}
 #host_regist_div_left5 {float:left; width:22%;}
 #host_regist_div_right1 {float:right; width:50%;}
-#host_regist_div_right2 {float:right; width:40%; background-color:#f3f3f3; height:770px;}
-#host_regist_div_right2_1 {float:right; width:40%; background-color:#f3f3f3; height:1070px;}
-#host_regist_div_right2_2 {float:right; width:40%; background-color:#f3f3f3; height:920px;}
-#host_regist_div_right2_3 {float:right; width:40%; background-color:#f3f3f3; height:1470px;}
-#host_regist_div_right2_5 {float:right; width:40%; background-color:#f3f3f3; height:520px;}
-#host_regist_div_right2_6 {float:right; width:40%; background-color:#f3f3f3; height:670px;}
-#host_regist_div_right2_7 {float:right; width:40%; background-color:#f3f3f3; height:920px;}
-#host_regist_div_right2_8 {float:right; width:40%; background-color:#f3f3f3; height:820px;}
-#host_regist_div_right2_9 {float:right; width:40%; background-color:#f3f3f3; height:1220px;}
-#host_regist_div_right2_10 {float:right; width:40%; background-color:#f3f3f3; height:720px;}
-#host_regist_div_right2_11 {float:right; width:40%; background-color:#f3f3f3; height:670px;}
+#host_regist_div_right_2 {float:right; width:40%; background-color:#f3f3f3; height:770px;}
+#host_regist_div_right_3 {float:right; width:40%; background-color:#f3f3f3; height:1000px;}
+#host_regist_div_right_4 {float:right; width:40%; background-color:#f3f3f3; height:820px;}
+#host_regist_div_right_5 {float:right; width:40%; background-color:#f3f3f3; height:1320px;}
+#host_regist_div_right_6 {float:right; width:40%; background-color:#f3f3f3; height:720px;}
+#host_regist_div_right_8 {float:right; width:40%; background-color:#f3f3f3; height:520px;}
+#host_regist_div_right_9 {float:right; width:40%; background-color:#f3f3f3; height:670px;}
+#host_regist_div_right_10 {float:right; width:40%; background-color:#f3f3f3; height:770px;}
+#host_regist_div_right_11 {float:right; width:40%; background-color:#f3f3f3; height:670px;}
+#host_regist_div_right_12 {float:right; width:40%; background-color:#f3f3f3; height:820px;}
+#host_regist_div_right_13 {float:right; width:40%; background-color:#f3f3f3; height:570px;}
 #host_regist_div_right3 {margin-left:5%; margin-top:20%; margin-right:45%; border:1px solid #EAEAEA;}
 #host_regist_div_right4 {padding-top: 15%; padding-bottom: 15%; padding-left: 10%; padding-right:10%; background-color:white;}
 #host_regist_div_right5 {float:right; width:5%; height:150px;}
@@ -84,40 +82,47 @@ header {width: 100%;height: 5%;position: static;}
 #host_regist_div_left2 {margin-left:5%; margin-right:5%; margin-top:15%;}
 #host_regist_div_left3 {float:left; width:100%;}
 #host_regist_div_left4 {margin-left:5%; margin-right:5%; margin-top:15%;}
+#host_regist_div_page_1 {margin-top:20%;}
+#host_regist_div_page_2 {margin-top:20%;}
+#host_regist_div_page_3{width:100%; height:1000px; margin-top:20%;}
+#host_regist_div_page_4 {margin-top:20%;}
+#host_regist_div_page_5 {margin-top:20%;}
+#host_regist_div_page_6 {margin-top:20%;}
+#host_regist_div_page_7 {margin-top:40%;}
+#host_regist_div_page_8 {margin-top:20%;}
+#host_regist_div_page_9 {margin-top:20%; height:400px;}
+#host_regist_div_page_10 {width:100%; margin-top:20%;}
+#host_regist_div_page_11 {margin-top:20%;}
+#host_regist_div_page_12 {margin-top:20%;}
+#host_regist_div_page_13 {margin-top:20%;}
 #host_regist_div_right1 {float:right; width:0%;}
-#host_regist_div_right2 {float:right; width:0%;}
-#host_regist_div_right2_1 {float:right; width:0%;}
-#host_regist_div_right2_2 {float:right; width:0%;}
-#host_regist_div_right2_3 {float:right; width:0%;}
-#host_regist_div_right2_4 {float:right; width:0%;}
-#host_regist_div_right2_5 {float:right; width:0%;}
-#host_regist_div_right2_6 {float:right; width:0%;}
-#host_regist_div_right2_7 {float:right; width:0%;}
-#host_regist_div_right2_8 {float:right; width:0%;}
-#host_regist_div_right2_9 {float:right; width:0%;}
-#host_regist_div_right2_10 {float:right; width:0%;}
-#host_regist_div_right2_11 {float:right; width:0%;}
-#host_regist_div_page1 {margin-top:20%;}
-#host_regist_div_page2 {margin-top:20%;}
-#host_regist_div_page3 {margin-top:20%;}
-#host_regist_div_page4 {margin-top:20%;}
-#host_regist_div_page5 {margin-top:40%;}
-#host_regist_div_page6 {width:100%; height:800px; margin-top:20%;}
-#host_regist_div_page7 {width:100%; height:1200px; margin-top:20%;}
-#host_regist_div_page8 {width:100%; height:1400px; margin-top:20%;}
-#host_regist_div_page9 {width:100%; height:1600px; margin-top:20%;}
-#host_regist_div_page10 {margin-top:20%;}
-#host_regist_div_page11 {width:100%; height:1000px; margin-top:20%;}
-#host_regist_div_page12 {margin-top:20%;}
-#host_regist_div_page13 {margin-top:20%;}
-#host_regist_div_page14 {margin-top:20%;}
-#host_regist_div_page15 {margin-top:20%; height:300px;}
+#host_regist_div_right_2 {float:right; width:0%;}
+#host_regist_div_right_3 {float:right; width:0%;}
+#host_regist_div_right_4 {float:right; width:0%;}
+#host_regist_div_right_5 {float:right; width:0%;}
+#host_regist_div_right_6 {float:right; width:0%;}
+#host_regist_div_right_8 {float:right; width:0%;}
+#host_regist_div_right_9 {float:right; width:0%;}
+#host_regist_div_right_10 {float:right; width:0%;}
+#host_regist_div_right_11 {float:right; width:0%;}
+#host_regist_div_right_12 {float:right; width:0%;}
+#host_regist_div_right_13 {float:right; width:0%;}
 .host_regist_next{float:right; width:50%;}
 .host_regist_prev{float:left; width:50%;}
 .host_regist_next2{float:right; width:36%;}
 .host_regist_prev2{float:left; width:36%;}
 }
 /* HOST_MANAGE */
+#host_manage_div_page_1 {width:100%; height:500px; margin-top:2%;}
+#host_manage_div_page_2 {width:100%; height:850px; margin-top:2%;}
+#host_manage_div_page_3 {width:100%; height:850px; margin-top:2%;}
+#host_manage_div_page_4 {width:100%; height:1050px; margin-top:2%;}
+#host_manage_div_page_5 {width:100%; height:1160px; margin-top:2%;}
+#host_manage_detail_right_1 {float:right; width:50%; background-color:#f3f3f3; height:820px;}
+#host_manage_detail_right_2 {float:right; width:50%; background-color:#f3f3f3; height:800px;}
+#host_manage_detail_right_3 {float:right; width:50%; background-color:#f3f3f3; height:1000px;}
+
+
 #host_manage_div_left1 {float:left; width:30%;}
 #host_manage_div_left2 {margin-left:50%; margin-top:10%; padding-top:10%;}
 #host_manage_div_right1 {float:right; width:70%; padding-top:3%;}
@@ -128,15 +133,29 @@ header {width: 100%;height: 5%;position: static;}
 #host_manage_detail_left1 {float:left; width:15%; padding-top:10%; padding-left:2%; background-color:#f3f3f3; height:820px;}
 #host_manage_detail_left1_1 {float:left; width:15%; padding-top:10%; padding-left:2%; background-color:#f3f3f3; height:1000px;}
 #host_manage_detail_left1_2 {float:left; width:15%; padding-top:10%; padding-left:2%; background-color:#f3f3f3; height:1050px;}
+#host_manage_detail_left1_3 {float:left; width:15%; padding-top:10%; padding-left:2%; background-color:#f3f3f3; height:1020px;}
+#host_manage_detail_left1_4 {float:left; width:15%; padding-top:10%; padding-left:2%; background-color:#f3f3f3; height:1130px;}
 #host_manage_detail_right1 {float:right; width:85%;}
 #host_manage_detail_right2 {float:left; width:50%; padding-top:8%;}
 #host_manage_detail_right2_1 {background-color: #c2e3e7; margin-top: 5%; margin-left: 3%; margin-right:3%; padding-top:5%; padding-left:5%; padding-right:5%; padding-bottom:5%;}
 #host_manage_detail_right2_2 {margin-top: 5%; margin-left: 3%; margin-right:3%; padding-right:5%; padding-bottom:5%;}
-#host_manage_detail_right3 {float:right; width:50%; background-color:#f3f3f3; height:800px;}
-#host_manage_detail_right3_1 {float:right; width:50%; background-color:#f3f3f3; height:1000px;}
-#host_manage_detail_right3_2 {float:right; width:50%; background-color:#f3f3f3; height:1050px;}
+#host_manage_detail_right3_2 {float:right; width:50%; background-color:#f3f3f3; height:1110px;}
 #host_manage_detail_right4 {margin: 20% 50% 0% 10%;s}
 @media screen and (max-width:800px){
+#host_manage_div_page_1 {margin-top:20%; height:900px;}
+#host_manage_div_page_2 {margin-top:20%; height:1400px;}
+#host_manage_div_page_3 {margin-top:20%; height:1000px;}
+#host_manage_div_page_4 {margin-top:20%; height:1450px;}
+#host_manage_div_page_5 {margin-top:20%; height:1700px;}
+#host_manage_detail_right_1 {width:0%;}
+#host_manage_detail_right_2 {width:0%;}
+#host_manage_detail_right_3 {width:0%;}
+
+
+
+
+
+
 #host_manage_div_left1 {float:left; width:100%;}
 #host_manage_div_left2 {margin-left:5%; margin-top:10%;}
 #host_manage_div_right1 {float:right; width:100%;}
@@ -145,6 +164,8 @@ header {width: 100%;height: 5%;position: static;}
 #host_manage_detail_left1 {float:left; width:100%; padding-top:20%; padding-left:2%; margin-bottom:10%; background-color:white; height:500px;}
 #host_manage_detail_left1_1 {float:left; width:100%; padding-top:20%; padding-left:2%; margin-bottom:10%; background-color:white; height:500px;}
 #host_manage_detail_left1_2 {float:left; width:100%; padding-top:20%; padding-left:2%; margin-bottom:10%; background-color:white; height:500px;}
+#host_manage_detail_left1_3 {float:left; width:100%; padding-top:20%; padding-left:2%; margin-bottom:10%; background-color:white; height:500px;}
+#host_manage_detail_left1_4 {float:left; width:100%; padding-top:20%; padding-left:2%; margin-bottom:10%; background-color:white; height:500px;}
 #host_manage_detail_right2 {float:left; width:100%;}
 #host_manage_detail_right2_1 {background-color: #c2e3e7; margin-left:-15%; margin-top: 5%; margin-right:3%; padding-top:5%; padding-right:5%; padding-bottom:5%;}
 #host_manage_detail_right2_2 {margin-left:-15%; margin-top: 5%; margin-right:3%; padding-right:5%; padding-bottom:5%;}

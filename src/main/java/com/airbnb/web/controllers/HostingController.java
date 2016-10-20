@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.airbnb.web.domains.HostingDTO;
 import com.airbnb.web.domains.Retval;
@@ -112,16 +111,11 @@ public class HostingController {
 		retval.setMessage("success13");
 		return retval;
 	}
-	
-	@RequestMapping("/manage_1")
-	public String hostingManage1(){
-		logger.info("HostingController :: {}.", "manage_1");
-		return "public:hosting/hosting_manage_1.tiles";
-	}
-	@RequestMapping("/manage_2")
-	public String hostingManage2(){
-		logger.info("HostingController :: {}.", "manage_2");
-		return "public:hosting/hosting_manage_2.tiles";
+	@RequestMapping(value="/manage2", method=RequestMethod.POST, consumes="application/json")
+	public @ResponseBody Retval hostingManage2(@RequestBody HostingDTO hostingDTO){
+		logger.info("HostingController :: manage :: blockdate :: {}",hostingDTO.getBlock_date());
+		retval.setMessage("manage2");
+		return retval;
 	}
 	@RequestMapping(value="/manage3", method=RequestMethod.POST, consumes="application/json")
 	public @ResponseBody Retval hostingManage3(@RequestBody HostingDTO hostingDTO){
@@ -142,11 +136,7 @@ public class HostingController {
 		retval.setMessage("manage5");
 		return retval;
 	}
-	@RequestMapping("/manage_6")
-	public String hostingManage6(){
-		logger.info("HostingController :: {}.", "manage_6");
-		return "public:hosting/hosting_manage_6.tiles";
-	}
+
 	@RequestMapping(value="/manage7", method=RequestMethod.POST, consumes="application/json")
 	public @ResponseBody Retval hostingManage7(@RequestBody HostingDTO hostingDTO){
 		logger.info("HostingController :: manage :: building_type :: {}",hostingDTO.getBuilding_type());
@@ -189,9 +179,5 @@ public class HostingController {
 		retval.setMessage("manage12");
 		return retval;
 	}
-	@RequestMapping("/manage_13")
-	public String hostingManage13(){
-		logger.info("HostingController :: {}.", "manage_13");
-		return "public:hosting/hosting_manage_13.tiles";
-	}
+
 }

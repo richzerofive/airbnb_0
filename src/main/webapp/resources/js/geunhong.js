@@ -4,6 +4,14 @@ var hosting = (function(){
 	var setContentView = function(){};
 	var onCreate = function (){
 		setContentView();
+		$('#pub_article').on('click','#temp_temp',function(){
+			alert('하이하이');
+		});
+		$('#pub_article').on('click','#temp_temp2',function(){
+			alert('하이하이');
+		});
+		
+		
 		$('#pub_header').on('click','#hosting_go',function(){
 			$('#pub_article').html(hosting_main);
 		});
@@ -427,12 +435,63 @@ var hosting = (function(){
 		$('#pub_article').on('click','#hosting_manage_2',function(){
 			$('#pub_article').html(hosting_manage_menu)
 			$('#host_manage_detail_right1').html(hosting_manage_2)
-			$('#pub_article').on('click','#temp_temp',function(){
-				alert('하이요');
+			$(function() {
+				$('.multi-select-calendar').pignoseCalendar({
+					multiple: true,
+					select: function(date, obj) {
+						obj.calendar.parent().next().show().val(
+							(date[0] === null? '':date[0].format('YYYY-MM-DD')) +
+							'~' +
+							(date[1] === null? '':date[1].format('YYYY-MM-DD')));	
+						var block_date = $('#host_calendar_val').val().split("~");
+						$('#host_calendar_min').prop('value',block_date[0]);
+						$('#host_calendar_max').prop('value',block_date[1]);
+					}
+				});
+			$('#host_manage_submit_2').click(function(){
+				var manage_data_2 = {
+					'block_date' : $('#host_calendar_min').val() + ',' + $('#host_calendar_max').val()
+				}
+				$.ajax({
+					url : app.context()+'/hosting/manage2',
+					type : 'POST',
+					data : JSON.stringify(manage_data_2),
+					dataType : 'json',
+					contentType : 'application/json',
+					success : function(data){
+						if (data.message === 'manage2') {
+							alert('수정완료');
+						}
+					},
+					error : function(x,s,m){
+						alert('manage2시 error 발생 : ' + m);
+					}
+				});
 			})
+				
+			
+	/*			$('.toggle-calendar').pignoseCalendar({
+					toggle: true,
+					select: function(date, obj) {
+						var $target = obj.calendar.parent().next().show().html('You selected ' + 
+						(date[0] === null? 'null':date[0].format('YYYY-MM-DD')) + 
+						'.' +
+						'<br /><br />' +
+						'<strong>Active dates</strong><br /><br />' +
+						'<div class="active-dates"></div>');
+						for(var idx in obj.storage.activeDates) {
+							var date = obj.storage.activeDates[idx];
+							if(typeof date !== 'string') {
+								continue;
+							}
+							$target.find('.active-dates').append('<span class="label label-default">' + date + '</span>');
+						}
+					}
+				});	*/
+			});	
 		})
 		$('#pub_article').on('click','#hosting_manage_3',function(){
-			$('#pub_article').html(hosting_manage_menu)
+			$('#pub_article').html(hosting_manage_menu2)
 			$('#host_manage_detail_right1').html(hosting_manage_3)
 			$('#host_manage_submit_3').click(function(){
 				var manage_data_3 = {
@@ -469,6 +528,9 @@ var hosting = (function(){
 					'rules' : manage_rules,
 					'other_rule' : $('#host_manage_other_rule').val()
 				}
+				
+				
+				
 				$.ajax({
 					url : app.context()+'/hosting/manage4',
 					type : 'POST',
@@ -487,7 +549,7 @@ var hosting = (function(){
 			});
 		})
 		$('#pub_article').on('click','#hosting_manage_5',function(){
-			$('#pub_article').html(hosting_manage_menu)
+			$('#pub_article').html(hosting_manage_menu2)
 			$('#host_manage_detail_right1').html(hosting_manage_5)
 			$('#host_manage_submit_5').click(function(){
 				var manage_data_5 = {
@@ -515,7 +577,7 @@ var hosting = (function(){
 			$('#host_manage_detail_right1').html(hosting_manage_6)
 		})
 		$('#pub_article').on('click','#hosting_manage_7',function(){
-			$('#pub_article').html(hosting_manage_menu)
+			$('#pub_article').html(hosting_manage_menu3)
 			$('#host_manage_detail_right1').html(hosting_manage_7)
 			$('#host_manage_submit_7').click(function(){
 				var manage_data_7 = {
@@ -622,7 +684,7 @@ var hosting = (function(){
 			});	
 		})
 		$('#pub_article').on('click','#hosting_manage_10',function(){
-			$('#pub_article').html(hosting_manage_menu)
+			$('#pub_article').html(hosting_manage_menu4)
 			$('#host_manage_detail_right1').html(hosting_manage_10)
 			$('#host_manage_submit_10').click(function(){
 				var convenience = 
@@ -858,7 +920,7 @@ var hosting_main =
 +'</div>'
 +'</div>';
 var hosting_regist_1 = 
-'<div id="host_regist_div_page2">'
+'<div id="host_regist_div_page_1">'
 +'<div id="host_regist_div_left1">'
 +'<div id="host_regist_div_left4">'
 +'<h1>호스트가 될 준비를 시작해보세요.</h1><br>'
@@ -901,7 +963,7 @@ var hosting_regist_1 =
 +'</div>'
 +'</div>';
 var hosting_regist_2 =
-'<div id="host_regist_div_page10">'
+'<div id="host_regist_div_page_2">'
 +'<div id="host_regist_div_left3">'
 +'<div id="host_regist_div_left4">'
 +'<h2>숙소에 침대의 갯수는 몇 개인가요?</h2><br>'
@@ -916,7 +978,7 @@ var hosting_regist_2 =
 +'<a href="#" id="hosting_regist_3"><input type="button" value="다음" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_regist_div_right2_6">'
++'<div id="host_regist_div_right_2">'
 +'<div id="host_regist_div_right3">'
 +'<div id="host_regist_div_right4">'
 +'<img src="https://a0.muscache.com/airbnb/static/list_your_space/tip-icon-73f3ef1d10a9545bfd15fd266803da48.png" alt="" /><br><br>'
@@ -926,7 +988,7 @@ var hosting_regist_2 =
 +'</div>'
 +'</div>';
 var hosting_regist_3 = 
-'<div id="host_regist_div_page11">'
+'<div id="host_regist_div_page_3">'
 +'<div id="host_regist_div_left3">'
 +'<div id="host_regist_div_left4">'
 +'<h2>숙소의 위치를 알려주세요.</h2><br>'
@@ -954,7 +1016,7 @@ var hosting_regist_3 =
 +'<a href="#" id="hosting_regist_4"><input type="button" value="다음" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_regist_div_right2_7">'
++'<div id="host_regist_div_right_3">'
 +'<div id="host_regist_div_right3">'
 +'<div id="host_regist_div_right4">'
 +'<img src="https://a0.muscache.com/airbnb/static/list_your_space/tip-icon-73f3ef1d10a9545bfd15fd266803da48.png" alt="" /><br><br>'
@@ -965,7 +1027,7 @@ var hosting_regist_3 =
 +'</div>'
 +'</div>';
 var hosting_regist_4 = 
-'<div id="host_regist_div_page12">'
+'<div id="host_regist_div_page_4">'
 +'<div id="host_regist_div_left3">'
 +'<div id="host_regist_div_left4">'
 +'<h2>숙소의 위치를 알려주세요.</h2><br>'
@@ -979,7 +1041,7 @@ var hosting_regist_4 =
 +'<input type="hidden" id="hosting_map_long">'
 +'</div>'
 +'</div>'
-+'<div id="host_regist_div_right2_8">'
++'<div id="host_regist_div_right_4">'
 +'<div id="host_regist_div_right3">'
 +'<div id="host_regist_div_right4">'
 +'<img src="https://a0.muscache.com/airbnb/static/list_your_space/tip-icon-73f3ef1d10a9545bfd15fd266803da48.png" alt="" /><br><br>'
@@ -990,7 +1052,7 @@ var hosting_regist_4 =
 +'</div>'
 +'</div>';
 var hosting_regist_5 = 
-'<div id="host_regist_div_page13">'
+'<div id="host_regist_div_page_5">'
 +'<div id="host_regist_div_left3">'
 +'<div id="host_regist_div_left4">'
 +'<h2>어떤 편의시설을 제공하시나요?</h2><br>'
@@ -1021,7 +1083,7 @@ var hosting_regist_5 =
 +'<a href="#" id="hosting_regist_6"><input type="button" value="다음" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_regist_div_right2_9">'
++'<div id="host_regist_div_right_5">'
 +'<div id="host_regist_div_right3">'
 +'<div id="host_regist_div_right4">'
 +'<img src="https://a0.muscache.com/airbnb/static/list_your_space/tip-icon-73f3ef1d10a9545bfd15fd266803da48.png" alt="" /><br><br>'
@@ -1033,7 +1095,7 @@ var hosting_regist_5 =
 +'</div>'
 +'</div>';
 var hosting_regist_6 =
-'<div id="host_regist_div_page14">'
+'<div id="host_regist_div_page_6">'
 +'<div id="host_regist_div_left3">'
 +'<div id="host_regist_div_left4">'
 +'<h2>게스트가 어떤 공간을 사용할 수 있나요?</h2><br>'	
@@ -1050,7 +1112,7 @@ var hosting_regist_6 =
 +'<a href="#" id="hosting_regist_7"><input type="button" value="다음" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_regist_div_right2_10">'
++'<div id="host_regist_div_right_6">'
 +'<div id="host_regist_div_right3">'
 +'<div id="host_regist_div_right4">'
 +'<img src="https://a0.muscache.com/airbnb/static/list_your_space/tip-icon-73f3ef1d10a9545bfd15fd266803da48.png" alt="" /><br><br>'
@@ -1060,11 +1122,10 @@ var hosting_regist_6 =
 +'</div>'
 +'</div>';
 var hosting_regist_7 = 
-'<div id="host_regist_div_page5">'
+'<div id="host_regist_div_page_7">'
 +'<div id="host_regist_div_left5" style="height:1000px;"></div>'
 +'<div id="host_regist_div_center1">'
 +'<div id="host_regist_div_center2">'
-+'<script type="text/javascript" src="'+app.js()+'/jquery.fine-uploader.js"></script>'
 +'<img src="https://a0.muscache.com/airbnb/static/list_your_space/tip-icon-73f3ef1d10a9545bfd15fd266803da48.png" alt="" style="float:right"/>'
 +'<h3>사진</h3><br><br><div id="fine-uploader-gallery"></div><br><br>'
 +'<input type="hidden" id="hosting_image_value">'
@@ -1076,7 +1137,7 @@ var hosting_regist_7 =
 +'<div id="host_regist_div_right5">&nbsp;</div>'
 +'</div>';
 var hosting_regist_8 = 
-'<div id="host_regist_div_page5">'
+'<div id="host_regist_div_page_8">'
 +'<div id="host_regist_div_left3">'
 +'<div id="host_regist_div_left4">'
 +'<h2>숙소 설명을 작성하세요</h2><br>'
@@ -1086,7 +1147,7 @@ var hosting_regist_8 =
 +'<a href="#" id="hosting_regist_9"><input type="button" value="다음" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_regist_div_right2_5">'
++'<div id="host_regist_div_right_8">'
 +'<div id="host_regist_div_right3">'
 +'<div id="host_regist_div_right4">'
 +'<img src="https://a0.muscache.com/airbnb/static/list_your_space/tip-icon-73f3ef1d10a9545bfd15fd266803da48.png" alt="" /><br><br>'
@@ -1098,7 +1159,7 @@ var hosting_regist_8 =
 +'</div>'
 +'</div>';
 var hosting_regist_9 =
-'<div id="host_regist_div_page15">'
+'<div id="host_regist_div_page_9">'
 +'<div id="host_regist_div_left3">'
 +'<div id="host_regist_div_left4">'
 +'<h2>이름 지정</h2><br>'
@@ -1108,7 +1169,7 @@ var hosting_regist_9 =
 +'<a href="#" id="hosting_regist_10"><input type="button" value="다음" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_regist_div_right2_11">'
++'<div id="host_regist_div_right_9">'
 +'<div id="host_regist_div_right3">'
 +'<div id="host_regist_div_right6">'
 +'<img src="https://a0.muscache.com/airbnb/static/list_your_space/tip-icon-73f3ef1d10a9545bfd15fd266803da48.png" alt="" /><br><br>'
@@ -1128,7 +1189,7 @@ var hosting_regist_9 =
 +'</div>'
 +'</div>';
 var hosting_regist_10 =
-'<div id="host_regist_div_page14">'
+'<div id="host_regist_div_page_10">'
 +'<div id="host_regist_div_left3">'
 +'<div id="host_regist_div_left4">'
 +'<h2>게스트가 지켜야 할 숙소 이용규칙을 정하세요</h2><br>'
@@ -1144,7 +1205,7 @@ var hosting_regist_10 =
 +'<a href="#" id="hosting_regist_11"><input type="button" value="다음" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_regist_div_right2_10">'
++'<div id="host_regist_div_right_10">'
 +'<div id="host_regist_div_right3">'
 +'<div id="host_regist_div_right4">'
 +'<img src="https://a0.muscache.com/airbnb/static/list_your_space/tip-icon-73f3ef1d10a9545bfd15fd266803da48.png" alt="" /><br><br>'
@@ -1155,7 +1216,7 @@ var hosting_regist_10 =
 +'</div>'
 +'</div>';
 var hosting_regist_11 =
-'<div id="host_regist_div_page14">'
+'<div id="host_regist_div_page_11">'
 +'<div id="host_regist_div_left3">'
 +'<div id="host_regist_div_left4">'
 +'<h2>얼마나 먼 날짜까지 예약할 수 있나요?</h2><br>'
@@ -1180,7 +1241,7 @@ var hosting_regist_11 =
 +'<a href="#" id="hosting_regist_12"><input type="button" value="다음" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_regist_div_right2_10">'
++'<div id="host_regist_div_right_11">'
 +'<div id="host_regist_div_right3">'
 +'<div id="host_regist_div_right4">'
 +'<img src="https://a0.muscache.com/airbnb/static/list_your_space/tip-icon-73f3ef1d10a9545bfd15fd266803da48.png" alt="" /><br><br>'
@@ -1190,7 +1251,7 @@ var hosting_regist_11 =
 +'</div>'
 +'</div>';
 var hosting_regist_12 = 
-'<div id="host_regist_div_page2">'
+'<div id="host_regist_div_page_12">'
 +'<div id="host_regist_div_left3">'
 +'<div id="host_regist_div_left4">'
 +'<h2>게스트가 얼마 동안 숙박할 수 있나요?</h2><br>'
@@ -1205,7 +1266,7 @@ var hosting_regist_12 =
 +'<a href="#" id="hosting_regist_13"><input type="button" value="다음" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_regist_div_right2">'
++'<div id="host_regist_div_right_12">'
 +'<div id="host_regist_div_right3">'
 +'<div id="host_regist_div_right4">'
 +'<img src="https://a0.muscache.com/airbnb/static/list_your_space/tip-icon-73f3ef1d10a9545bfd15fd266803da48.png" alt="" /><br><br>'
@@ -1215,7 +1276,7 @@ var hosting_regist_12 =
 +'</div>'
 +'</div>';
 var hosting_regist_13 =
-'<div id="host_regist_div_page5">'
+'<div id="host_regist_div_page_13">'
 +'<div id="host_regist_div_left3">'
 +'<div id="host_regist_div_left4">'
 +'<h2>기본 요금</h2><br>'
@@ -1228,7 +1289,7 @@ var hosting_regist_13 =
 +'<a href="#" id="hosting_regist_14"><input type="button" value="완료" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_regist_div_right2_5">'
++'<div id="host_regist_div_right_13">'
 +'<div id="host_regist_div_right3">'
 +'<div id="host_regist_div_right4">'
 +'<img src="https://a0.muscache.com/airbnb/static/list_your_space/tip-icon-73f3ef1d10a9545bfd15fd266803da48.png" alt="" /><br><br>'
@@ -1238,7 +1299,7 @@ var hosting_regist_13 =
 +'</div>'
 +'</div>';
 var hosting_manage_1 = 
-'<div id="host_regist_div_page6">'
+'<div id="host_manage_div_page_1">'
 +'<div id="host_manage_div_left1">'
 +'<div id="host_manage_div_left2">'
 +'<h4><b>숙소 목록</b></h4><br>'
@@ -1266,7 +1327,7 @@ var hosting_manage_1 =
 +'</div>'
 +'</div>';
 var hosting_manage_menu = 
-'<div id="host_regist_div_page7">'
+'<div id="host_manage_div_page_2">'
 +'<div id="host_manage_detail_left1">'
 +'<h4>호스팅</h4>'
 +'<h5><a href="#" id="hosting_manage_2">달력</a></h5>'
@@ -1285,113 +1346,88 @@ var hosting_manage_menu =
 +'<h5><a href="#">가이드북</a></h5><br>'	
 +'</div>'
 +'<div id="host_manage_detail_right1">';
+var hosting_manage_menu2 = 
+'<div id="host_manage_div_page_3">'
++'<div id="host_manage_detail_left1">'
++'<h4>호스팅</h4>'
++'<h5><a href="#" id="hosting_manage_2">달력</a></h5>'
++'<h5><a href="#" id="hosting_manage_3">요금 설정</a></h5>'
++'<h5><a href="#" id="hosting_manage_4">예약</a></h5>'
++'<h5><a href="#" id="hosting_manage_5">체크인</a></h5>'
++'<h5><a href="#" id="hosting_manage_6">예약취소내역</a></h5><br>'
++'<h4>숙소</h4>'
++'<h5><a href="#" id="hosting_manage_7">기본 설정</a></h5>'
++'<h5><a href="#" id="hosting_manage_8">설명</a></h5>'
++'<h5><a href="#" id="hosting_manage_9">위치</a></h5>'
++'<h5><a href="#" id="hosting_manage_10">편의시설</a></h5>'
++'<h5><a href="#" id="hosting_manage_11">사진</a></h5>'
++'<h5><a href="#" id="hosting_manage_12">숙소 안전</a></h5><br>'
++'<h4>게스트 자료</h4>'
++'<h5><a href="#">가이드북</a></h5><br>'	
++'</div>'
++'<div id="host_manage_detail_right1">';
+var hosting_manage_menu3 = 
+'<div id="host_manage_div_page_4">'
++'<div id="host_manage_detail_left1_3">'
++'<h4>호스팅</h4>'
++'<h5><a href="#" id="hosting_manage_2">달력</a></h5>'
++'<h5><a href="#" id="hosting_manage_3">요금 설정</a></h5>'
++'<h5><a href="#" id="hosting_manage_4">예약</a></h5>'
++'<h5><a href="#" id="hosting_manage_5">체크인</a></h5>'
++'<h5><a href="#" id="hosting_manage_6">예약취소내역</a></h5><br>'
++'<h4>숙소</h4>'
++'<h5><a href="#" id="hosting_manage_7">기본 설정</a></h5>'
++'<h5><a href="#" id="hosting_manage_8">설명</a></h5>'
++'<h5><a href="#" id="hosting_manage_9">위치</a></h5>'
++'<h5><a href="#" id="hosting_manage_10">편의시설</a></h5>'
++'<h5><a href="#" id="hosting_manage_11">사진</a></h5>'
++'<h5><a href="#" id="hosting_manage_12">숙소 안전</a></h5><br>'
++'<h4>게스트 자료</h4>'
++'<h5><a href="#">가이드북</a></h5><br>'	
++'</div>'
++'<div id="host_manage_detail_right1">';
+var hosting_manage_menu4 = 
+'<div id="host_manage_div_page_5">'
++'<div id="host_manage_detail_left1_4">'
++'<h4>호스팅</h4>'
++'<h5><a href="#" id="hosting_manage_2">달력</a></h5>'
++'<h5><a href="#" id="hosting_manage_3">요금 설정</a></h5>'
++'<h5><a href="#" id="hosting_manage_4">예약</a></h5>'
++'<h5><a href="#" id="hosting_manage_5">체크인</a></h5>'
++'<h5><a href="#" id="hosting_manage_6">예약취소내역</a></h5><br>'
++'<h4>숙소</h4>'
++'<h5><a href="#" id="hosting_manage_7">기본 설정</a></h5>'
++'<h5><a href="#" id="hosting_manage_8">설명</a></h5>'
++'<h5><a href="#" id="hosting_manage_9">위치</a></h5>'
++'<h5><a href="#" id="hosting_manage_10">편의시설</a></h5>'
++'<h5><a href="#" id="hosting_manage_11">사진</a></h5>'
++'<h5><a href="#" id="hosting_manage_12">숙소 안전</a></h5><br>'
++'<h4>게스트 자료</h4>'
++'<h5><a href="#">가이드북</a></h5><br>'	
++'</div>'
++'<div id="host_manage_detail_right1">';
 var hosting_manage_2 =
-'<script type="text/javascript" src="'+app.js()+'/hosting_underscore-min.js" ></script>'
-+'<script type="text/javascript" src="'+app.js()+'/hosting_jquery-1.11.1.min.js"></script>' 
-+'<script type="text/javascript" src="'+app.js()+'/hosting_responsiveslides.min.js"></script>' 
-+'<script type="text/javascript" src="'+app.js()+'/hosting_moment-2.2.1.js"></script>'
-+'<script type="text/javascript" src="'+app.js()+'/hosting_clndr.js"></script>'
-+'<script type="text/javascript" src="'+app.js()+'/hosting_site.js"></script> '
-+'<div id="host_manage_detail_right2">'
-+'<div class="column_right_grid calender">'
-+'<div class="cal1"><div class="clndr">'
-+'<div class="clndr-controls">'
-+'<div class="clndr-control-button">'
-+'<p class="clndr-previous-button">previous</p>'
+'<div id="host_manage_detail_right2">'
++'<div id="host_manage_detail_right2_2">'
++'<div id="wrapper">'
++'<h2><b>예약 불가능일자 설정</b></h2>'
++'<h6>호스트가 원하는 날짜는 예약할 수 없도록 설정할 수 있습니다.</h6><br><hr>'
++'<div class="multi-select-calendar"></div>'
++'<div class="box" id="host_calendar_val"></div>'
 +'</div>'
-+'<div class="month">September 2015</div>'
-+'<div class="clndr-control-button rightalign">'
-+'<p class="clndr-next-button">next</p></div>'
-+'</div><table class="clndr-table" border="0" cellspacing="0" cellpadding="0">'
-+'<thead><tr class="header-days">'
-+'<td class="header-day">S</td>'
-+'<td class="header-day">M</td>'
-+'<td class="header-day">T</td>'
-+'<td class="header-day">W</td>'
-+'<td class="header-day">T</td>'
-+'<td class="header-day">F</td>'
-+'<td class="header-day">S</td></tr>'
-+'</thead>'
-+'<tbody><tr><td class="day past adjacent-month last-month calendar-day-2015-08-30">'
-+'<div class="day-contents">30</div></td>'
-+'<td class="day past adjacent-month last-month calendar-day-2015-08-31">'
-+'<div class="day-contents">31</div></td>'
-+'<td class="day past calendar-day-2015-09-01">'
-+'<div class="day-contents" id="temp_temp">temp</div></td>'
-+'<td class="day past calendar-day-2015-09-02">'
-+'<div class="day-contents">2</div></td>'
-+'<td class="day past calendar-day-2015-09-03">'
-+'<div class="day-contents">3</div></td>'
-+'<td class="day past calendar-day-2015-09-04">'
-+'<div class="day-contents">4</div></td>'
-+'<td class="day past calendar-day-2015-09-05">'
-+'<div class="day-contents">5</div></td></tr>'
-+'<tr><td class="day past calendar-day-2015-09-06">'
-+'<div class="day-contents">6</div></td>'
-+'<td class="day past calendar-day-2015-09-07">'
-+'<div class="day-contents">7</div></td>'
-+'<td class="day past calendar-day-2015-09-08">'
-+'<div class="day-contents">8</div></td>'
-+'<td class="day past calendar-day-2015-09-09">'
-+'<div class="day-contents">9</div></td>'
-+'<td class="day past event calendar-day-2015-09-10">'
-+'<div class="day-contents">10</div></td>'
-+'<td class="day past event calendar-day-2015-09-11">'
-+'<div class="day-contents">11</div></td>'
-+'<td class="day past event calendar-day-2015-09-12">'
-+'<div class="day-contents">12</div></td></tr>'
-+'<tr><td class="day past event calendar-day-2015-09-13">'
-+'<div class="day-contents">13</div></td>'
-+'<td class="day past event calendar-day-2015-09-14">'
-+'<div class="day-contents">14</div></td>'
-+'<td class="day past calendar-day-2015-09-15">'
-+'<div class="day-contents">15</div></td>'
-+'<td class="day past calendar-day-2015-09-16">'
-+'<div class="day-contents">16</div></td>'
-+'<td class="day past calendar-day-2015-09-17">'
-+'<div class="day-contents">17</div></td>'
-+'<td class="day past calendar-day-2015-09-18">'
-+'<div class="day-contents">18</div></td>'
-+'<td class="day past calendar-day-2015-09-19">'
-+'<div class="day-contents">19</div></td></tr>'
-+'<tr><td class="day past calendar-day-2015-09-20">'
-+'<div class="day-contents">20</div></td>'
-+'<td class="day past event calendar-day-2015-09-21">'
-+'<div class="day-contents">21</div></td>'
-+'<td class="day past event calendar-day-2015-09-22">'
-+'<div class="day-contents">22</div></td>'
-+'<td class="day past event calendar-day-2015-09-23">'
-+'<div class="day-contents">23</div></td>'
-+'<td class="day past calendar-day-2015-09-24">'
-+'<div class="day-contents">24</div></td>'
-+'<td class="day past calendar-day-2015-09-25">'
-+'<div class="day-contents">25</div></td>'
-+'<td class="day today calendar-day-2015-09-26">'
-+'<div class="day-contents">26</div></td></tr>'
-+'<tr><td class="day calendar-day-2015-09-27">'
-+'<div class="day-contents">27</div></td>'
-+'<td class="day calendar-day-2015-09-28">'
-+'<div class="day-contents">28</div></td>'
-+'<td class="day calendar-day-2015-09-29">'
-+'<div class="day-contents">29</div></td>'
-+'<td class="day calendar-day-2015-09-30">'
-+'<div class="day-contents">30</div></td>'
-+'<td class="day adjacent-month next-month calendar-day-2015-10-01">'
-+'<div class="day-contents">1</div></td>'
-+'<td class="day adjacent-month next-month calendar-day-2015-10-02">'
-+'<div class="day-contents">2</div></td>'
-+'<td class="day adjacent-month next-month calendar-day-2015-10-03">'
-+'<div class="day-contents">3</div></td></tr>'
-+'</tbody></table></div></div>'
++'<hr><a href="#" id="host_manage_submit_2"><input type="button" value="수정" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_manage_detail_right3">'
++'</div>'
++'</div>'
++'</div>'
++'<div id="host_manage_detail_right_1">'
 +'<div id="host_manage_detail_right4">'
 +'<h4><b>예약 불가능일자 설정</b></h4><br>'
 +'<h5>시작일자</h5>'
-+'<input type="text">'
++'<input type="text" id="host_calendar_min">'
 +'<h5>종료일자</h5>'
-+'<input type="text"><br>'
++'<input type="text" id="host_calendar_max"><br>'
 +'</div>'
 +'</div>'
 +'</div>';
@@ -1405,7 +1441,7 @@ var hosting_manage_3 =
 +'<hr><a href="#" id="host_manage_submit_3"><input type="button" value="수정" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_manage_detail_right3">'
++'<div id="host_manage_detail_right_2">'
 +'&nbsp;'
 +'</div>'
 +'</div>';
@@ -1426,7 +1462,7 @@ var hosting_manage_4 =
 +'<a href="#" id="host_manage_submit_4"><input type="button" value="수정" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_manage_detail_right3">'
++'<div id="host_manage_detail_right_2">'
 +'&nbsp;'
 +'</div>'
 +'</div>';
@@ -1447,7 +1483,7 @@ var hosting_manage_5 =
 +'<a href="#" id="host_manage_submit_5"><input type="button" value="수정" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_manage_detail_right3">'
++'<div id="host_manage_detail_right_2">'
 +'&nbsp;'
 +'</div>'
 +'</div>';
@@ -1466,7 +1502,7 @@ var hosting_manage_6 =
 +'<a href="${context}/hosting/regist_12"><input type="button" value="수정" class="btn btn-danger" id="host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_manage_detail_right3">'
++'<div id="host_manage_detail_right_2">'
 +'&nbsp;'
 +'</div>'
 +'</div>';
@@ -1517,7 +1553,7 @@ var hosting_manage_7 =
 +'<a href="#" id="host_manage_submit_7"><input type="button" value="수정" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_manage_detail_right3_1">'
++'<div id="host_manage_detail_right_3">'
 +'&nbsp;'
 +'</div>'
 +'</div>';
@@ -1535,7 +1571,7 @@ var hosting_manage_8 =
 +'<hr><a href="#" id="host_manage_submit_8"><input type="button" value="수정" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_manage_detail_right3">'
++'<div id="host_manage_detail_right_2">'
 +'&nbsp;'
 +'</div>'
 +'</div>';
@@ -1551,7 +1587,7 @@ var hosting_manage_9 =
 +'<hr><a href="#" id="host_manage_submit_9"><input type="button" value="수정" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_manage_detail_right3">'
++'<div id="host_manage_detail_right_2">'
 +'&nbsp;'
 +'</div>'
 +'</div>';
@@ -1586,14 +1622,13 @@ var hosting_manage_11 =
 +'<div id="host_manage_detail_right1">'
 +'<div id="host_manage_detail_right2">'
 +'<div id="host_manage_detail_right2_2">'
-+'<script type="text/javascript" src="'+app.js()+'/jquery.fine-uploader.js"></script>'
 +'<h3><b>사진을 더하면 숙소를 실감하게 보여줄 수 있습니다.</b></h3><br>'
 +'<h6>게스트가 접근할 수 있는 장소의 사진을 최소 1장 올려주세요. 나중에 언제든 사진을 수정하실 수 있습니다.</h6>'
 +'<div id="fine-uploader-gallery_manage"></div>'
 +'<hr><a href="#" id="host_manage_submit_11"><input type="button" value="수정" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_manage_detail_right3">'
++'<div id="host_manage_detail_right_2">'
 +'&nbsp;'
 +'</div>'
 +'</div>';
@@ -1614,7 +1649,7 @@ var hosting_manage_12 =
 +'<hr><a href="#" id="host_manage_submit_12"><input type="button" value="수정" class="btn btn-danger host_regist_next"></a>'
 +'</div>'
 +'</div>'
-+'<div id="host_manage_detail_right3">'
++'<div id="host_manage_detail_right_2">'
 +'&nbsp;'
 +'</div>'
 +'</div>';
