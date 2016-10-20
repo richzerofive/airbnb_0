@@ -32,10 +32,10 @@
 					</li>
 
 					<li><a href="${context}/member/change_pw"
-						aria-selected="false" class="sidenav-item" id="change-pw">Change
+						aria-selected="false" class="sidenav-item" id="change_pw">Change
 							Password</a></li>
-					<li><a href="${context}/member/cancel" aria-selected="false"
-						class="sidenav-item" id="remove-account">Remove Account</a></li>
+					<li><a aria-selected="false"
+						class="sidenav-item" id="cancel">Remove Account</a></li>
 				</ul>
 
 			</div>

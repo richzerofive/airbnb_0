@@ -26,9 +26,9 @@ public class MemberController {
 	}*/
 
 	@RequestMapping("/signin")
-	public String membersignIn() {
+	public @ResponseBody Retval membersignIn() {
 		logger.info("----- member_CONTOLLER signin PASS -----");
-		return "public:member/signIn.tiles";
+		return retval;
 	}
 
 	/*@RequestMapping("/signup")
@@ -42,16 +42,16 @@ public class MemberController {
 		logger.info("Welcome home! The client locale is 1111{}", "디버깅 모드");
 		return "member:member/show.tiles";
 	}
-	/*@RequestMapping("/cancel")
-	public String memberCancel() {
+	@RequestMapping("/cancel")
+	public @ResponseBody Retval memberCancel() {
 		logger.info("memberCancel");
-		return "member:member/cancel.tiles";
-	}*/
-	/*@RequestMapping("/change_pw")
-	public String memberChangePw() {
-		logger.info("memberChangePw");
-		return "member:member/change_pw.tiles";
-	}*/
+		return retval;
+	}
+	@RequestMapping("/change_pw")
+	public @ResponseBody Retval memberChangePw() {
+		logger.info("memberChangePw: {}", retval.getMessage());
+		return retval;
+	}
 	@RequestMapping("/dashboard")
 	public @ResponseBody Retval memberHeader() {
 		logger.info("Member_Dashboard: {}", retval.getMessage());
@@ -81,8 +81,6 @@ public class MemberController {
 	public @ResponseBody Retval memberaccount() {
 		logger.info("----- member_CONTOLLER Member/Account -----");
 		retval.setMessage("success");
-		logger.info("Account: {}", retval.getMessage());
-		System.out.println("Account: "+retval.getMessage());
 		return retval;
 	}
 	/*@RequestMapping("/rooms")
