@@ -450,6 +450,10 @@ var hosting = (function(){
 				});
 			$('#host_manage_submit_2').click(function(){
 				var manage_data_2 = {
+						
+						
+						
+			
 					'block_date' : $('#host_calendar_min').val() + ',' + $('#host_calendar_max').val()
 				}
 				$.ajax({

@@ -1,6 +1,11 @@
 package com.airbnb.web.controllers;
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.airbnb.web.domains.HostingDTO;
 import com.airbnb.web.domains.Retval;
 @Controller
@@ -113,10 +119,43 @@ public class HostingController {
 	}
 	@RequestMapping(value="/manage2", method=RequestMethod.POST, consumes="application/json")
 	public @ResponseBody Retval hostingManage2(@RequestBody HostingDTO hostingDTO){
-		logger.info("HostingController :: manage :: blockdate :: {}",hostingDTO.getBlock_date());
+		String[] date = hostingDTO.getBlock_date().split(",");
+		String startDate = date[0];
+		String endDate = date[1];
+		try {
+		int date_cnt = getDiffDay(startDate , endDate);
+		for(int i = 0 ; i <= date_cnt ; i++) {
+		logger.info("HostingController :: manage :: blockdate :: {}",getAfterDate(startDate , i));
+		}
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
 		retval.setMessage("manage2");
 		return retval;
 	}
+	public static int getDiffDay(String startDate , String endDate) {
+		SimpleDateFormat temp = new SimpleDateFormat("yyyy-MM-dd");
+		Date sDate;
+		Date eDate;
+		try {
+		sDate = temp.parse(startDate);
+		eDate = temp.parse(endDate);
+		return (int)((eDate.getTime() - sDate.getTime()) / 1000 / 60 / 60 / 24);
+		}catch(Exception e) {
+			return 0;
+	}
+		}
+	public static String getAfterDate(String str , int i) throws Exception {
+		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		java.util.Date sDate =(java.util.Date) formatter.parse(str);
+		java.util.Calendar cal = java.util.Calendar.getInstance();
+		cal.setTime(sDate);
+		cal.add(Calendar.DATE, i );
+		String year = Integer.toString(cal.get(Calendar.YEAR)) ;
+		String month = cal.get(Calendar.MONTH) < 9 ? "0" + Integer.toString(cal.get(Calendar.MONTH) +1) : Integer.toString(cal.get(Calendar.MONTH) +1) ;;
+		String date = cal.get(Calendar.DAY_OF_MONTH) < 10 ? "0" + Integer.toString(cal.get(Calendar.DAY_OF_MONTH)) : Integer.toString(cal.get(Calendar.DAY_OF_MONTH)) ; 
+		return year + "-" + month + "-" + date;
+	} 
 	@RequestMapping(value="/manage3", method=RequestMethod.POST, consumes="application/json")
 	public @ResponseBody Retval hostingManage3(@RequestBody HostingDTO hostingDTO){
 		logger.info("HostingController :: manage :: price :: {}",hostingDTO.getPrice());
