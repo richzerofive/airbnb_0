@@ -7,6 +7,8 @@
 <c:set var="img" value="${context}/resources/img" />
 <c:set var="css" value="${context}/resources/css" />
 <c:set var="js" value="${context}/resources/js"/>
+<c:set var="ui" value="${context}/resources/jqueryui"/>
+<c:set var="jqgrid" value="${context}/resources/jqgrid"/>
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,6 +17,12 @@
 	<link rel="stylesheet" href="${css}/bootstrap.css" type="text/css"/>
 	<link rel="stylesheet" href="${css}/custom-styles.css" type="text/css"/>
 	<link rel="stylesheet" href="${css}/font-awesome.css" type="text/css"/>
+	<!-- test jgrid -->
+	<link rel="stylesheet" type="text/css" media="screen" href="${ui}/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="${jqgrid}/css/ui.jqgrid.css" />
+
+	
+	
 </head>
 <body>
 
@@ -52,6 +60,10 @@
    <%--  <script src="${js}/morris/morris.js"></script> --%>
     <!-- Custom Js -->
     <script src="${js}/custom-scripts.js"></script>
+    <!-- jquery and jgrid  -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="${ui}/jquery-ui.js"></script>
+	<script src="${jqgrid}/js/jquery.jqGrid.min.js"></script>
      <!-- inchul Js -->
     <script src="${js}/inchul.js"></script>
 	<script src="${js}/application.js"></script>

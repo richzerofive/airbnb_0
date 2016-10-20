@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.airbnb.web.service;
+package com.airbnb.web.services;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import com.airbnb.web.util.Command;
 
 
 @Component
-public interface AdminService{
+public interface MemberService{
 	public List<?> list(Command command);
 	public List<?> find(Command command);
 	public Retval count();

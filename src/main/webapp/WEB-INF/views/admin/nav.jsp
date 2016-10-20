@@ -63,6 +63,9 @@
                     <li>
                         <a class="active-menu" id="admin_nav_search"><i class="fa fa-qrcode"></i> Search</a>
                     </li>
+                    <li>
+                        <a class="active-menu" id="test"><i class="fa fa-qrcode"></i> test</a>
+                    </li>
                 </ul>
             </div>
 

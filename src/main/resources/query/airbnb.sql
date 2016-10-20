@@ -1,3 +1,6 @@
+select count(*) as count from member
+call mcount(@count)
+select @count
 -- houses
 ALTER TABLE houses
 	DROP FOREIGN KEY FK_member_TO_houses; -- member -> houses

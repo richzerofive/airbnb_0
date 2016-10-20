@@ -2,6 +2,7 @@ package com.airbnb.web.domains;
 
 import java.io.Serializable;
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
@@ -10,6 +11,7 @@ import lombok.Setter;
 
 @Component
 @Data
+@Lazy
 public class AdminDTO implements Serializable {/**
 	 * 
 	 */

@@ -104,6 +104,27 @@ var admin =(function(){
 				}
 			});	
 		});
+		/* jqgrid */
+		$('#test').click(function(){
+			alert('test');
+			$.ajax({
+				url:admin.context()+'/admin/good',
+				success:function(data){
+					alert('inputdata : {}'+data.message);
+					if (data.message==="success") {
+				
+						$('#admin_article').empty().html(TEST_LIST);
+						admin.testlist();
+					} else {
+						alert('error');	
+					}
+				},
+				error: function(x,e,m) {
+					alert('error  -----'+m);	
+				}
+			});
+		});
+	
 	};
 	  return{
           init : init,
@@ -158,7 +179,27 @@ var admin =(function(){
   					alert("admin nav Rlist error : " +m)
   				}
   			});
-          }
+          },
+      	testlist:function(){
+		    $("#list").jqGrid({ 
+		        //ajax 호출할 페이지
+		        url:admin.context()+'/admin/test',
+		        //로딩중일때 출력시킬 로딩내용
+		        loadtext : '로딩중..',
+		        //응답값
+		        datatype: "json",
+		        height: 250,
+		        colNames:['시퀀스','제목', '등록일', '등록자명','조회수'],
+		        colModel:[
+		            {name:'seq'},
+		            {name:'title'},
+		            {name:'create_date'},
+		            {name:'create_name'},
+		            {name:'hitnum'}    
+		        ],
+		        caption: "그리드 목록"
+		    });
+		}
        
   }
 })();
@@ -1072,4 +1113,42 @@ var ADMIN_MAIN =
 		+'<head>'
 		+'<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'
 		+'</article>'
+		
+var TEST_LIST=
+			'<article id="admin_article">'
+			+'<div id="page-wrapper" >'
+			+'<div id="page-inner">'
+			+'<div class="row">'
+			+'<div class="col-md-12">'
+			+'<h1 class="page-header">'
+			+'회원  <small>가입 리스트</small>'
+			+'</h1>'
+			+'</div>'
+			+'</div>'
+			+'<!-- /. ROW  -->'
+			+'<div class="row">'
+			+'<div class="col-md-12">'
+			+'<!-- Advanced Tables -->'
+			+'<div class="panel panel-default">'
+			+'<div class="panel-heading">'
+			+'회원리스트'
+			+'</div>'
+			+'<div class="panel-body">'
+			+'<div class="table-responsive">'
+			+'<table class="table table-striped table-bordered table-hover" id="list">'
+			+'<div id="page"></div>'
+			+'</table>'
+			+'</div>'
+			+'</div>'
+			+'</div>'
+			+'<!--End Advanced Tables -->'
+			+'<!--  end  Context Classes  -->'
+			+'</div>'
+			+'</div>'
+			+'<!-- /. ROW  -->'
+			+'</div>'
+			+'</article>'
+		
+
+
 
