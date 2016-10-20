@@ -56,7 +56,7 @@
     <script src="${js}/inchul.js"></script>
 	<script src="${js}/application.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi">
-google.charts.load('current', {'packages':['bar']});
+google.charts.load('visualization','1', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 </script>
 

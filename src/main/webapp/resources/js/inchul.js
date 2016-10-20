@@ -1,20 +1,18 @@
-  function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ['Year', 'Sales', 'Expenses', 'Profit'],
-        ['2014', 1000, 400, 200],
-        ['2015', 1170, 460, 250],
-        ['2016', 660, 1120, 300],
-        ['2017', 1030, 540, 350]
-      ]);
-      var options = {
-        chart: {
-          title: 'Company Performance',
-          subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-        }
-      };
-      var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-      chart.draw(data, options);
+   function drawChart() {
+      var jsonData = $.ajax({
+          url: "sample.json",
+          dataType: "json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(jsonData);
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+      chart.draw(data, {width: 400, height: 240});
     }
+
 var admin =(function(){
 	var init =function(context){
 		onCreate();};
@@ -1066,7 +1064,7 @@ var ADMIN_MAIN =
 		+'<div class="panel panel-default">'
 		+'<div class="panel-heading">2016년 월별 회원 가입 현황</div>'
 		+'<div class="panel-body">'
-		+'<div id="columnchart_material" style="width: 800px; height: 400px;"></div>'
+		+'<div id="chart_div" style="width: 800px; height: 400px;"></div>'
 		+'</div>'
 		+'</div>'
 		+'</div>'
