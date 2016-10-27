@@ -1,5 +1,0 @@
-var admin = function(){
-	var pass;
-	var getPass = function(){};
-	var setPass = function(){}
-};
